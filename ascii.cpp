@@ -6,7 +6,7 @@ int counterAdd()
 {   double long product = 1;
 	int i,j = 0;
 	cout<<"Calling counterAdd()..."<<endl;
-	for (i=0;i<5;i++)
+    for (i=0;i<5;i++)
     {   int term = product * i;
     	product = product - product * i + term;
     	cout<<"Outer Block : "<<product<<endl;
