@@ -7,9 +7,9 @@ Compile the source code files using Cmake, CLang/LLVM & Mingw64.
 
 #Installations
 ```bash
-Follow this tutorial first : http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/
-Learn & Read this : https://clang.llvm.org/get_started.html
-CMake : https://cmake.org/cmake-tutorial/
+Follow this tutorial first : ``` http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/
+```Learn & Read this : ``` https://clang.llvm.org/get_started.html
+```CMake : ``` https://cmake.org/cmake-tutorial/
 ```
 
 Add to PATH ```\bin``` directory of all of them.
