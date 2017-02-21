@@ -37,4 +37,5 @@ Add to PATH ```\bin``` directory of all of them.
 OR
 > gcc -g -c main.cpp -o main.o
 > objdump -d -M intel main.o
+OR
 > objdump -D -mcpu=<cpu-name> main.o
