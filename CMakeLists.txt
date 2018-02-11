@@ -6,5 +6,5 @@ set(CMAKE_SUPPRESS_REGENERATION true)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 add_executable(
 	main
-	Source/source.cpp
-	Source/start.cpp)
+	Source_Files/source.cpp
+	Source_Files/start.cpp)

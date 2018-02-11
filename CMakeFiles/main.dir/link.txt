@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++14 -Wall -save-temps   CMakeFiles/main.dir/Source_Files/source.cpp.o CMakeFiles/main.dir/Source_Files/start.cpp.o  -o main 

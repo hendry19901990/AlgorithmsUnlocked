@@ -1,0 +1,3 @@
+/home/parser/Documents/Code Projects/Programming/AlgoGit/CMakeFiles/rebuild_cache.dir
+/home/parser/Documents/Code Projects/Programming/AlgoGit/CMakeFiles/main.dir
+/home/parser/Documents/Code Projects/Programming/AlgoGit/CMakeFiles/edit_cache.dir

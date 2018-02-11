@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/parser/Documents/Code Projects/Programming/AlgoGit/Source_Files/source.cpp
+iostream
+-
+
+/home/parser/Documents/Code Projects/Programming/AlgoGit/Source_Files/start.cpp
+iostream
+-
+
