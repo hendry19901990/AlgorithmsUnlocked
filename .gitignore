@@ -1,4 +1,5 @@
 *.log
+/.idea
 wp-config.php
 wp-content/advanced-cache.php
 wp-content/backup-db/
@@ -14,7 +15,10 @@ wp-content/plugins/hello.php
 /readme.html
 /sitemap.xml
 /sitemap.xml.gz
-/CmakeFiles
+
+/CMakeFiles
+Makefile
+*.cmake
 *.ii
 *.s
 
