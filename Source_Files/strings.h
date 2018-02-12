@@ -70,4 +70,5 @@ int countvowel(const char *p)
         p++;
     }
     printf("%d\n", count);
+    return 0;
 }
