@@ -1,40 +1,43 @@
 #include<iostream>
 #include "strings.h"
 #define MAX_LIMIT_SZ 2048
-static int number = 4544;
-void function(int a)
+void getarrayofpointers(char* *s)
 {
-    printf("%d,",a);
-    static int number = a;
-    if(a <= 0){exit(0);}
-    printf("%d\n",number);
-    function(a - 1);
+    char **p = s;
+    printf("%s\n",*p);
+    /*printf("%s\n",*++p);
+    printf("%s\n",*p++);
+    printf("%s\n",*(p+1));
+    printf("%s\n",*++p+1);
+    printf("%s\n",++*p+2);
+    printf("%s\n",*p++);*/
 }
-void function2(int a)
+char** passvalues(char* *array)
 {
-    printf("%d,",a);
-    int number = a;
-    if(a < 0){exit(0);}
-    printf("%d\n",number);
-    function(a - 1);
-
+    char *s[] = {
+    "This is a tool",
+    "is a Tool",
+    "a pool",
+    "pointer for",
+    "to get",
+    "an what",
+    "array of what",
+    "Done nothing"
+  };
+  array = s;
+  return array;
 }
 char *arr = (char*)malloc(MAX_LIMIT_SZ);
 int main(int argc, char const **argv)
 {   
-    int number = 92;
-    if(arr == NULL)
+    char* *array = (char**)malloc(MAX_LIMIT_SZ);
+    array = passvalues(array);
+    if(arr == NULL || array == NULL)
     {
-        number = 855;
-        printf("Error Allocating Heap ! %d",::number);
+        printf("Error Allocating Heap !");
         exit(1);
     }
     fgets(arr, MAX_LIMIT_SZ, stdin);
-    printf("%d\t%lu\n",getstringlenth(arr),sizeof(&arr));
-    stringmanipulate(arr);
-    pointermanipulate(arr);
-    printstring(arr);
-    free(arr);
-    function2(number);
+    getarrayofpointers(array);
     return 0;
 }
