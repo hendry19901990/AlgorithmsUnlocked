@@ -1,7 +1,7 @@
 #include<iostream>
 #include "strings.h"
 #define MAX_LIMIT_SZ 2048
-    char *s[] = {
+char *s[] = {
     "This is a tool",
     "is a Tool",
     "a pool",
