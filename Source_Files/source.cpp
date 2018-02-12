@@ -82,9 +82,13 @@ int main(int argc, char const **argv)
     TreeElements[2]->j = 92;
     TreeElements[2]->ch = 'j';
     node **p = TreeElements;
-    printf("%d\t",(*p)->j);
-    printf("%d\t",(*p++)->j);
+    printf("%d\t%d\t%d\t%d\t",--((*p)->j),++((*p)->j),++((*p)->j),--((*p)->j));
+    printf("%d\t%d\t%d\t%d\t",((*p)->j)--,((*p)->j)++,((*p)->j)++,((*p)->j)--);
+    printf("%d\t%d\t%d\t%d\t",--((*p)->j),++((*p)->j),++((*p)->j),--((*p)->j));
+    printf("%d\t",(*++p)->j);
     printf("%d\t",(*p)++->j);
+    printf("%d\t",(*++p)->j);
+    printf("%d\n",(*--p)->j);
     free(arr);
     return 0;
 }
