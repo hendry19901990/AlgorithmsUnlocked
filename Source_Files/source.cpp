@@ -1,19 +1,6 @@
 #include<iostream>
 #include "strings.h"
 #define MAX_LIMIT_SZ 2048
-void getarrayofpointers(char* *s)
-{
-    char **p = s;
-    printf("%s\n",*p);
-    /*printf("%s\n",*++p);
-    printf("%s\n",*p++);
-    printf("%s\n",*(p+1));
-    printf("%s\n",*++p+1);
-    printf("%s\n",++*p+2);
-    printf("%s\n",*p++);*/
-}
-char** passvalues(char* *array)
-{
     char *s[] = {
     "This is a tool",
     "is a Tool",
@@ -24,14 +11,26 @@ char** passvalues(char* *array)
     "array of what",
     "Done nothing"
   };
-  array = s;
-  return array;
+void getarrayofpointers(char **array)
+{
+    char **p = array;
+    printf("%s\n",*p);
+    printf("%s\n",*++p);
+    printf("%s\n",*p++);
+    printf("%s\n",*(p+1));
+    printf("%s\n",*++p+1);
+    printf("%s\n",++*p+2);
+    printf("%s\n",*p++);
+}
+char** passvalues()
+{
+
 }
 char *arr = (char*)malloc(MAX_LIMIT_SZ);
 int main(int argc, char const **argv)
 {   
-    char* *array = (char**)malloc(MAX_LIMIT_SZ);
-    array = passvalues(array);
+    char **array = (char**)malloc(MAX_LIMIT_SZ*sizeof(char*));
+    array = s;
     if(arr == NULL || array == NULL)
     {
         printf("Error Allocating Heap !");
