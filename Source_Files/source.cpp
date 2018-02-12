@@ -1,6 +1,12 @@
 #include<iostream>
 #include "strings.h"
 #define MAX_LIMIT_SZ 2048
+typedef struct node{
+    int j;
+    char ch;
+    node *left = NULL;
+    node *right = NULL;
+}name;
 char *s[] = {
     "This is a tool",
     "is a Tool",
@@ -48,6 +54,13 @@ char** passvalues()
 }
 int main(int argc, char const **argv)
 {   
+    node start;
+    node *root = (node*)malloc(sizeof(node));
+    node **TreeElements = (node**)malloc( MAX_LIMIT_SZ*sizeof(node*));
+    for(int i = 0; i < MAX_LIMIT_SZ; i++ )
+    {
+        TreeElements[i] = (node*)malloc(sizeof(node));
+    }
     char **array = (char**)malloc(MAX_LIMIT_SZ*sizeof(char*));
     for(int i = 0; i < MAX_LIMIT_SZ; i++)
     {
@@ -61,8 +74,17 @@ int main(int argc, char const **argv)
         exit(1);
     }
     fgets(arr, MAX_LIMIT_SZ, stdin);
-    getarrayofpointers(array);
-    free(array);
+    // getarrayofpointers(array);
+    TreeElements[0]->j = 90;
+    TreeElements[0]->ch = 'd';
+    TreeElements[1]->j = 91;
+    TreeElements[1]->ch = 'c';
+    TreeElements[2]->j = 92;
+    TreeElements[2]->ch = 'j';
+    node **p = TreeElements;
+    printf("%d\t",(*p)->j);
+    printf("%d\t",(*p++)->j);
+    printf("%d\t",(*p)++->j);
     free(arr);
     return 0;
 }
