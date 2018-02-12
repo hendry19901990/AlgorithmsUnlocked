@@ -9,14 +9,8 @@
 /home/parser/Documents/Code Projects/Programming/AlgoGit/Source_Files/source.cpp
 iostream
 -
-string
--
-source.h
-/home/parser/Documents/Code Projects/Programming/AlgoGit/Source_Files/source.h
-
-/home/parser/Documents/Code Projects/Programming/AlgoGit/Source_Files/source.h
-iostream
--
+strings.h
+/home/parser/Documents/Code Projects/Programming/AlgoGit/Source_Files/strings.h
 
 /home/parser/Documents/Code Projects/Programming/AlgoGit/Source_Files/start.cpp
 iostream
@@ -25,4 +19,14 @@ start.h
 /home/parser/Documents/Code Projects/Programming/AlgoGit/Source_Files/start.h
 
 /home/parser/Documents/Code Projects/Programming/AlgoGit/Source_Files/start.h
+
+/home/parser/Documents/Code Projects/Programming/AlgoGit/Source_Files/strings.h
+iostream
+-
+string
+-
+stdlib.h
+-
+cstdio
+-
 

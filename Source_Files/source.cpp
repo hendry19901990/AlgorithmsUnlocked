@@ -1,10 +1,21 @@
 #include<iostream>
-#include<string>
-#include "source.h"
-char s[] = "This a great day for us cause we won the battle.";
-
-int main()
+#include "strings.h"
+#define MAX_LIMIT_SZ 2048
+char *arr = (char*)malloc(MAX_LIMIT_SZ);
+std::string str = "I am a Web Developer";
+int main(int argc, char const **argv)
 {   
-    printf("%d\t%d\n",getstringlenth(s),sizeof(s));
+    if(arr == NULL)
+    {
+        printf("Error Allocating Heap !");
+        return -1;
+    }
+    fgets(arr, MAX_LIMIT_SZ, stdin);
+    printf("%d\t%d\n",getstringlenth(arr),sizeof(&arr));
+    stringmanipulate(arr);
+    pointermanipulate(arr);
+    printstring(arr);
+    printstring(arr);
+    free(arr);
     return 0;
 }
