@@ -21,7 +21,7 @@ void printStruct(node* *t)
     printf("%d\t",(*++p)->j);
     printf("%d\n",(*--p)->j);
 }
-int runMethodStruct(int argc, char **argv)
+int runMethodStruct()
 {
     node start;
     node *root = (node*)malloc(sizeof(node));

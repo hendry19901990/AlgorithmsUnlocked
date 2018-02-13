@@ -48,7 +48,7 @@ char** passvalues()
     }
   return p;
 }
-int runMethodPointers(int argc, char **argv)
+int runMethodPointers()
 {
     char **array = (char**)malloc(MAX_LIMIT_SZ*sizeof(char*));
     for(int i = 0; i < MAX_LIMIT_SZ; i++)
