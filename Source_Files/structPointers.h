@@ -4,12 +4,16 @@
 #include <cstdio>
 #define MAX_LIMIT_SZ 2048
 using namespace std;
+typedef struct error{
+    int *p;
+}error;
 typedef struct node{
     int j;
     char ch[2];
-    node *left = NULL;
-    node *right = NULL;
-    node *dangler = NULL;
+    node *left;
+    node *right ;
+    node *dangler ;
+    node():j(MAX_LIMIT_SZ),left(nullptr),right(nullptr),dangler(nullptr){} // ctor initialization
 }name;
 void printStruct(node* *t)
 {
@@ -38,5 +42,15 @@ int runMethodStruct()
     TreeElements[2]->j = 92;
     TreeElements[2]->ch[1] = 'j';
     printStruct(TreeElements);
+    int l= 90;
+    int a[] = {69,57,77,7,6,8,9,10};
+    error *ptr = (error*)malloc(sizeof(error));
+    ptr->p = a;
+    l = (*ptr->p++)++;
+    int y = ++l;
+    printf("%d\n",l);
+    printf("%d\n",y);
+    printf("%p\n",a);
+    printf("%d\n",*ptr->p);
     return 0;
 }
