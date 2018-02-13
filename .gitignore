@@ -15,10 +15,13 @@ wp-content/plugins/hello.php
 /readme.html
 /sitemap.xml
 /sitemap.xml.gz
-
 /CMakeFiles
 Makefile
 *.cmake
 *.ii
 *.s
+*.o
+*.cout
+*.sh
+Makefile
 
