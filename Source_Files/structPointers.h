@@ -6,6 +6,7 @@
 using namespace std;
 typedef struct error{
     int *p;
+    error *dangle = NULL;
 }error;
 typedef struct node{
     int j;
