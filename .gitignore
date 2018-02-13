@@ -23,5 +23,7 @@ Makefile
 *.o
 *.cout
 *.sh
+*.Makefile
+*.make
 Makefile
 
