@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <cstdio>
 #define MAX_LIMIT_SZ 2048
+using namespace std;
 extern int getfunc();
 int getstringlenth(const char *p) /* Pointer p should not be able to change the passed string */
 {

@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <cstdio>
 #define MAX_LIMIT_SZ 2048
+using namespace std;
 typedef struct node{
     int j;
     char ch[2];
