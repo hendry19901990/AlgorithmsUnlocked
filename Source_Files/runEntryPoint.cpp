@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-#include <cstdio>
+#include <stdio.h>
+#include <ctype.h>
 #include "libstringfunc.h"
 #include "stringPointers.h"
 #include "structPointers.h"

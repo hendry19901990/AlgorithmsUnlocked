@@ -6,4 +6,4 @@ set(CMAKE_SUPPRESS_REGENERATION true)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 add_executable(
 	execute.out
-	Source_Files/source.cpp)
+	Source_Files/runEntryPoint.cpp)
