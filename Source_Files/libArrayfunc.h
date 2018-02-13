@@ -4,5 +4,5 @@
 #include <cstdio>
 int runMethod(int argc, char **argv)
 {
-    
+    return 0;
 }

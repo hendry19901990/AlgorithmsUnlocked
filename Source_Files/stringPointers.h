@@ -13,7 +13,7 @@ char *s[] = {
     "array of what",
     "Done nothing"
   };
-  void getarrayofpointers(char **array)
+void getarrayofpointers(char **array)
 {
     char **p = array;
     printf("%s\n",*p);
@@ -65,4 +65,5 @@ int runMethodPointers(int argc, char **argv)
     fgets(arr, MAX_LIMIT_SZ, stdin);
     // getarrayofpointers(array);
     free(arr);
+    return 0;
 }

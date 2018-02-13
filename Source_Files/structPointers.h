@@ -8,6 +8,7 @@ typedef struct node{
     char ch[2];
     node *left = NULL;
     node *right = NULL;
+    node *dangler = NULL;
 }name;
 void printStruct(node* *t)
 {

@@ -4,10 +4,6 @@
 #include <cstdio>
 #define MAX_LIMIT_SZ 2048
 extern int getfunc();
-int getfunc()
-{
-    return 0;
-}
 int getstringlenth(const char *p) /* Pointer p should not be able to change the passed string */
 {
     int l = 0;
@@ -17,7 +13,7 @@ int getstringlenth(const char *p) /* Pointer p should not be able to change the 
     }
     return l;
 }
-char stringmanipulate(char *p)
+char* stringmanipulate(char *p)
 {
     while(*p!='\0')
     {
@@ -27,9 +23,9 @@ char stringmanipulate(char *p)
         }
         p++;
     }
-    return *p;
+    return p;
 }
-char pointermanipulate(char *p)
+char** pointermanipulate(char *p)
 {
     char **pp = &p;
     while(**pp!='\0')
@@ -40,9 +36,9 @@ char pointermanipulate(char *p)
         }
         (*pp)++;
     }
-    return **pp;
+    return pp;
 }
-int printstring(const char *p)
+void printstring(const char *p)
 {
     while(*p!='\0')
     {
@@ -50,9 +46,8 @@ int printstring(const char *p)
         ++p;
     }
     std::cout << "\n";
-    return 0;
 }
-int countvowel(const char *p)
+void countvowel(const char *p)
 {
     char vowel[] = "aeiou"; 
     const char *j = vowel;
@@ -70,5 +65,4 @@ int countvowel(const char *p)
         p++;
     }
     printf("%d\n", count);
-    return 0;
 }
