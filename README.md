@@ -17,7 +17,7 @@ npm -v
 sudo node ${Name-of-js-file.js}
 ```
 
-# Algorithms Covered : 
+## Algorithms Covered : 
 
 ```bash
 1. Sorting Algorithms
@@ -26,26 +26,24 @@ sudo node ${Name-of-js-file.js}
     InsertionSort
     BubbleSort
 ```    
-
-
-# Installations
+## Installations
 #### Follow this tutorial first : http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/
 #### Learn & Read this : https://clang.llvm.org/get_started.html 
 #### CMake : https://cmake.org/cmake-tutorial/
 
 Add to PATH ```\bin``` directory of all of them.
-# CMake Build
+## CMake Build
 
 ```
 > cmake CMakeList.txt 
 ```
-# Using CMake
+## Using CMake
 ```
 > cmake CMakeLists.txt
 > make
 > ./main 
 ```
-# Compliling *.cpp
+## Compliling *.cpp
 
 ```
 /* Assuming Clang & Mingw64 are already installed and working properly */ 
@@ -53,13 +51,13 @@ Add to PATH ```\bin``` directory of all of them.
 > main.exe
 > /* Output as per source code */
 ```
-# Generating Intermediate Represenation using LLVM Clang
+## Generating Intermediate Represenation using LLVM Clang
 
 ```
 > clang++ main.cpp -S -emit-llvm main.bc
 > clang++ main.cpp -S -emit-llvm -O3 main.bc
 ```
-# Generating Assembly Language mnemonics
+## Generating Assembly Language mnemonics
 
 ```
 > clang++ main.cpp -S -O3 -o main.asm
