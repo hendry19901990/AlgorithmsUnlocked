@@ -11,10 +11,10 @@ var numbers = {
       return true;
     }
   },
-  getArrayNumbers : function(){
+  getArrayNumbers : () => {
     return this.array;
   },
-  getSquareNumbers : function(){
+  getSquareNumbers : () => {
     for(i in this.array) {
       this.array[i] = this.array[i]*this.array[i];
     }

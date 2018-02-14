@@ -4,11 +4,11 @@ var person = function(age,name,id,address,gender){
   this.id = id;
   this.address = address;
   this.gender = gender;
-  this.toString = function(){
+  this.toString = () => {
     return "The id number is : " + this.id;
   };
-  this.printMethod = function(){
+  this.printMethod = () => {
     return console.log("The person is " + this.name);
   };
 };
-exports.objectProperty = person();
+exports.objectProperty = person;
