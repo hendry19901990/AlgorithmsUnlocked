@@ -3,7 +3,7 @@ var person = {
   name: {
     firstname: "Sumit",
     lastname: "Lahiri",
-    middlename: ""
+    middlename: "Laplacian"
   },
   age: 89,
   gender: "Male",
@@ -24,5 +24,6 @@ var person = {
 };
 var jsondata = JSON.stringify(person); //convert javascript object to JSON notation.
 var objtext = JSON.parse(jsondata);    //convert JSON data to javascript object.
-console.log(jsondata);
-console.log(objtext);
+// console.log(jsondata);
+// console.log(objtext);
+exports.person = person;
