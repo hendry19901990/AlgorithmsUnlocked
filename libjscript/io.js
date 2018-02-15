@@ -1,3 +1,5 @@
+console.log(`Process PID: ${process.pid}`);  
+console.log(`Process Platform: ${process.platform}`);  
 var stdin = process.stdin;
 var stdout = process.stdout;
 var version = process.argv[1];
