@@ -1,4 +1,11 @@
 /* Copyright (c) 2017, Sumit Lahiri */
+
+/** 
+ * The implamentation here is only dummy but it shows how to overload operators
+ * in case of classes defined with a template typename. Hope this will clarify the 
+ * basics of how to write such kinds of code and will also help in better understanding of 
+ * Functors, overloading & Constructors 
+ **/
 /*
 All rights reserved.
 Redistribution and use in source and binary forms, with or without
