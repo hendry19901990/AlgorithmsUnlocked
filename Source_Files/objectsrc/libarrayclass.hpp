@@ -111,12 +111,9 @@ public:
   /* Compare > */
   inline _Carray* operator->() noexcept {return *this;}
   /* Constructor */
-  inline ~_Carray() const {}
+  inline ~_Carray() noexcept;
   /* Destructor */
-  inline _Carray(_size_type) : size() noexcept {}
+  inline _Carray(_size_type) noexcept : size() {}
   /* Copy Constructor */
-  inline _Carray(const _Carray&) noexcept : array()
-  {
-
-  }
+  inline _Carray(const _Carray&) noexcept : array() {}
 };
