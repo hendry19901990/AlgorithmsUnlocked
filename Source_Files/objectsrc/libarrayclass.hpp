@@ -87,9 +87,9 @@ public:
   inline _Carray operator++(_Carray&) noexcept;
   inline _Carray operator--(_Carray&) noexcept;
   /* Adding operation */
-  inline _void_ptr operator new(_size_type ,_nothrow)__attribute__((alloc_size(1),aligned(BUFF_SIZE)));
+  inline _void_ptr operator new(_size_type ,_nothrow)__attribute__((alloc_size(1),aligned(1)));
   /* New Allocation */
-  inline _void_ptr operator new[] (_size_type,_nothrow)__attribute__((alloc_size(1),aligned(BUFF_SIZE)));
+  inline _void_ptr operator new[] (_size_type,_nothrow)__attribute__((alloc_size(1),aligned(1)));
   /* New Allocation Object Array */
   inline void operator delete(_void_ptr,_nothrow) noexcept;
   /* Delete */
@@ -98,7 +98,7 @@ public:
   inline _Carray& operator=(_Carray&);
   /* op() */
   inline _Carray operator()(Atype,_int_type);
-    /* Add/Subs at a particular position */
+  /* Add/Subs at a particular position */
   static inline void ObjectRefs(_object);
   /* Get Object Refs */
   template<typename _compare> inline bool operator==(_compare) noexcept;
@@ -109,7 +109,7 @@ public:
   /* Compare < */
   template<typename _compare> inline bool operator>(_compare) noexcept;
   /* Compare > */
-  inline _Carray* operator->() noexcept {return *this;}
+  inline _Carray* operator->() noexcept {return *this;} __attribute__((alloc_size(1)));
   /* Constructor */
   inline ~_Carray() noexcept;
   /* Destructor */
