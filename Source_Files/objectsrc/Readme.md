@@ -1,4 +1,5 @@
-```
+```C++
+
 /* Copyright (c) 2017, Sumit Lahiri */
 
 /** 
@@ -8,6 +9,7 @@
  * Functors, overloading & Constructors along with operator oveloading
  **/
 /*
+
 All rights reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
@@ -89,7 +91,7 @@ public:
 #endif
 /* Template Class for Array entry & Array operations */
 template <typename Atype> class __attribute__((__packed__)) _Carray : public Basedef{
-  /* Array */
+  /* Array usual :: int,char,double,int*,char*,double* */
   Atype *array;
   /* Size */
   _size_type size;
@@ -147,14 +149,26 @@ public:
 };
 /* Define if required, returns a std::istream& istream */
 template <typename Atype>
-inline _input_stream operator>>(_input_stream input, _Carray<Atype> const & object) noexcept
+inline _input_stream operator>>(_input_stream input, _Carray<Atype> const &object) noexcept
 { 
+  std::cout << "Enter the size : \n";
+  input >> object.size;
+  std::cout << "Enter the values : \n";
+  for(auto i = 0; i < object.size; i++)
+  {
+    input >> object.array[i];
+  }
   return input;
 }
 /* Define if required, returns a std::ostream& ostream */
 template <typename Atype>
 inline _output_stream operator<<(_output_stream output,_Carray<Atype> const & object) noexcept
 { 
+  std::cout << "Values are : \n";
+  for(auto i = 0; i < object.size; i++)
+  {
+    output << object.array[i];
+  }
   return output;
 }
 /* Return value @ array[index] */
