@@ -33,6 +33,6 @@ int main(int argc, char** argv)
   delete int_array; /* Deleting single object, destructor is also called*/
   delete[] u_arrayobj; /* Deleting array of objects, destructors are called */ 
   delete doublearray; /* Deleting single object, destructor is also called*/
-  /* ret */
+  /* return */
   return 0;
 }
