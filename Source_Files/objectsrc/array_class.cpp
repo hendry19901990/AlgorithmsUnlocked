@@ -22,9 +22,10 @@ int main(int argc, char** argv)
   /* Parameterized Constructor Called */
   _Carray<unsigned int**> *int_array = new _Carray<unsigned int**>(size); 
   /* Extractors */
-  std::cout << object << array1 << array2 << doublearray << u_arrayobj << chararray << int_array;
+  std::cout << object << array1 << array2 << chararray;
   /* Array Access */
-  u_arrayobj[2];
+  u_arrayobj[0][0] = 50;
+  std::cout << u_arrayobj[0][0] << "\n";
   /* Istream*/
   std::cin >> object >> array1 >> array2 >> chararray;
   /* Functor Called */

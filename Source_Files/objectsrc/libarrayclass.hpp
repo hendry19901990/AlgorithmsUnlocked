@@ -103,7 +103,7 @@ public:
   /* Extractor Stream */
   template <typename U> inline friend _output_stream operator<<(_output_stream,_Carray<U> const &) noexcept;
   /* Buffer Filled Stream */
-  inline Atype& operator[](_int_type);
+  inline Atype &operator[](int) noexcept;
   /* Array Subscripter */
   inline _Carray& operator++(int);
   inline _Carray& operator--(int);
@@ -159,9 +159,10 @@ inline _output_stream operator<<(_output_stream output,_Carray<Atype> const & ob
 }
 
 template <typename Atype>
-inline Atype& _Carray<Atype>::operator[](_int_type i)
+inline Atype &_Carray<Atype>::operator[](int i) noexcept
 { 
   std::cout << "_Accessed_\n" << i;
+  return array[i];
 }
 
 template <typename Atype>
