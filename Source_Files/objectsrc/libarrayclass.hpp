@@ -31,7 +31,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define MAX_SIZE 8192
 #define BUFF_SIZE 1024
 #endif
-
+#define EXIT_FAILURE 1
 #ifndef NULL
 #undef NULL
 #define	NULL	0
@@ -91,9 +91,9 @@ template <typename Atype> class __attribute__((__packed__)) _Carray : public Bas
   static int count;
 public:
   static inline void getCount();
-  template <typename U> inline friend _input_stream operator>>(_input_stream,_Carray<U> const &);
+  template <typename U> inline friend _input_stream operator>>(_input_stream,_Carray<U> const &) noexcept;
   /* Extractor Stream */
-  template <typename U> inline friend _output_stream operator<<(_output_stream,_Carray<U> const &);
+  template <typename U> inline friend _output_stream operator<<(_output_stream,_Carray<U> const &) noexcept;
   /* Buffer Filled Stream */
   inline Atype& operator[](_int_type);
   /* Array Subscripter */
@@ -128,81 +128,123 @@ public:
   /* Compare > */
   inline _Carray* operator->(){return *this;} __attribute__((alloc_size(1)));
   /* Constructor */
-  inline ~_Carray() {};
+  inline ~_Carray() noexcept; 
   /* Destructor */
-  inline _Carray() {};
-  inline _Carray(_size_type): size() {}
+  inline _Carray() noexcept; 
+  inline _Carray(_size_type);
   /* Copy Constructor */
-  inline _Carray(const _Carray&): array() {}
+  inline _Carray(const _Carray&) noexcept;
 };
 
 template <typename Atype>
-inline _input_stream operator>>(_input_stream input, _Carray<Atype> const & object)
+inline _input_stream operator>>(_input_stream input, _Carray<Atype> const & object) noexcept
 { 
-  std::cout << "_Output_stream_called\n";
+  std::cout << "_Input_stream_returned\n";
   return input;
 }
 
 template <typename Atype>
-inline _output_stream operator<<(_output_stream output,_Carray<Atype> const & object)
+inline _output_stream operator<<(_output_stream output,_Carray<Atype> const & object) noexcept
 { 
-  output << "_Output_stream_called\n";
+  output << "_Output_stream_returned\n";
   return output;
 }
 
 template <typename Atype>
 inline Atype& _Carray<Atype>::operator[](_int_type i)
 { 
-  std::cout << "_Accessed\n" << i;
+  std::cout << "_Accessed_\n" << i;
 }
 
 template <typename Atype>
 inline _Carray<Atype>& _Carray<Atype>::operator++(int _dummy)
 { 
-  std::cout << "_Increment\n";
+  std::cout << "_Increment_\n";
 }
 
 template <typename Atype>
 inline _Carray<Atype>& _Carray<Atype>::operator--(int _dummy)
 { 
-  std::cout << "_Decrement\n";
+  std::cout << "_Decrement_\n";
 }
 
 template <typename Atype>
 inline _void_ptr _Carray<Atype>::operator new (_size_type size, _nothrow nthrw)
 { 
-  std::cout << "_Allocator\n";
+  _void_ptr p = NULL;
+  p = malloc(size);
+  if(!p){
+    std::cout << "_Memory_Allocation returned NULL\n";
+    exit(EXIT_FAILURE);
+  }
+  std::cout << "_Memory_Allocated for object\n";
+  return p;
 }
 template <typename Atype>
 inline _void_ptr _Carray<Atype>::operator new (_size_type size)
 { 
-  std::cout << "_Allocator\n";
+  _void_ptr p = NULL;
+  p = malloc(size);
+  if(!p){
+    std::cout << "_Memory_Allocation returned NULL\n";
+    exit(EXIT_FAILURE);
+  }
+  std::cout << "_Memory_Allocated for object\n";
+  return p;
 }
 
 template <typename Atype>
 inline _void_ptr _Carray<Atype>::operator new[] (_size_type size, _nothrow nthrw)
 { 
-  std::cout << "_Allocator[]\n";
+  _void_ptr p = NULL;
+  p = malloc(size);
+  if(!p){
+    std::cout << "_Memory_Allocation returned NULL\n";
+    exit(EXIT_FAILURE);
+  }
+  std::cout << "_Memory_Allocated for array of objects\n";
+  return p;
 }
 
 template <typename Atype>
 inline _void_ptr _Carray<Atype>::operator new[] (_size_type size)
 { 
-  _void_ptr p;
-  std::cout << "_Allocator[]\n";
+  _void_ptr p = NULL;
+  p = malloc(size);
+  if(!p){
+    std::cout << "_Memory_Allocation returned NULL\n";
+    exit(EXIT_FAILURE);
+  }
+  std::cout << "_Memory_Allocated for array of objects\n";
   return p;
+}
+
+template <typename Atype>
+inline void _Carray<Atype>::operator delete(_void_ptr p)
+{
+  std::cout << "_Memory_Deallocated\n";
+  free(p);
 }
 
 template <typename Atype>
 inline void _Carray<Atype>::operator delete(_void_ptr p,_nothrow nthrw)
 {
+  std::cout << "_Memory_Deallocated\n";
+  free(p);
+}
 
+template <typename Atype>
+inline void _Carray<Atype>::operator delete[](_void_ptr p)
+{
+  std::cout << "_Memory_Deallocated for array of objects\n";
+  free(p);
 }
 
 template <typename Atype>
 inline void _Carray<Atype>::operator delete[](_void_ptr p,_nothrow nthrw)
 {
-  
+  std::cout << "_Memory_Deallocated for array of objects\n";
+  free(p);
 }
 
 template <typename Atype>
@@ -215,4 +257,28 @@ template <typename Atype>
 inline _Carray<Atype> _Carray<Atype>::operator()( _Carray<Atype>& object,_int_type i)
 {
   std::cout << "_Functor_Access Ocurred\n";
+}
+
+template <typename Atype>
+inline _Carray<Atype>::_Carray(const _Carray& object) noexcept
+{
+  std::cout << "_Copy_Constructor Called\n";
+}
+
+template <typename Atype>
+inline _Carray<Atype>::_Carray() noexcept
+{
+  std::cout << "_Default_Constructor Called\n";
+}
+
+template <typename Atype>
+inline _Carray<Atype>::~_Carray() noexcept
+{
+  std::cout << "_Destructor Called\n";
+}
+
+template <typename Atype>
+inline _Carray<Atype>::_Carray(_size_type size) : size(size)
+{
+  std::cout << "_Parameterized_Constructor Called\n";
 }
