@@ -49,7 +49,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include<string>
 #include<new>
 #include<vector>
-class Basedef {
+class __attribute__((__packed__)) Basedef {
 public:
   typedef unsigned int _int_type;
   typedef unsigned long _double_type;
@@ -65,7 +65,7 @@ public:
   /* Since no object of this class will ever be created, it has no constructor or destructor implicitly defined */
 };
 /* Template Class for Array entry & Array operations */
-template <typename Atype> class _Carray : virtual public Basedef{
+template <typename Atype> class __attribute__((__packed__)) _Carray : virtual public Basedef{
   /* Array */
   Atype array[];
   /* Size */
@@ -87,9 +87,9 @@ public:
   inline class _Carray operator++(class _Carray&);
   inline class _Carray operator--(class _Carray&);
   /* Adding operation */
-  inline _void_ptr operator new(_size_type ,_nothrow);
+  inline _void_ptr operator new(_size_type ,_nothrow) __attribute__((alloc_size(1),aligned(BUFF_SIZE)));
   /* New Allocation */
-  inline _void_ptr operator new[] (_size_type,_nothrow);
+  inline _void_ptr operator new[] (_size_type,_nothrow) __attribute__((alloc_size(1),aligned(BUFF_SIZE)));
   /* New Allocation Object Array */
   inline void operator delete(void*,_nothrow);
   /* Delete */
