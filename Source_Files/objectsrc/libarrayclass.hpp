@@ -49,7 +49,19 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include<string>
 #include<new>
 #include<vector>
-class __attribute__((__packed__)) Basedef {
+  typedef unsigned int _int_type;
+  typedef unsigned long _double_type;
+  typedef unsigned char _char_type;
+  typedef size_t _size_type;
+  typedef wchar_t _wide_type;
+  typedef const std::nothrow_t& _nothrow;
+  typedef std::istream& _input_stream;
+  typedef std::ostream& _output_stream;
+  typedef std::bad_alloc _bad_allocation;
+  typedef class object _object;
+  typedef void* _void_ptr;
+#ifndef _input_stream
+class __attribute__((__packed__)) Basedef{
 public:
   typedef unsigned int _int_type;
   typedef unsigned long _double_type;
@@ -64,10 +76,11 @@ public:
   typedef void* _void_ptr;
   /* Since no object of this class will ever be created, it has no constructor or destructor implicitly defined */
 };
+#endif
 /* Template Class for Array entry & Array operations */
-template <typename Atype> class __attribute__((__packed__)) _Carray : virtual public Basedef{
+template <typename Atype> class __attribute__((__packed__)) _Carray : public Basedef{
   /* Array */
-  Atype array[];
+  Atype array[BUFF_SIZE];
   /* Size */
   _size_type size;
   /* iterator */
@@ -78,42 +91,128 @@ template <typename Atype> class __attribute__((__packed__)) _Carray : virtual pu
   static int count;
 public:
   static inline void getCount();
-  inline _input_stream operator>>(_input_stream);
+  template <typename U> inline friend _input_stream operator>>(_input_stream,_Carray<U> const &);
   /* Extractor Stream */
-  inline _output_stream operator<<(_input_stream);
+  template <typename U> inline friend _output_stream operator<<(_output_stream,_Carray<U> const &);
   /* Buffer Filled Stream */
-  inline Atype& operator[](_int_type) noexcept;
+  inline Atype& operator[](_int_type);
   /* Array Subscripter */
-  inline _Carray operator++(_Carray&) noexcept;
-  inline _Carray operator--(_Carray&) noexcept;
+  inline _Carray& operator++(int);
+  inline _Carray& operator--(int);
   /* Adding operation */
-  inline _void_ptr operator new(_size_type ,_nothrow)__attribute__((alloc_size(1),aligned(1)));
+  inline _void_ptr operator new(_size_type) __attribute__((alloc_size(1),aligned(1)));
+  inline _void_ptr operator new(_size_type, _nothrow) __attribute__((alloc_size(1),aligned(1)));
   /* New Allocation */
-  inline _void_ptr operator new[] (_size_type,_nothrow)__attribute__((alloc_size(1),aligned(1)));
+  inline _void_ptr operator new[] (_size_type) __attribute__((alloc_size(1),aligned(1)));
+  inline _void_ptr operator new[] (_size_type, _nothrow) __attribute__((alloc_size(1),aligned(1)));
   /* New Allocation Object Array */
-  inline void operator delete(_void_ptr,_nothrow) noexcept;
+  inline void operator delete(_void_ptr);
+  inline void operator delete(_void_ptr,_nothrow);
   /* Delete */
-  inline void operator delete[] (_void_ptr,_nothrow) noexcept;
+  inline void operator delete[] (_void_ptr);
+  inline void operator delete[] (_void_ptr,_nothrow);
   /* =OP */
   inline _Carray& operator=(_Carray&);
   /* op() */
-  inline _Carray operator()(Atype,_int_type);
+  inline _Carray operator()(_Carray&, _int_type);
   /* Add/Subs at a particular position */
   static inline void ObjectRefs(_object);
   /* Get Object Refs */
-  template<typename _compare> inline bool operator==(_compare) noexcept;
+  template<typename _compare> inline bool operator==(_compare);
   /*Compare == */
-  template<typename _compare> inline bool operator!=(_compare) noexcept;
+  template<typename _compare> inline bool operator!=(_compare);
   /* Compare != */
-  template<typename _compare> inline bool operator<(_compare) noexcept;
+  template<typename _compare> inline bool operator<(_compare);
   /* Compare < */
-  template<typename _compare> inline bool operator>(_compare) noexcept;
+  template<typename _compare> inline bool operator>(_compare);
   /* Compare > */
-  inline _Carray* operator->() noexcept {return *this;} __attribute__((alloc_size(1)));
+  inline _Carray* operator->(){return *this;} __attribute__((alloc_size(1)));
   /* Constructor */
-  inline ~_Carray() noexcept;
+  inline ~_Carray() {};
   /* Destructor */
-  inline _Carray(_size_type) noexcept : size() {}
+  inline _Carray() {};
+  inline _Carray(_size_type): size() {}
   /* Copy Constructor */
-  inline _Carray(const _Carray&) noexcept : array() {}
+  inline _Carray(const _Carray&): array() {}
 };
+
+template <typename Atype>
+inline _input_stream operator>>(_input_stream input, _Carray<Atype> const & object)
+{ 
+  std::cout << "_Output_stream_called\n";
+  return input;
+}
+
+template <typename Atype>
+inline _output_stream operator<<(_output_stream output,_Carray<Atype> const & object)
+{ 
+  output << "_Output_stream_called\n";
+  return output;
+}
+
+template <typename Atype>
+inline Atype& _Carray<Atype>::operator[](_int_type i)
+{ 
+  std::cout << "_Accessed\n" << i;
+}
+
+template <typename Atype>
+inline _Carray<Atype>& _Carray<Atype>::operator++(int _dummy)
+{ 
+  std::cout << "_Increment\n";
+}
+
+template <typename Atype>
+inline _Carray<Atype>& _Carray<Atype>::operator--(int _dummy)
+{ 
+  std::cout << "_Decrement\n";
+}
+
+template <typename Atype>
+inline _void_ptr _Carray<Atype>::operator new (_size_type size, _nothrow nthrw)
+{ 
+  std::cout << "_Allocator\n";
+}
+template <typename Atype>
+inline _void_ptr _Carray<Atype>::operator new (_size_type size)
+{ 
+  std::cout << "_Allocator\n";
+}
+
+template <typename Atype>
+inline _void_ptr _Carray<Atype>::operator new[] (_size_type size, _nothrow nthrw)
+{ 
+  std::cout << "_Allocator[]\n";
+}
+
+template <typename Atype>
+inline _void_ptr _Carray<Atype>::operator new[] (_size_type size)
+{ 
+  _void_ptr p;
+  std::cout << "_Allocator[]\n";
+  return p;
+}
+
+template <typename Atype>
+inline void _Carray<Atype>::operator delete(_void_ptr p,_nothrow nthrw)
+{
+
+}
+
+template <typename Atype>
+inline void _Carray<Atype>::operator delete[](_void_ptr p,_nothrow nthrw)
+{
+  
+}
+
+template <typename Atype>
+inline _Carray<Atype>& _Carray<Atype>::operator=( _Carray<Atype>& object)
+{
+  std::cout << "_Shadow_Assignment Ocurred\n";
+}
+
+template <typename Atype>
+inline _Carray<Atype> _Carray<Atype>::operator()( _Carray<Atype>& object,_int_type i)
+{
+  std::cout << "_Functor_Access Ocurred\n";
+}
