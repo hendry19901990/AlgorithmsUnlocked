@@ -82,33 +82,41 @@ public:
   /* Extractor Stream */
   inline _output_stream operator<<(_input_stream);
   /* Buffer Filled Stream */
-  inline Atype& operator[](_int_type);
+  inline Atype& operator[](_int_type) noexcept;
   /* Array Subscripter */
-  inline class _Carray operator++(class _Carray&);
-  inline class _Carray operator--(class _Carray&);
+  inline _Carray operator++(_Carray&) noexcept;
+  inline _Carray operator--(_Carray&) noexcept;
   /* Adding operation */
-  inline _void_ptr operator new(_size_type ,_nothrow) __attribute__((alloc_size(1),aligned(BUFF_SIZE)));
+  inline _void_ptr operator new(_size_type ,_nothrow)__attribute__((alloc_size(1),aligned(BUFF_SIZE)));
   /* New Allocation */
-  inline _void_ptr operator new[] (_size_type,_nothrow) __attribute__((alloc_size(1),aligned(BUFF_SIZE)));
+  inline _void_ptr operator new[] (_size_type,_nothrow)__attribute__((alloc_size(1),aligned(BUFF_SIZE)));
   /* New Allocation Object Array */
-  inline void operator delete(void*,_nothrow);
+  inline void operator delete(_void_ptr,_nothrow) noexcept;
   /* Delete */
-  inline void operator delete[] (void*,_nothrow);
-  inline class _Carray operator()(Atype,int);
+  inline void operator delete[] (_void_ptr,_nothrow) noexcept;
+  /* =OP */
+  inline _Carray& operator=(_Carray&);
+  /* op() */
+  inline _Carray operator()(Atype,_int_type);
     /* Add/Subs at a particular position */
   static inline void ObjectRefs(_object);
   /* Get Object Refs */
-  template<typename _compare> inline bool operator==(_compare);
+  template<typename _compare> inline bool operator==(_compare) noexcept;
   /*Compare == */
-  template<typename _compare> inline bool operator!=(_compare);
+  template<typename _compare> inline bool operator!=(_compare) noexcept;
   /* Compare != */
-  template<typename _compare> inline bool operator<(_compare);
+  template<typename _compare> inline bool operator<(_compare) noexcept;
   /* Compare < */
-  template<typename _compare> inline bool operator>(_compare);
+  template<typename _compare> inline bool operator>(_compare) noexcept;
   /* Compare > */
-  inline class _Carray* operator->() {return *this;}
+  inline _Carray* operator->() noexcept {return *this;}
   /* Constructor */
-  inline ~_Carray(){}
+  inline ~_Carray() const {}
   /* Destructor */
-  inline _Carray(_size_type) : size(){}
+  inline _Carray(_size_type) : size() noexcept {}
+  /* Copy Constructor */
+  inline _Carray(const _Carray&) noexcept : array()
+  {
+
+  }
 };
