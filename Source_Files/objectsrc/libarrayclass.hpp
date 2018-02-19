@@ -202,6 +202,7 @@ inline _void_ptr _Carray<Atype>::operator new(_size_type size, _nothrow nthrw)
   if(!p){
     exit(EXIT_FAILURE);
   }
+  std::memset(array,0,sizeof(array));
   return p;
 }
 /* Allocate an object instance from the heap */
@@ -213,6 +214,7 @@ inline _void_ptr _Carray<Atype>::operator new(_size_type size)
   if(!p){
     exit(EXIT_FAILURE);
   }
+  std::memset(array,0,sizeof(array));
   return p;
 }
 /* Allocate from heap an array of objects with nothrow set */
@@ -224,6 +226,7 @@ inline _void_ptr _Carray<Atype>::operator new[](_size_type size, _nothrow nthrw)
   if(!p){
     exit(EXIT_FAILURE);
   }
+  std::memset(array,0,sizeof(array));
   return p;
 }
 /* Allocate from heap an array of objects */
@@ -235,6 +238,7 @@ inline _void_ptr _Carray<Atype>::operator new[](_size_type size)
   if(!p){
     exit(EXIT_FAILURE);
   }
+  std::memset(array,0,sizeof(array));
   return p;
 }
 /* Delete objects */
@@ -267,7 +271,7 @@ inline _Carray<Atype> _Carray<Atype>::operator=( _Carray<Atype>& object)
 {
   array = new Atype[BUFF_SIZE];
   if(!array){exit(EXIT_FAILURE);}
-  for(auto i = 0; i <= BUFF_SIZE; i++){
+  for(auto i : array){
     array[i] = object.array[i];
   }
   size = object.size;
@@ -279,7 +283,7 @@ inline _Carray<Atype> _Carray<Atype>::operator=( _Carray<Atype>& object)
 template <typename Atype>
 inline _Carray<Atype> _Carray<Atype>::operator()(int num)
 {
-  for(auto i = 0; i <= BUFF_SIZE; i++)
+  for(auto i : array)
   {
     this->array[i] = this->array[i] + num;
   }
@@ -291,7 +295,7 @@ inline _Carray<Atype>::_Carray(const _Carray& object) noexcept
 {
   array = new Atype[BUFF_SIZE];
   if(!array){exit(EXIT_FAILURE);}
-  for(auto i = 0; i <= BUFF_SIZE; i++){
+  for(auto i : array){
     array[i] = object.array[i];
   }
   size = object.size;
@@ -304,9 +308,7 @@ inline _Carray<Atype>::_Carray() noexcept
 {
   array = new Atype[BUFF_SIZE];
   if(!array){exit(EXIT_FAILURE);}
-  for(auto i = 0; i <= BUFF_SIZE; i++){
-    array[i] = 0;
-  }
+  std::memset(array,0,sizeof(array));
   size = 512;
   iterator = nullptr;
   _alloc_ = nullptr;
@@ -326,9 +328,7 @@ inline _Carray<Atype>::_Carray(_size_type size) : size(size)
 {
   array = new Atype[BUFF_SIZE];
   if(!array){exit(EXIT_FAILURE);}
-  for(auto i = 0; i <= BUFF_SIZE; i++){
-    array[i] = 0;
-  }
+  std::memset(array,0,sizeof(array));
   iterator = nullptr;
   _alloc_ = nullptr;
 }
