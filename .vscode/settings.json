@@ -57,6 +57,10 @@
         "thread": "cpp",
         "tuple": "cpp",
         "typeindex": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "map": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "algorithm": "cpp"
     }
 }
