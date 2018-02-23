@@ -26,4 +26,5 @@ Makefile
 *.Makefile
 *.make
 Makefile
-
+/.VS
+/.vs
