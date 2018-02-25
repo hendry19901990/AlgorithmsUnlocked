@@ -1,4 +1,4 @@
-# AlgoGit
+# Algorithms Unlocked
 
 Library of non-conventional algorithms written in pure C++ (14) & C and some are in Node.js.
 Web Interface is written in pure javascript and runs behind a Node.js server. 
