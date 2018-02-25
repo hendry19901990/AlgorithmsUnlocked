@@ -28,3 +28,9 @@ Makefile
 Makefile
 /.VS
 /.vs
+*.bin
+*.dat
+*.txt
+*.exe
+*.out
+*.OUT
