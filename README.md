@@ -3,10 +3,12 @@
 Library of non-conventional algorithms written in pure C++ (14) & C and some are in Node.js.
 Web Interface is written in pure javascript and runs behind a Node.js server. 
 Compile the source code files using Cmake, CLang/LLVM & Mingw64.
+
 First Basic C++  & Node.js Syntax & Coding Practices are discussed. 
 The folder ```Source_Files``` contains basic C++ & Node.js tutorials for beginners.
 It will give someone a feel as to how coding in C++ or Node.js is. 
-Bild files and code for Windows Universal App & Node.js Website will be put in soon under 
+
+Build files and code for Windows Universal App & Node.js Website will be put in soon under 
 ```WUP_Algorithms``` & ```Nodejs-Algorithms``` folder after ``` 24th April, 2018 ```.
 
 ### Later Additions : 
