@@ -60,7 +60,6 @@ Assuming Clang & Mingw64 are already installed and working properly.
 ```bash
 $ clang++ main.cpp -o main.exe
 $ main.exe
-$ /* Output as per source code */
 ```
 ## Generating Intermediate Represenation using LLVM Clang
 
