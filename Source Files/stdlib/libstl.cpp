@@ -40,7 +40,6 @@ void access_thread_global(int u)
         *iter = u * i;
         ++iter;
     }
-
 }       
 int main()
 {
@@ -64,5 +63,4 @@ int main()
        // cout << *iter << endl;
         cout << *share_iter << endl;
     }
-
 }

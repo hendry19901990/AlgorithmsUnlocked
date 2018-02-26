@@ -2,9 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-
 using namespace std;
-
 string addSpaceFront(string s, unsigned long long int num)
 {
 	string output = "";
@@ -12,10 +10,8 @@ string addSpaceFront(string s, unsigned long long int num)
 	{
 		output += " ";
 	}
-
 	return output + s;
 }
-
 vector<string> getArithm(string s)
 {
 	vector<string> lines(4);
@@ -33,13 +29,10 @@ vector<string> getArithm(string s)
 			break;
 		}
 	}
-
 	unsigned long long int a = stoull(lines[0]), b = stoull(lines[1].substr(1, lines[1].length() - 1));
-
 	if (lines[1][0] == '*')
 	{
 		lines[3] = to_string(stoull(lines[0]) * stoull(lines[1].substr(lines[1].length() - 1, 1)));
-
 		if (lines[1].length() > 2)
 		{
 			lReturn = false;
@@ -53,12 +46,10 @@ vector<string> getArithm(string s)
 	{
 		lines[3] = to_string(stoull(lines[0]) - stoull(lines[1].substr(1, lines[1].length() - 1)));
 	}
-
 	for (unsigned long long int i = 0; i < max({ lines[0].length(), lines[1].length(), lines[3].length() }); i++)
 	{
 		lines[2] += "-";
 	}
-
 	for (unsigned long long int i = 0; i < 4; i++)
 	{
 		if (lines[i].length() < lines[2].length())
@@ -66,7 +57,6 @@ vector<string> getArithm(string s)
 			lines[i] = addSpaceFront(lines[i], lines[2].length() - lines[i].length());
 		}
 	}
-
 	if (lReturn)
 	{
 		return lines;
@@ -96,24 +86,19 @@ vector<string> getArithm(string s)
 				tempS = addSpaceFront(tempS, res - (tempS.length() - 1));
 			}
 			countRes++;
-
 			lines.push_back(tempS);
 		}
-
 		string tempAns = "";
 		lines.push_back(tempAns);
 		tempAns = to_string(a * b);
 		lines.push_back(tempAns);
-
 		for (unsigned long long int i = 0; i < max(lines[lines.size() - 1].length(), lines[3].length()); i++)
 		{
 			lines[lines.size() - 2] += "-";
 		}
-
 		return lines;
 	}
 }
-
 void output(string num)
 {
 	vector<string> output;
@@ -125,21 +110,17 @@ void output(string num)
 	}
 	cout << "\n";
 }
-
 int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
-
 	unsigned long long int numInput;
 	cin >> numInput;
-
 	string input;
 	for (unsigned long long int i = 0; i < numInput; i++)
 	{
 		cin >> input;
 		output(input);
 	}
-
 	return 0;
 }
