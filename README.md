@@ -5,11 +5,11 @@ Web Interface is written in pure javascript and runs behind a Node.js server.
 Compile the source code files using Cmake, CLang/LLVM & Mingw64.
 
 First Basic C++  & Node.js Syntax & Coding Practices are discussed. 
-The folder ```Source_Files``` contains basic C++ & Node.js tutorials for beginners.
+The folder ```Source Files``` contains basic C++ & Node.js tutorials for beginners.
 It will give someone a feel as to how coding in C++ or Node.js is. 
 
 Build files and code for Windows Universal App & Node.js Website will be put in soon under 
-```WUP_Algorithms``` & ```Nodejs-Algorithms``` folder after ``` 24th April, 2018 ```.
+```Windows Application``` & ```Nodejs Website``` folder after ``` 24th April, 2018 ```.
 
 ### Later Additions : 
 
@@ -23,16 +23,18 @@ CodeChef Problems
 TopCoder Problems
 ```
 
-## What it covers : 
+## What it will cover : 
 
-An algorithms repository. Basics of C++ for programming. Stable Sorting Algorithms. Inversion Counting. AVL Trees, Red-Black Trees, 2-3-4 Trees, B-Trees, Path Commpression, Huffman Encoding, Disjoint Sets, Greedy Knapsack & Job Sequencing Algorithms. Graph Traversal. Dynamic Programming. 0/1 Knapsack. Bellman-Ford Algorithm, Floyd-Warshall Algorithm.The algorithms will be added in ```Algorithms ``` Folder after ``` 25th March, 2018 ```.
+An algorithms repository. Basics of C++ for programming. Stable Sorting Algorithms. Inversion Counting. AVL Trees, Red-Black Trees, 2-3-4 Trees, B-Trees, Path Commpression, 
+Huffman Encoding, Disjoint Sets, Greedy Knapsack & Job Sequencing Algorithms. Graph Traversal. Dynamic Programming. 0/1 Knapsack. Bellman-Ford Algorithm, Floyd-Warshall Algorithm.
+The algorithms will be added in ```Algorithms ``` Folder after ``` 25th March, 2018 ```.
 
 ## Node.js
 #### Covers Node.js tutorials as well. Check libjscript folder.
-```
-node -v
-npm -v
-sudo node ${Name-of-js-file.js}
+```bash
+$ node -v
+$ npm -v
+$ sudo node ${Name-of-js-file.js}
 ```
 ## Installations
 #### Follow this tutorial first : http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/
@@ -42,36 +44,37 @@ sudo node ${Name-of-js-file.js}
 Add to PATH ```\bin``` directory of all of them.
 ## CMake Build
 
-```
-> cmake CMakeList.txt 
+```bash
+$ cmake CMakeList.txt 
 ```
 ## Using CMake
-```
-> cmake CMakeLists.txt
-> make
-> ./main 
+```bash
+$ cmake CMakeLists.txt
+$ make
+$ ./main 
 ```
 ## Compliling *.cpp
 
-```
-/* Assuming Clang & Mingw64 are already installed and working properly */ 
-> clang++ main.cpp -o main.exe
-> main.exe
-> /* Output as per source code */
+Assuming Clang & Mingw64 are already installed and working properly.
+
+```bash
+$ clang++ main.cpp -o main.exe
+$ main.exe
+$ /* Output as per source code */
 ```
 ## Generating Intermediate Represenation using LLVM Clang
 
-```
-> clang++ main.cpp -S -emit-llvm main.bc
-> clang++ main.cpp -S -emit-llvm -O3 main.bc
+```cmd
+$ clang++ main.cpp -S -emit-llvm main.bc
+$ clang++ main.cpp -S -emit-llvm -O3 main.bc
 ```
 ## Generating Assembly Language mnemonics
 
-```
-> clang++ main.cpp -S -O3 -o main.asm
+```cmd
+$ clang++ main.cpp -S -O3 -o main.asm
 OR
-> gcc -g -c main.cpp -o main.o
-> objdump -d -M intel main.o
+$ gcc -g -c main.cpp -o main.o
+$ objdump -d -M intel main.o
 OR
-> objdump -D -mcpu=<cpu-name> main.o
+$ objdump -D -mcpu=<cpu-name> main.o
 ```
