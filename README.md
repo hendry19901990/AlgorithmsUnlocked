@@ -9,7 +9,7 @@ The folder ```Source Files``` contains basic ```C++``` & ```Node.js``` tutorials
 It will give someone a feel as to how coding in ```C++``` or ```Node.js``` is. 
 
 Build files and code for ```Windows Universal App (Using C++)``` & ```Node.js``` Website for problem solving and Competitive Programming will be put in soon under 
-```Windows Application``` & ```Nodejs Website``` folder by ``` 24th March, 2018 ```.
+```Windows Application``` & ```Nodejs Website``` folder by ``` 24th June, 2018 ```.
 
 ### Later Additions : 
 
