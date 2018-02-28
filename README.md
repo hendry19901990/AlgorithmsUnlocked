@@ -1,15 +1,15 @@
 # Algorithms Unlocked
 
-Library of non-conventional algorithms written in pure C++ (14) & C and some are in Node.js.
-Web Interface is written in pure javascript and runs behind a Node.js server. 
-Compile the source code files using Cmake, CLang/LLVM & Mingw64.
+Library of algorithms written in pure ```C++ (14)``` & ```C```. Some are written in ```Node.js```
+Web Interface is written in pure javascript and runs behind a ```Node.js``` server. 
+Compile/Build the source code files using ```Cmake```, ```CLang/LLVM``` & ```Mingw64```.
 
 First Basic C++  & Node.js Syntax & Coding Practices are discussed. 
-The folder ```Source Files``` contains basic C++ & Node.js tutorials for beginners.
-It will give someone a feel as to how coding in C++ or Node.js is. 
+The folder ```Source Files``` contains basic ```C++``` & ```Node.js``` tutorials for beginners.
+It will give someone a feel as to how coding in ```C++``` or ```Node.js``` is. 
 
-Build files and code for Windows Universal App & Node.js Website will be put in soon under 
-```Windows Application``` & ```Nodejs Website``` folder after ``` 24th April, 2018 ```.
+Build files and code for ```Windows Universal App (Using C++)``` & ```Node.js``` Website for problem solving and Competitive Programming will be put in soon under 
+```Windows Application``` & ```Nodejs Website``` folder by ``` 24th March, 2018 ```.
 
 ### Later Additions : 
 
@@ -21,13 +21,15 @@ Google Code Jam Problems
 Codeforces Problems
 CodeChef Problems
 TopCoder Problems
+IOI Problems
+COCI Problems
 ```
 
 ## What it will cover : 
 
-An algorithms repository. Basics of C++ for programming. Stable Sorting Algorithms. Inversion Counting. AVL Trees, Red-Black Trees, 2-3-4 Trees, B-Trees, Path Commpression, 
+An algorithms repository. Basics of ```C++ for programming```. Stable Sorting Algorithms. Inversion Counting. AVL Trees, Red-Black Trees, 2-3-4 Trees, B-Trees, Path Commpression, 
 Huffman Encoding, Disjoint Sets, Greedy Knapsack & Job Sequencing Algorithms. Graph Traversal. Dynamic Programming. 0/1 Knapsack. Bellman-Ford Algorithm, Floyd-Warshall Algorithm.
-The algorithms will be added in ```Algorithms ``` Folder after ``` 25th March, 2018 ```.
+The algorithms will be added in ```Algorithms ``` Folder by ``` 25th July, 2018 ```.
 
 ## Node.js
 #### Covers Node.js tutorials as well. Check libjscript folder.
