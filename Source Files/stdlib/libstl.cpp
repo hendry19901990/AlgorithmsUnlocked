@@ -30,7 +30,8 @@ typedef std::list<int>::const_iterator list_const_iter;
 typedef std::list<int>::iterator list_iterator;
 /* Global Shared */   
 DLinkedList shared_list;   
-/* In order to have race conditions, threads should access shared resource as randomly as possible */
+/* *In order to have race conditions, 
+   *threads should access shared resource as randomly as possible */
 void access_thread_global(int u)
 {
     list_iterator iter;
