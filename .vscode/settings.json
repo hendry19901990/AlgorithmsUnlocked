@@ -61,6 +61,7 @@
         "map": "cpp",
         "deque": "cpp",
         "forward_list": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "xstring": "cpp"
     }
 }

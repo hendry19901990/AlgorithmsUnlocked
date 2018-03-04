@@ -22,12 +22,11 @@
 #include <scoped_allocator>
 #include <system_error>
 #include <thread>
-#include <pthread.h>
 using namespace std;
 /* Global list typedefs*/
-typedef std::list<int> DLinkedList;
-typedef std::list<int>::const_iterator list_const_iter;
-typedef std::list<int>::iterator list_iterator;
+typedef typename std::list<int> DLinkedList;
+typedef typename std::list<int>::const_iterator list_const_iter;
+typedef typename std::list<int>::iterator list_iterator;
 /* Global Shared */   
 DLinkedList shared_list;   
 /* *In order to have race conditions, 
