@@ -19,7 +19,7 @@ _EuclideanRingElement extendecdl(_EuclideanRingElement a, _EuclideanRingElement 
     {
         x = 0;
         y = 1;  
-        return __gcd<_EuclideanRingElement>(a ,b);
+        return __gcd<_EuclideanRingElement>(a,b);
     }
     else{
         extendecdl<_EuclideanRingElement>(b, a%b, x, y);
