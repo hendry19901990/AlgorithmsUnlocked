@@ -63,6 +63,18 @@
         "forward_list": "cpp",
         "algorithm": "cpp",
         "xstring": "cpp",
-        "locale": "cpp"
+        "locale": "cpp",
+        "iterator": "cpp",
+        "list": "cpp",
+        "queue": "cpp",
+        "regex": "cpp",
+        "set": "cpp",
+        "unordered_map": "cpp",
+        "xhash": "cpp",
+        "xmemory0": "cpp",
+        "xtr1common": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp",
+        "xxatomic": "cpp"
     }
 }
