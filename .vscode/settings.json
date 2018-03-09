@@ -62,6 +62,7 @@
         "deque": "cpp",
         "forward_list": "cpp",
         "algorithm": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "locale": "cpp"
     }
 }
