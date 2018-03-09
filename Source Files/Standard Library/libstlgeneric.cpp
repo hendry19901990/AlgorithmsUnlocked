@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     valtype a; /* __typeid(int) */
     genericIter iter = temperatures.begin();
     RevIter last = temperatures.rbegin();
-    temperatures.insert(2,7);
+    
 
 
 
