@@ -6,6 +6,15 @@
 #include <algorithm>
 #include <numeric>
 #include <regex>
+#include <cstdio>
+#include <string.h>
+#include <activation.h>
+#define sz(a) int((a).size()) 
+#define pb push_back 
+#define all(c) (c).begin(), (c).end()
+#define present(c,x) ((c).find(x) != (c).end()) 
+#define cpresent(c,x) (find(all(c),x) != (c).end()) 
+#define tr(container, it) for(decltype(container.begin()) it = container.begin(); it != container.end(); it++)
 using namespace std;
 static const regex reHeader("  ");
 uint32_t rotl(uint32_t value, unsigned int count)
@@ -35,7 +44,7 @@ void test_for_each_hash(){
     uint32_t hash = hash_all_strings(v);
     cout << "Hash : " << hash << dec << endl;
 }
-int main(int argc, char* argv[])
+int hashfunc()
 {
     return 0;
 }

@@ -41,7 +41,7 @@ typename Bag::value_type min(const Bag& b)
     }
     return val;
 }
-int main(int argc, char *argv[])
+int generic(int argc, char *argv[])
 {
     vector<int> temperatures;
     int coldest = min(temperatures);

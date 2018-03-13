@@ -8,6 +8,12 @@
 #include <numeric>
 #include <regex>
 using namespace std;
+#define sz(a) int((a).size()) 
+#define pb push_back 
+#define all(c) (c).begin(), (c).end()
+#define present(c,x) ((c).find(x) != (c).end()) 
+#define cpresent(c,x) (find(all(c),x) != (c).end()) 
+#define tr(container, it) for(decltype(container.begin()) it = container.begin(); it != container.end(); it++)
 /* Value type to typename */
 /**
 * We say X is a container type such as vector<int> list<int> vector<string> etc.
@@ -28,4 +34,77 @@ typedef vector<int>::const_iterator constVectorIterator;
 typedef vector<int>::difference_type difference_type;
 typedef vector<int>::size_type size_type;
 using namespace std;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef pair<int, int> ii;
+void reverse_Array(int *A, int N)
+{
+	int *first = A;
+	int *last = A + N - 1;
+	while (first < last)
+	{
+		swap(A[*first], A[*last]);
+		first++; // Move the first index forward;
+		last--; //Move the last index back;
+	}
+}
+template <typename T>
+void reverser(T& A, size_t N)
+{
+	T* f = A;
+	T* l = A + N - 1;
+	while (f < l)
+	{
+		swap(A[*f], A[*l]);
+		f++;
+		l--;
+	}
+
+}
+void f(const vector<int>& v) {
+	int r = 0;
+	tr(v, it) {
+		r += (*it)*(*it);
+	}
+}
+int vector()
+{
+	int N = 5, M = 2;
+	vector< vector<int> > Matrix(M, vector<int>(N, -1));
+	vector<int> v(11, 0);
+	for (auto i = 0; i <= 10; i++)
+	{
+		v[i] = (i + 1)*(i + 1);
+	}
+	for (auto i = 10; i > 0; i--)
+	{
+		v[i] -= v[i - 1];
+	}
+	bool is_notempty = !v.empty();
+	vector<int> k;
+	for (auto i = 0; i < 100; i *= 2)
+	{
+		v.push_back(i);
+	}
+	int elements_count = v.size();
+	pair<string, pair<int, int> >	P;
+	string s = P.first;
+	int x = P.second.first;
+	int y = P.second.second;
+	/*Vector on polar coordinate system*/
+	vector< pair< double, pair<int, int> > > coordinate_system(10);
+	double polar_angle = coordinate_system[1].first;
+	int x_coordinate = coordinate_system[1].second.first;
+	int y_coordinate = coordinate_system[1].second.second;
+	set<int> st;
+	for (auto i = 0; i < 1000; i++)
+	{
+		st.insert(i);
+	}
+	for (auto i = 0; i <= 1000; i += 2)
+	{
+		st.erase(i);
+	}
+	return 0;
+};
 

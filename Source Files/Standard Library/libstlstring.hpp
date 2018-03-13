@@ -28,7 +28,7 @@ ostream& operator<<(ostream& out, string vec){
 		cout << "\t" << i << endl;
 	}
 }
-int main(int argc, char* argv[])
+int stringmethods(int argc, char* argv[])
 {
 	try
 	{
