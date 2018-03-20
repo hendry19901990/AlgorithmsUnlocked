@@ -50,3 +50,16 @@ void f(const vector<int>& v) {
 		r += (*it)*(*it);
 	}
 }
+int setfunc()
+{
+	set<int> st;
+	for (auto i = 0; i < 1000; i++)
+	{
+		st.insert(i);
+	}
+	for (auto i = 0; i <= 1000; i += 2)
+	{
+		st.erase(i);
+	}
+	return 0;
+}

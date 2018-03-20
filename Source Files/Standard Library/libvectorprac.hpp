@@ -69,6 +69,37 @@ void f(const vector<int>& v) {
 }
 int vector()
 {
+	std::vector<int> vec;
+	std::vector<char> myvector;
+	std::vector<int> vec2;
+	std::vector<int> first;
+	std::vector<int> second;
+	do{
+		cin >> input;
+		myvector.push_back(input);
+		input = input + 9;
+		vec2.push_back(input);
+	}while(input);
+	first.assign(7, 100);
+	auto it = first.begin() + 2;
+	second.assign(it, first.end() - 1);
+	int myints[] = {15,541,5,85,25,87,41,58,4,456,8,7,415};
+	second.assign(myints, myints + 8);
+	auto front  = myvector.front();
+	auto back = myvector.back();
+	myvector.at(3) = 90;
+	auto iter = myvector.begin();
+	auto const_iter = myvector.end();
+	auto rev_iter = myvector.rbegin();
+	cout << myvector.capacity() << myvector.size() << myvector.max_size() ;
+	myvector.pop_back();
+	myvector.swap(vec2);
+	vec.reserve(1024);
+	first.resize(10);
+	second.resize(10,6); 
+	int myarraynums[] = {584518,184127,183,1748658,18};
+	auto last = myvector.end();
+	myvector.insert(last, myarraynums, myarraynums + 3);
 	int N = 5, M = 2;
 	vector< vector<int> > Matrix(M, vector<int>(N, -1));
 	vector<int> v(11, 0);
@@ -96,15 +127,5 @@ int vector()
 	double polar_angle = coordinate_system[1].first;
 	int x_coordinate = coordinate_system[1].second.first;
 	int y_coordinate = coordinate_system[1].second.second;
-	set<int> st;
-	for (auto i = 0; i < 1000; i++)
-	{
-		st.insert(i);
-	}
-	for (auto i = 0; i <= 1000; i += 2)
-	{
-		st.erase(i);
-	}
-	return 0;
 };
 
