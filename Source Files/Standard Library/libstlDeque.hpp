@@ -9,7 +9,6 @@
 #include <sstream>
 #include <cstdio>
 #include <string.h>
-#include <activation.h>
 #define sz(a) int((a).size()) 
 #define pb push_back 
 #define all(c) (c).begin(), (c).end()
