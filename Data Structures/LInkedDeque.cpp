@@ -33,8 +33,3 @@ public :
     T node;
     listnode* next;
 };
-template<typename T>
-class CircularLinkedList : public listnode<T>
-{
-    
-};
