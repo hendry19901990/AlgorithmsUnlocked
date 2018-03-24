@@ -8,28 +8,7 @@
 #include <map>
 using namespace std;
 int a[250000001];
-int count = 0;
-void process()
-{
-    for(auto i = 0; i <= 250000000; i++)
-    {
-        a[i] = i;
-    }
-}
-void OptimizeSearch(int* A, size_t s, size_t e, int& item)
-{
-    size_t mid;
-    while(s < e)
-    {
-        mid = (s + e)/2;
-        if(A[mid] > item) s = mid + 1;
-        else e = mid;
-        count++;
-        cout << "Compare :: " << count << endl;
-    }
-    if(A[s] == item) cout << "Item found @ : " << mid << endl;
-    else cout << "Item not found !" << endl;
-}
+static int count = 0;
 void binarysearch(int* A, size_t s, size_t e, int& item)
 {
     if( s >= e ) 
@@ -55,12 +34,42 @@ void binarysearch(int* A, size_t s, size_t e, int& item)
         cout << "Item = " << item << " Pos = " << mid << endl;
     }
 }
+void linearsearch(int* A, int& item)
+{
+    int count = 0;
+    size_t i = 250000000;
+    while( i > 0)
+    {
+        ++count;
+        cout << " Search Index = " << i << " Comaparision : " << count << endl; 
+        if( A[i] == item )
+        {
+            cout << "Item = " << item << " Pos = " << i << endl;
+            break;
+        }
+        else
+        {
+            i--;
+            continue;
+        }
+    }
+}
+void process()
+{
+    for(auto i = 0; i <= 250000000; i++)
+    {
+        a[i] = i;
+    }
+}
 int main()
 {
     process();
     int item;
-    cin >> item;
-    OptimizeSearch(a,0,250000000,item);
-    binarysearch(a,0,250000000,item);
+    for(auto i = 0; i < 250000000; i++ )
+    {
+        item = i;
+        binarysearch(a,0,250000000,item);
+    }
+    linearsearch(a,item);
     return 0;
 }

@@ -7,10 +7,33 @@
 #include <vector>
 #include <map>
 using namespace std;
+int a[25001];
+void process()
+{
+    for(auto i = 25000; i >= 0; i--)
+    {
+        int j = 25000 - i;
+        a[j] = i;
+    }
+}
+void print(size_t size)
+{
+    for(auto i = 0; i < size; i++)
+    {
+        cout << a[i] << "    ";
+        if(i%10 == 0)
+        {
+            cout << endl;
+        }
+    }
+    cout << endl;
+}
 void insertionsort(int* A, size_t size)
 {
+    int count = 0;
     for(auto sortupto = 1; sortupto < size; sortupto++)
     {
+        count++;
         int key = A[sortupto];
         int go_till = sortupto - 1;
         while(go_till > 0 && A[go_till] > key)
@@ -19,15 +42,13 @@ void insertionsort(int* A, size_t size)
             go_till--;
         }
         A[go_till + 1] = key;
+        cout << " Comparisions done = " << count << endl;
     }
-    for(auto i = 0; i < size; i++)
-    {
-        cout << A[i] << "  ";
-    }
-    cout << endl;
+    print(size);
 }
 void recursiveinsertionsort(int* A, size_t n)
 {
+    static int count = 0;
     if(n <= 1) exit(EXIT_FAILURE);
     recursiveinsertionsort(A, n - 1);
     int last_elem = A[n -1];
@@ -38,16 +59,14 @@ void recursiveinsertionsort(int* A, size_t n)
         indexUp--;
     }
     A[indexUp + 1] = last_elem;
-    for(auto i = 0; i < n; i++)
-    {
-        cout << A[i] << "  ";
-    }
-    cout << endl;
+    cout << " Comparisions done = " << count << endl;
 }
 int main()
 {
-    int Array[] = {56,658,45,744,57,45,89,6,5,741,245,7441,58,42,588,7411,5,84,568,4,5,8,741,15,8,45,58,4,45,858,45,74,8,85,5,58,89,5,5,5,877,4,5,8,5654,87};
-    insertionsort(Array, 45);
-    recursiveinsertionsort(Array, 45);
+    process();
+    insertionsort(a, 25000);
+    process();
+    recursiveinsertionsort(a, 25000);
+    print(25000);
     return 0;
 }
