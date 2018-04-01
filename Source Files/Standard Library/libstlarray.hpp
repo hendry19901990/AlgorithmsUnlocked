@@ -28,7 +28,9 @@ using namespace std;
 * */
 int array()
 {
-    std::array<char,12> charray;
+    std::vector<int,90> vec3(87);
+    std::array <int,10> intarray;
+    std::array <char,12> charray;
     char* str = "Hi There H";
     std::memcpy(charray.data(),str,12);
     /* Memory Copy */
