@@ -34,3 +34,4 @@ Makefile
 *.exe
 *.out
 *.OUT
+.vscode/c_cpp_properties.json
