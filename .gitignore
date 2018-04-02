@@ -35,3 +35,7 @@ Makefile
 *.out
 *.OUT
 .vscode/c_cpp_properties.json
+Nodejs Website/bin
+Nodejs Website/obj
+Linux Console/bin
+Linux Console/obj
