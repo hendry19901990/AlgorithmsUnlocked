@@ -1,3 +1,7 @@
+/**
+Competitve programming standards
+
+*/
 #include <iostream>
 #include <tuple>
 #include <sstream>
