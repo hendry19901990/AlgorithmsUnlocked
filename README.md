@@ -6,6 +6,9 @@
 
 ```To err is human, wish g++ could have understood that```.
 
+## Get Inspired 
+![alt tag](https://user-images.githubusercontent.com/25129399/38405131-f1fc44f0-398b-11e8-8568-144048484af2.png).
+
 Library of algorithms written in pure ```C++ (14)``` & ```C```. Some are written in ```Node.js```
 Web Interface is written in pure javascript and runs behind a ```Node.js``` server. 
 Compile/Build the source code files using ```Cmake```, ```CLang/LLVM``` & ```Mingw64```.
