@@ -55,7 +55,7 @@ Add to PATH ```\bin``` directory of all of them.
 
 ## C++ General Tips : 
 
-Use of vectors, maps, hash_maps, sets, pairs & other STL data types reduce chances of errors and result in more efficient code. 
+Use of vectors, maps, hash_maps, sets, pairs & other STL data types to reduce chances of errors and results in more efficient code. 
 ```C++
 std::vector<int> vec;
 
@@ -73,7 +73,7 @@ std::queue<char, vector<char> > char_stack;
 
 std::deque<int> mydeque (2, 1500);
 ```
-Use Macros & Refernces wherever possible
+Use Macros & References wherever possible
 ```C++
 #define sz(a) int((a).size())
 
@@ -96,6 +96,9 @@ When working with ```int``` or ```double``` data-types, check for overflow and b
 #### Cygwin Install : https://cygwin.com/install.html
 #### MinGW Install : https://atom.io/
 #### Visual Studio Code Install : https://code.visualstudio.com/
+#### Visual Studio : https://www.visualstudio.com/vs/getting-started/
+#### Git on Windows : https://git-scm.com/
+#### Far Manager : https://www.farmanager.com/
 #### Follow this tutorial first : http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/
 #### Learn & Read this : https://clang.llvm.org/get_started.html 
 #### CMake : https://cmake.org/cmake-tutorial/
@@ -105,6 +108,21 @@ When working with ```int``` or ```double``` data-types, check for overflow and b
 Use your favourite text editor ```sublime text``` or ```Atom``` and use with command line ```see in blue```. 
 
 ![alt-tag](https://user-images.githubusercontent.com/25129399/38405232-8868896c-398c-11e8-959d-de79a279eb25.png)
+
+Use ```Visual Studio``` for git commiting & ```git push```. The experience is great. 
+
+You may also use the command line for ```git```.
+
+```bash
+$ git init
+$ git add .
+$ git status
+$ git commit -m "Messege"
+$ git push origin master
+```
+
+![alt-tag](https://user-images.githubusercontent.com/25129399/38405234-88ce29c0-398c-11e8-9f41-d423db9515fc.png)
+
 
 ## Node.js
 #### Running & Compiling using Node,js.
