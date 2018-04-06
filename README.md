@@ -100,6 +100,12 @@ When working with ```int``` or ```double``` data-types, check for overflow and b
 #### Learn & Read this : https://clang.llvm.org/get_started.html 
 #### CMake : https://cmake.org/cmake-tutorial/
 
+## Setup 
+
+Use your favourite text editor ```sublime text``` or ```Atom``` and use with command line ```see in blue```. 
+
+![alt-tag](https://user-images.githubusercontent.com/25129399/38405232-8868896c-398c-11e8-959d-de79a279eb25.png)
+
 ## Node.js
 #### Running & Compiling using Node,js.
 To compile & run using Node.js, the follwoing code will come handy. 
