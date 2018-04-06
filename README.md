@@ -154,6 +154,9 @@ You may also change the ```--delay 2.5``` option time to 1.
 The Option```--delay 1``` makes sure that there is no race condition while run.exe 
 is in use by the other nodemon process cause we are purposefully delaying it. 
 
+See : 
+![alt-tag](https://user-images.githubusercontent.com/25129399/38420190-96b42858-39c0-11e8-83f9-b43f487a331c.png)
+
 #### Running & Compiling using Node,js.
 To compile & run using Node.js, the follwoing code will come handy. 
 Make sure ```Node.js``` is already installed. 
