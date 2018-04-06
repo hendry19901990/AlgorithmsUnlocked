@@ -7,54 +7,79 @@
 #include <vector>
 #include <map>
 using namespace std;
-void merge(int* A, int* B)
+const int SIZE = 25001;
+int a[SIZE];
+void process()
 {
-    size_t i = 0, j = 0, k = 0;
-    const size_t n = sizeof(A)/sizeof(int);
-    const size_t m = sizeof(B)/sizeof(int);
-    int* mergearray = new int[m + n + 1];
-    memset(mergearray, 0, m+n+1);
-    while(i < n && j < m)
-    {
-        if(A[i] >= B[j])
-        {
-            mergearray[k] = B[j];
-            j++;
-        }
-        else 
-        {
-            mergearray[k] = A[i];
-            i++;
-        }
-        k++;
-    }
-    while(i < n)
-    {
-        mergearray[k] = A[i];
-        i++;
-        k++;
-    }
-    while(j < m)
-    {
-        mergearray[k] = B[j];
-        j++;
-        k++;
-    }
-    size_t s = sizeof(mergearray)/sizeof(int);
-    for(j = 0; j < s; j++)
-    {
-        cout << mergearray[j] << "  ";
-        if(j%3 == 0)
-        {
-            cout << endl;
-        }
-    }
-    cout << endl;    
+	for (int i = SIZE; i > 0; i--)
+	{
+		int j = SIZE - i;
+		a[j] = i;
+	}
+}
+void print()
+{
+	int size = SIZE;
+	for (auto i = 0; i < size; i++)
+	{
+		cout << a[i] << "    ";
+		if (i % 10 == 0)
+		{
+			cout << endl;
+		}
+	}
+	cout << endl;
+}
+void merge(int a[], int temp[], int left, int mid, int right)
+{
+	int left_t, right_t, index_t;
+	left_t = left;
+	right_t = mid;
+	index_t = left;
+	while ((left_t <= mid - 1) && (right_t <= right))
+	{
+		if (a[left_t] < a[right_t])
+		{
+			temp[index_t++] = a[left_t++];
+		}
+		else
+		{
+			temp[index_t++] = a[right_t++];
+		}
+	}
+	while (left_t < mid - 1)
+	{
+		temp[index_t++] = a[left_t++];
+	}
+	while (right_t <= right)
+	{
+		temp[index_t++] = a[right_t++];
+	}
+	for (int i = left; i <= right; i++)
+	{
+		a[i] = temp[i];
+	}
+}
+void _mergesort(int a[], int temp[], int low, int high)
+{
+	if (low >= high) exit(EXIT_FAILURE);
+	else if (high > low)
+	{
+		int mid = low + (high - low) / 2;
+		_mergesort(a, temp, low, mid);
+		_mergesort(a, temp, mid + 1, high);
+		merge(a, temp, left, mid + 1, right);
+	}
+}
+void mergesortOp(int a[], int n)
+{
+	int *temp = new int[n];
+	_mergesort(a, temp, 0, n - 1);
 }
 int main()
 {
-    int A[] = {2,7,3,6,5,4};
-    int B[] = {3,5,9,12,45,65,84,45,44};
-    merge(A,B);
-    return 0;
+	process();
+	mergesortOp(a, SIZE);
+	print();
+	return 0;
 }
