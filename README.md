@@ -125,6 +125,35 @@ $ git push origin master
 
 
 ## Node.js
+
+#### Running & Compiling automtically. Using nodemon
+To compile and run automatically incase of changes made to ```*.cpp``` file, we may use nodemon. 
+Make sure ```Node.js``` is already installed. Nodemon watches for changes in ```*  /dir``` and executes 
+automatically in cases of changes. Nodemon can also be used to execute and monitor other programs.
+
+```bash
+$ npm install -g nodemon
+```
+Open one terminal and type the following, 
+
+```bash
+$ nodemon run.js 
+```
+#### For native compilation & Run.
+Open one terminal and type the following in the same ```dir``` as ```run.cpp```.
+
+```bash 
+$ nodemon --exec "g++ -O3 -W -pedantic -march=native -o run.exe" run.cpp
+```
+Open another terminal and write
+
+```bash
+$ nodemon --delay 2.5 --exec "run.exe" run.exe
+``` 
+You may also change the ```--delay 2.5``` option time to 1.
+The Option```--delay 1``` makes sure that there is no race condition while run.exe 
+is in use by the other nodemon process cause we are purposefully delaying it. 
+
 #### Running & Compiling using Node,js.
 To compile & run using Node.js, the follwoing code will come handy. 
 Make sure ```Node.js``` is already installed. 
@@ -231,12 +260,14 @@ freopen("out.txt", "w", stdout);
 ```
 
 #### Again : Add to PATH ```\bin``` directory of all of them.
+
 ## CMake Build
 
 ```bash
 $ cmake CMakeList.txt 
 ```
 ## Using CMake
+
 ```bash
 $ cmake CMakeLists.txt
 $ make
@@ -258,17 +289,19 @@ $ time ./main.out
 ```
 ## Generating Intermediate Represenation using LLVM Clang
 
-```cmd
+Use the following commands.```-O3``` with level 3 optimization.
+
+```bash
 $ clang++ main.cpp -S -emit-llvm main.bc
 $ clang++ main.cpp -S -emit-llvm -O3 main.bc
 ```
 ## Generating Assembly Language mnemonics
 
-```cmd
+Use any the following commands.
+
+```bash
 $ clang++ main.cpp -S -O3 -o main.asm
-OR
 $ gcc -g -c main.cpp -o main.o
 $ objdump -d -M intel main.o
-OR
 $ objdump -D -mcpu=<cpu-name> main.o
 ```
