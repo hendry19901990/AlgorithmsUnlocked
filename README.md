@@ -92,20 +92,74 @@ Use Macros & References wherever possible
 #define input(ss, inputbuffer) while(cin.good()) { getline(cin, inputbuffer); ss << inputbuffer << endl; }
 
 ```
-When working with ```int``` or ```double``` data-types, check for overflow and byte allignment conditions. There may be amny other data types also for which overflow condition checking is a must. 
+When working with ```int``` or ```double``` data-types, check for overflow and byte allignment conditions. 
+There may be amny other data types also for which overflow condition checking is a must. 
+
+Use hashing to check for changes and tracking the same. 
+Below is a snippet to hash and print/store the hash, a SHA-256 of the input.
+
+```C++
+std::string once_sha256(const std::string &type_string) {
+	SHA256_CTX ptx;
+	sha256_init(&ptx);
+	sha256_update(&ptx, (const BYTE *)type_string.c_str(), type_string.size());
+	sha256_final(&ptx, this->digest);
+	std::stringstream stream;
+	stream << "0x";
+	for (const auto& c : this->digest)
+		stream << std::hex << std::setw(2) << std::setfill('0') << (unsigned)c;
+	return stream.str();
+}
+```
+See ```Misc Codes``` folder for more uses.  
+## More References :
+#### STLs  &  Data Structures
+https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/
+
+
+https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-2/
+
+http://codeforces.com/blog/entry/13529
+
+http://codeforces.com/blog/entry/11080
+
+https://opensource.apple.com/source/llvmgcc42/llvmgcc42-2336.9/libstdc++-v3/testsuite/ext/pb_ds/example/trie_prefix_search.cc
+
+
+
+#### General Refs : 
+https://www.topcoder.com/community/data-science/data-science-tutorials/
+
+https://google.github.io/styleguide/cppguide.html
+
+https://developers.google.com/edu/c++/cpp-in-depth
+
+https://developers.google.com/edu/c++/
+
+
 
 
 ## Installations
-#### Node.js Install : https://nodejs.org/en/download/
-#### Cygwin Install : https://cygwin.com/install.html
-#### MinGW Install : https://atom.io/
-#### Visual Studio Code Install : https://code.visualstudio.com/
-#### Visual Studio : https://www.visualstudio.com/vs/getting-started/
-#### Git on Windows : https://git-scm.com/
-#### Far Manager : https://www.farmanager.com/
-#### Follow this tutorial first : http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/
-#### Learn & Read this : https://clang.llvm.org/get_started.html 
-#### CMake : https://cmake.org/cmake-tutorial/
+#### Node.js Install : 
+https://nodejs.org/en/download/
+#### Cygwin Install : 
+https://cygwin.com/install.html
+#### MinGW Install : 
+https://atom.io/
+#### Visual Studio Code Install : 
+https://code.visualstudio.com/
+#### Visual Studio : 
+https://www.visualstudio.com/vs/getting-started/
+#### Git on Windows : 
+https://git-scm.com/
+#### Far Manager : 
+https://www.farmanager.com/
+#### Follow this tutorial first : 
+http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/
+#### Learn & Read this : 
+https://clang.llvm.org/get_started.html 
+#### CMake : 
+https://cmake.org/cmake-tutorial/
 
 ## Setup 
 
