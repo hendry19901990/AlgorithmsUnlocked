@@ -87,6 +87,10 @@ Use Macros & References wherever possible
 
 #define tr(container, it) for(decltype(container.begin()) it = container.begin(); it != container.end(); it++)
 
+#define print(vec) for(const auto& i : vec) cout << i << endl;
+
+#define input(ss, inputbuffer) while(cin.good()) { getline(cin, inputbuffer); ss << inputbuffer << endl; }
+
 ```
 When working with ```int``` or ```double``` data-types, check for overflow and byte allignment conditions. There may be amny other data types also for which overflow condition checking is a must. 
 
@@ -128,7 +132,7 @@ $ git push origin master
 
 #### Running & Compiling automtically. Using nodemon
 To compile and run automatically incase of changes made to ```*.cpp``` file, we may use nodemon. 
-Make sure ```Node.js``` is already installed. Nodemon watches for changes in ```*  /dir``` and executes 
+Make sure  ``` Node.js``` is already installed. Nodemon watches for changes in ```*  /dir``` and executes 
 automatically in cases of changes. Nodemon can also be used to execute and monitor other programs.
 
 ```bash
@@ -140,6 +144,11 @@ Open one terminal and type the following,
 $ nodemon run.js 
 ```
 #### For native compilation & Run.
+With just one terminal open. ```run.js``` file contents are discussed below in Node.js Section. Used the ```--delay ``` option to avoid race conditions on reload. 
+
+```bash
+$ nodemon --delay 250ms run.js -e cpp
+```
 Open one terminal and type the following in the same ```dir``` as ```run.cpp```.
 
 ```bash 
