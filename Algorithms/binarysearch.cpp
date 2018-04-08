@@ -24,11 +24,11 @@ void linearsearch(U& elem, T& item)
 	if(found == false)	cout << "Not Found Item : " << item << endl;
 }
 template <typename U, typename T>
-void binarysearch(U& elem, T& item, size_t start, size_t end)
+void binarysearch(const U& elem, const T& item, size_t start, size_t end) noexcept
 {
   if(start > elem.size() || end > elem.size() || start < 0 || end < 0)
 	{
-		cout << "Item not found :: " << item << endl;
+		cout << "Item not found in range :: " << item << endl;
 		return;
 	}
 	bool found = false;
@@ -37,10 +37,16 @@ void binarysearch(U& elem, T& item, size_t start, size_t end)
 		elem[start] == item ? start : -1 ;
 	}
 	size_t mid = start + (end - start) / 2;
-	if(item == elem[mid]) found = true;
-	else if (item > elem[mid]) binarysearch<U,T> (elem, item, mid + 1, end);
-	else binarysearch<U,T> (elem, item, start, mid - 1);
-	if(found == true) cout << "Element found : " << &mid << " " << mid << endl;
+	if(item == elem[mid])
+		found = true;
+	else if (item > elem[mid])
+	 	binarysearch<U,T> (elem, item, mid + 1, end);
+	else
+		binarysearch<U,T> (elem, item, start, mid - 1);
+	if(found == true)
+		cout << "Element found : " << &mid << " " << mid << endl;
+	else
+		cout << "Item : " << item << " not found" << endl;
 }
 void linearsearch(int* A, int& item)
 {
