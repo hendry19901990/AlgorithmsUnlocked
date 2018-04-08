@@ -26,54 +26,21 @@ void linearsearch(U& elem, T& item)
 template <typename U, typename T>
 void binarysearch(U& elem, T& item, size_t start, size_t end)
 {
-	if (start >= end)
+  if(start > elem.size() || end > elem.size() || start < 0 || end < 0)
 	{
-		cout << "at start" << endl;
+		cout << "Item not found :: " << item << endl;
 		return;
 	}
 	bool found = false;
-	size_t mid = (start + end) / 2;
-	if (item > elem[mid])
+	if( start >= end )
 	{
-		cout << "FH" << endl;
-		binarysearch< U, T >(elem, item, mid + 1, end);
+		elem[start] == item ? start : -1 ;
 	}
-	else if (item < elem[mid])
-	{
-		cout << "SH" << endl;
-		binarysearch< U, T >(elem, item, start, mid - 1);
-	}
-	else
-	{
-		found = true;
-		cout << "Item Found :" << &mid << "  " << mid << endl;
-	}
-	if (found == false)	cout << "Not Found Item : " << item << endl;
-}
-void binarysearch(int* A, size_t s, size_t e, int& item)
-{
-    if( s >= e ) 
-    {
-        cout << "Item not found ! " << endl;
-        return;
-    }
-    size_t mid = (s + e)/2;
-    if(A[mid] > item)
-    {
-        ++count;
-        cout << " First half :: mid = " << mid  << " Comaparision : " << count << endl;
-        binarysearch(A, s, mid, item);
-    } 
-    else if(A[mid] < item)
-    {
-        ++count;
-        cout << " Second half :: mid = " << mid << " Comaparision : " << count << endl; 
-        binarysearch(A, mid, e, item);
-    }
-    else
-    {
-        cout << "Item = " << item << " Pos = " << mid << endl;
-    }
+	size_t mid = start + (end - start) / 2;
+	if(item == elem[mid]) found = true;
+	else if (item > elem[mid]) binarysearch<U,T> (elem, item, mid + 1, end);
+	else binarysearch<U,T> (elem, item, start, mid - 1);
+	if(found == true) cout << "Element found : " << &mid << " " << mid << endl;
 }
 void linearsearch(int* A, int& item)
 {
