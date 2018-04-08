@@ -9,6 +9,47 @@
 using namespace std;
 int a[250000001];
 static int count = 0;
+template <typename U, typename T>
+void linearsearch(U& elem, T& item)
+{
+	bool found = false;
+	for (const auto& i : elem)
+	{
+		if (i == item)
+		{
+			cout << "Found : " << &i << " Item " << item << endl;
+			found = true;
+		}
+	}
+	if(found == false)	cout << "Not Found Item : " << item << endl;
+}
+template <typename U, typename T>
+void binarysearch(U& elem, T& item, size_t start, size_t end)
+{
+	if (start >= end)
+	{
+		cout << "at start" << endl;
+		return;
+	}
+	bool found = false;
+	size_t mid = (start + end) / 2;
+	if (item > elem[mid])
+	{
+		cout << "FH" << endl;
+		binarysearch< U, T >(elem, item, mid + 1, end);
+	}
+	else if (item < elem[mid])
+	{
+		cout << "SH" << endl;
+		binarysearch< U, T >(elem, item, start, mid - 1);
+	}
+	else
+	{
+		found = true;
+		cout << "Item Found :" << &mid << "  " << mid << endl;
+	}
+	if (found == false)	cout << "Not Found Item : " << item << endl;
+}
 void binarysearch(int* A, size_t s, size_t e, int& item)
 {
     if( s >= e ) 
