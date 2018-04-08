@@ -4,8 +4,6 @@
 
 ```Coding is an art. It is a passion of high order.```
 
-```To err is human, wish g++ could have understood that.```
-
 ## Get Inspired 
 ![alt tag](https://user-images.githubusercontent.com/25129399/38405131-f1fc44f0-398b-11e8-8568-144048484af2.png).
 
