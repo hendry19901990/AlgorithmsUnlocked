@@ -282,6 +282,112 @@ $ npm -v
 $ sudo node ${Name-of-js-file.js}
 ```
 
+## Using Clang for sanitization. 
+
+Clang ```clang++``` gives us the oppurtunity to optimize our code and check for address sanity. 
+It will show errors if there are undefined refernces and out of bound access of array. It also generates a verbose result of the error. 
+
+For using clang for santization just add the ```-fsanitize=address```,```-fno-omit-frame-pointer``` & ```fsanitize=memory``` options. 
+
+Modify the ```run.js``` file to use clang : 
+
+```javascript
+var compile = spawn('clang++',['run.cpp','-std=c++14','-O3','-Wall','-Wextra','-g','-fsanitize=address','-fno-omit-frame-pointer','-pedantic','-march=native','-v','-o','run.exe']);
+```
+Usage With clang : 
+
+```C++
+while(cin.good())
+{
+	getline(cin, word);
+	input << word;
+}
+while(input >> line)
+{
+	wordlist.push_back(line);
+}
+struct TrieNode *root = getNode(); // A root node for trie created. 
+for (auto i : wordlist)
+{
+    // Trying to insert all the words taken from the input file. input is a stringstream, word & line are of type basic_string<> string 
+	insert(root, i);
+    // Heap Memory Overflow should occur & clang correctly detects in during runtime. No compile time errors are generated. 
+}
+```    
+
+No compile time errors are generated as ```Compilation done...```. Clang detects ```heap-buffer-overflow``` as expected. 
+This code has a bug that it tries a to insert and the heap oveflows because so much memory can't be allocated.
+
+```bash 
+ "C:\\Program Files (x86)\\Microsoft
+ Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.13.26128\\bin\\HostX64\\x64\\link.exe" -out:run.exe -defaultlib:libcmt "-libpath:C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.13.26128\\lib\\x64" "-libpath:C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.16299.0\\ucrt\\x64" "-libpath:C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.16299.0\\um\\x64" -nologo -debug -debug -incremental:no "C:\\Program Files\\LLVM\\lib\\clang\\6.0.0\\lib\\windows\\clang_rt.asan-x86_64.lib" "-wholearchive:C:\\Program Files\\LLVM\\lib\\clang\\6.0.0\\lib\\windows\\clang_rt.asan-x86_64.lib" "C:\\Program Files\\LLVM\\lib\\clang\\6.0.0\\lib\\windows\\clang_rt.asan_cxx-x86_64.lib" "-wholearchive:C:\\Program Files\\LLVM\\lib\\clang\\6.0.0\\lib\\windows\\clang_rt.asan_cxx-x86_64.lib" "C:\\Users\\Sumit\\AppData\\Local\\Temp\\run-10ef96.o"
+
+Compilation done. Exited with code 0
+=================================================================
+
+==3232==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x121216383be0 at pc 0x7ff7fe404223 bp 0x00360d12f850 sp 0x00360d12f898
+READ of size 8 at 0x121216383be0 thread T0
+
+    #0 0x7ff7fe404222 in insert+0x222 (C:\Users\Sumit\Desktop\Runtime\run.exe+0x140004222)
+
+    #1 0x7ff7fe405d09 in main+0x809 (C:\Users\Sumit\Desktop\Runtime\run.exe+0x140005d09)
+    #2 0x7ff7fe466653 in __scrt_common_main_seh f:\dd\vctools\crt\vcstartup\src\startup\exe_common.inl:283
+
+    #3 0x7ffaa6412783 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180012783)
+
+    #4 0x7ffaa6e00d50 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x180070d50)
+
+
+0x121216383be0 is located 8 bytes to the right of 216-byte region [0x121216383b00,0x121216383bd8)
+allocated by thread T0 here:
+    #0 0x7ff7fe464b71 in operator new C:\src\llvm_package_600-final\llvm\projects\compiler-rt\lib\asan\asan_new_delete.cc:92
+    #1 0x7ff7fe4040d0 in insert+0xd0 (C:\Users\Sumit\Desktop\Runtime\run.exe+0x1400040d0)
+    #2 0x7ff7fe405d09 in main+0x809 (C:\Users\Sumit\Desktop\Runtime\run.exe+0x140005d09)
+    #3 0x7ff7fe466653 in __scrt_common_main_seh f:\dd\vctools\crt\vcstartup\src\startup\exe_common.inl:283
+    #4 0x7ffaa6412783 in BaseThreadInitThunk+0x13 (C:\Windows\System32\KERNEL32.DLL+0x180012783)
+
+    #5 0x7ffaa6e00d50 in RtlUserThreadStart+0x20 (C:\Windows\SYSTEM32\ntdll.dll+0x180070d50)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow (C:\Users\Sumit\Desktop\Runtime\run.exe+0x140004222) in insert+0x222
+Shadow bytes around the buggy address:
+  0x043258ff0720: 00 00 00 00 00 00 00 00 00 00 00 fa fa fa fa fa
+  0x043258ff0730: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+  0x043258ff0740: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x043258ff0750: 00 00 00 fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x043258ff0760: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x043258ff0770: 00 00 00 00 00 00 00 00 00 00 00 fa[fa]fa fa fa
+  0x043258ff0780: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+  0x043258ff0790: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x043258ff07a0: 00 00 00 fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x043258ff07b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x043258ff07c0: 00 00 00 00 00 00 00 00 00 00 00 fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==3232==ABORTING
+
+Execution done. Exited with code 1
+```
+
+![alt-tag](https://user-images.githubusercontent.com/25129399/38563096-b55b9e26-3cf9-11e8-88a8-bd270d0478cc.PNG)
+
+
 ## Maintaining Byte Alignment in C++ code 
  ```C++
  typedef double *__attribute__((aligned(64))) aligned_double;
