@@ -4,8 +4,6 @@
 
 ```Coding is an art. It is a passion of high order.```
 
-## Get Inspired 
-![alt tag](https://user-images.githubusercontent.com/25129399/38405131-f1fc44f0-398b-11e8-8568-144048484af2.png).
 
 Library of algorithms written in pure ```C++ (14)``` & ```C```. Some are written in ```Node.js```
 Web Interface is written in pure javascript and runs behind a ```Node.js``` server. 
@@ -16,7 +14,7 @@ The folder ```Source Files``` contains basic ```C++``` & ```Node.js``` tutorials
 It will give someone a feel as to how coding in ```C++``` or ```Node.js``` is. 
 
 Build files and code for ```Windows Application (Using C++)``` & ```Node.js``` Website for problem solving and Competitive Programming will be put in soon under 
-```Windows Application``` & ```Nodejs Website``` folder by ``` 24th June, 2018 ```.
+```Windows Application``` & ```Nodejs Website``` folder.
 
 ### Later Additions : 
 
@@ -37,7 +35,7 @@ COCI Problems
 
 An algorithms repository. Basics of ```C++ for programming```. Stable Sorting Algorithms. Inversion Counting. AVL Trees, Red-Black Trees, 2-3-4 Trees, B-Trees, Path Commpression, 
 Huffman Encoding, Disjoint Sets, Greedy Knapsack & Job Sequencing Algorithms. Graph Traversal. Dynamic Programming. 0/1 Knapsack. Bellman-Ford Algorithm, Floyd-Warshall Algorithm.
-The algorithms will be added in ```Algorithms ``` Folder by ``` 25th July, 2018 ```.
+The algorithms will be added in ```Algorithms ``` folder.
 ## From Command Line (Prerequisite)
 ```Add g++, gcc, clang & clang++ to path env variables. While installing MinGW or Cygwin on Windows as well as on Linux.```
 Add to PATH ```\bin``` directory of all of them.
