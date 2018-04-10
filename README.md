@@ -284,7 +284,7 @@ $ sudo node ${Name-of-js-file.js}
 
 ## Using Clang for sanitization. 
 
-Clang ```clang++``` gives us the oppurtunity to optimize our code and check for address sanity. 
+Clang ```clang++``` gives us the oppurtunity to optimize our code and check for address and memory realted errors. 
 It will show errors if there are undefined refernces and out of bound access of array. It also generates a verbose result of the error. 
 
 For using clang for santization just add the ```-fsanitize=address```,```-fno-omit-frame-pointer``` & ```fsanitize=memory``` options. 
