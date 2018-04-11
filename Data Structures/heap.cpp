@@ -46,13 +46,12 @@ void process(T A, size_t size)
 	for (size_t i = 0; i < size; i++)
 	{
 		A[i] = size - i;
-		// A->push_back(size-i);
 	}
 }
 
 int main()
 {
-    int* buff = new int[32];
+  int* buff = new int[32];
 	process(buff, 32);
 	std::vector<int> v(buff, buff + 31);
 	auto gap = v.size();
