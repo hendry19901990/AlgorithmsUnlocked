@@ -52,5 +52,5 @@ void f(const vector<int>& v) {
 }
 void mapfunc()
 {
-
+		
 }

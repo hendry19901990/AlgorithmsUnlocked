@@ -9,7 +9,7 @@
 #include <sstream>
 #include <cstdio>
 #include <string.h>
-#include <activation.h>
+
 #define sz(a) int((a).size()) 
 #define pb push_back 
 #define all(c) (c).begin(), (c).end()
@@ -19,47 +19,16 @@
 using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
-typedef pair<int, int> ii;
-void reverse_Array(int *A, int N)
+typedef pair<int, int> pii;
+template <typename _type>
+struct comapre_less
 {
-	int *first = A;
-	int *last = A + N - 1;
-	while (first < last)
+	bool operator() (_type& a, _type& b) const
 	{
-		swap(A[*first], A[*last]);
-		first++; // Move the first index forward;
-		last--; //Move the last index back;
+		return (a < b) ? true : false;
 	}
-}
-template <typename T>
-void reverser(T& A, size_t N)
-{
-	T* f = A;
-	T* l = A + N - 1;
-	while (f < l)
-	{
-		swap(A[*f], A[*l]);
-		f++;
-		l--;
-	}
-
-}
-void f(const vector<int>& v) {
-	int r = 0;
-	tr(v, it) {
-		r += (*it)*(*it);
-	}
-}
+};
 int setfunc()
 {
-	set<int> st;
-	for (auto i = 0; i < 1000; i++)
-	{
-		st.insert(i);
-	}
-	for (auto i = 0; i <= 1000; i += 2)
-	{
-		st.erase(i);
-	}
-	return 0;
+
 }
