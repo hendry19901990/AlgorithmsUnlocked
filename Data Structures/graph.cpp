@@ -21,6 +21,29 @@
 #include <unordered_set>
 #include <utility>
 #include <vector>
+#include <iostream>
+#include <algorithm>
+#include <array>
+#include <cassert>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <exception>
+#include <initializer_list>
+#include <map>
+#include <mutex>
+#include <numeric>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <stack>
+#include <string>
+#include <system_error>
+#include <unordered_map>
+#include <unordered_set>
+#include <utility>
+#include <vector>
 using namespace std;
 enum class NodeColor
 {
@@ -41,8 +64,11 @@ public:
 	virtual ~Vertex(){}
 	const std::string& name() const { return _name; }
 	int weight() const { return _weight; }
-	int count() const { return _counter; }
+	bool setlevel(int s) noexcept { _level = s; return true; }
+	int level() const { return _level; }
 	int color() const { return (int)_color; }
+	bool parent(Vertex* v) noexcept { _parent = v; return true; }
+	Vertex* getparent() { return _parent; }
 	bool visited(bool _set) noexcept { _is_visited = _set; return true; }
 	bool parent_traversal(bool _set) noexcept { _is_parent_traversal = _set; return true; }
 	bool connected(bool _set) noexcept { _is_connected = _set; return true; }
@@ -60,18 +86,20 @@ protected:
 	bool		_is_parent_traversal;
 	bool		_is_connected;
 	bool		_is_convoluted_array;
-	int			_counter;
+	int			_level;
+	Vertex*		_parent;
 };
 Vertex::Vertex(std::string name, int weight, int id)
 	: _name(std::move(name))
-	, _weight(weight) 
-	, _id(id)
+	, _weight(std::move(weight))
+	, _id(std::move(id))
 {
 	_is_visited = false;
 	_is_parent_traversal = false;
 	_is_connected = true;
 	_is_convoluted_array = false;
-	_counter = 0;
+	_level = -1;
+	_parent = nullptr;
 	this->_color = NodeColor::Black;
 }
 using vertex = Vertex * ;
@@ -85,56 +113,57 @@ void addEdge(T& graph, vertex u, vertex v, int&& weight)
 }
 void BFS(AdjacencyList& graph)
 {
-	/*
 	
-	
-	*/
 
 }
 std::deque<vertex> q;
 AdjacencyList graph;
 int main()
 {
-	Vertex v2{ "2" };
-	Vertex v3{ "3" };
-	Vertex v5{ "5" };
-	Vertex v7{ "7" };
-	Vertex v8{ "8" };
-	Vertex v9{ "9" };
-	Vertex v10{ "10" };
-	Vertex v11{ "11" };
-	addEdge(graph, &v7, &v11, 84);
-	addEdge(graph, &v7, &v8, 856);
-	addEdge(graph, &v5, &v11, 14);
-	addEdge(graph, &v3, &v8, 54);
-	addEdge(graph, &v3, &v10, 541);
-	addEdge(graph, &v8, &v9, 112);
-	addEdge(graph, &v11, &v9, 226);
-	addEdge(graph, &v9, &v2, 412);
-	addEdge(graph, &v7, &v2, 65);
+	Vertex a{ "a", 1255, 1 };
+	Vertex z{ "z", 1262, 2 };
+	Vertex c{ "c", 1254, 3 };
+	Vertex s{ "s", 1232, 4 };
+	Vertex x{ "x", 1278, 5 };
+	Vertex d{ "d", 1652, 6 };
+	Vertex f{ "f", 1451, 7 };
+	Vertex v{ "v", 1965, 8 };
+	addEdge(graph, &a, &s, 20);
+	addEdge(graph, &s, &x, 49);
+	addEdge(graph, &a, &z, 96);
+	addEdge(graph, &x, &d, 54);
+	addEdge(graph, &x, &c, 62);
+	addEdge(graph, &d, &c, 112);
+	addEdge(graph, &d, &f, 226);
+	addEdge(graph, &c, &f, 315);
+	addEdge(graph, &f, &v, 65);
+	addEdge(graph, &c, &v, 85);
 	cout << "Graph --> Adjacency list : " << endl;
 	for (const auto& vrtxlist : graph)
 	{
-		cout << "Vertex : " << vrtxlist.first->name() << " init : " << vrtxlist.first->color() << " is connected to :" << endl;
+		cout << " Vertex : " << vrtxlist.first->name() << " Node Weight : " << vrtxlist.first->weight() << " is connected to :" << endl;
 		for (const auto &vrtx : vrtxlist.second)
 		{
-			cout << "   " << vrtx.first->name() << " Weight : " << vrtx.second << "$" << endl;
+			cout << "   " << vrtx.first->name() << " Edge-Weight : " << vrtx.second << " " << endl;
 		}
 	}
-	q.push_back(&v2);
+	s.setlevel(0);
+	q.push_back(&s);
 	while (!q.empty())
-	{
+	{ 
 		vertex u = q.front();
 		u->visited(true);
 		q.pop_front();
 		for (const auto& w : graph[u])
 		{
-			if (w.first->is_visited() != true)
+			if (w.first->level() == -1)
 			{
-				cout << " Node : " << w.first->name() << " Edge-Weight : " << w.second << endl;
+				w.first->setlevel(u->level() + 1);
+				cout << " Level : " << w.first->level() << " Node : " << w.first->name() << " Edge-Weight : " << w.second << endl;
+				w.first->parent(u);
 				q.push_back(w.first);
+				w.first->visited(true);
 			}
-			w.first->visited(true);
 		}
 	}
 	return 0;
