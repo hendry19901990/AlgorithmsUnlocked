@@ -26,15 +26,14 @@ class StackEmpty : public RuntimeException{
 public:
     StackEmpty(const string& err) : RuntimeException(err)
     {
-        cout << err << endl;
+        printf("%s\n", err);
     }
 };
 class StackFull : public RuntimeException{
 public:
-public:
     StackFull(const string& err) : RuntimeException(err)
     {
-        cout << err << endl;
+        printf("%s\n", err);
     }
 };
 template <typename T>
