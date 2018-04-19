@@ -4,6 +4,7 @@
 #include <limits>
 #include <string.h>
 #include <math.h>
+#include <sstream>
 #include <vector>
 #include <map>
 #include <stdexcept>

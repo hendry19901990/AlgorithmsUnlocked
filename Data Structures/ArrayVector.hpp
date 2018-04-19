@@ -1,8 +1,3 @@
-#ifndef _ARRAY_VECTOR
-#define _ARRAY_VECTOR 1
-
-#pragma GCC system_header
-
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,6 +7,7 @@
 #include <vector>
 #include <map>
 using namespace std;
+/*Work Pending*/
 template<typename T>
 class ArrayVector
 {
@@ -142,4 +138,4 @@ void ArrayVector<T>::operator*()
 
 }
 
-#endif // !ARRAY_VECTOR
+

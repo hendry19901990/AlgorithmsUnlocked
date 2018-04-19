@@ -5,168 +5,165 @@
 #include <string.h>
 #include <math.h>
 #include <vector>
+#include <memory>
+#include <sstream>
 #include <map>
 #include <stdexcept>
 using namespace std;
+/*Forward Class Defination for making friend class*/
+template <typename T> class LinkedList;
 template<typename T>
-class listnode
+class ListNode
 {
-public: 
-    listnode(const T& elem) : node(elem), next(new listnode) {}
-    ~listnode() {}
-    listnode() {}
-    void operator=(const listnode<T>&);
-    listnode* next;
+public:
+	ListNode(const T& elem) : node(elem), next(std::make_shared<ListNode>()) {}
+	~ListNode() {}
+	ListNode() {}
+	ListNode& operator=(ListNode&&);
+	friend class LinkedList<T>;
 private:
-    T node;
+	std::shared_ptr<ListNode> next;
+	T node;
+	/* More data members can be added but I am keeping it simple here. */
 };
 template<typename T>
-void listnode<T> :: operator=(const listnode<T>& temp)
+inline ListNode<T>& ListNode<T>::operator=(ListNode && link)
 {
-    this -> node = temp -> node;
-    this -> next = temp -> next;
+	this->node = link.node;
+	this->next = link.next;
 }
 template <typename T>
-class linkedlist
+class LinkedList
 {
-public : 
-    linkedlist();
-    linkedlist(const T& elem);
-    void front() const;
-    void addFront(const T& elem) noexcept;
-    void relocate() noexcept;
-    void addBack(const T& elem) noexcept;
-    void addAt(const int& pos, const T& elem) noexcept;
-    void operator=(const listnode<T>&) noexcept;
-    void removeFront() noexcept;
-    void removeBack() noexcept;
-    void printnodes() noexcept;
-    void removeNode(const int& pos) noexcept;
-private :
-    listnode<T>* head;
-    listnode<T>* tail;
-    int count;
+public:
+	LinkedList();
+	LinkedList(const T& elem);
+	void front() const;
+	void addFront(const T& elem) noexcept;
+	void relocate() noexcept;
+	void addBack(const T& elem) noexcept;
+	void addAt(const int& pos, const T& elem) noexcept;
+	void operator=(const ListNode<T>&) noexcept;
+	void removeFront() noexcept;
+	void removeBack() noexcept;
+	void printnodes() noexcept;
+	void removeNode(const int& pos) noexcept;
+private:
+	std::shared_ptr<ListNode<T> > head;
+	std::shared_ptr<ListNode<T> > tail;
+	int count;
 };
 template <typename T>
-void linkedlist<T>::front() const
+void LinkedList<T>::front() const
 {
-    return head->next->node;
+	return head->next->node;
 }
 template<typename T>
-void linkedlist<T> :: operator=(const listnode<T>& temp) noexcept
+void LinkedList<T> :: operator=(const ListNode<T>& temp) noexcept
 {
-    this -> node = temp -> node;
-    this -> next = temp -> next;
+	this->node = temp->node;
+	this->next = temp->next;
 }
-template <typename T> 
-linkedlist<T> :: linkedlist() : head(new listnode<T>), tail(new listnode<T>), count(0)
+template<typename T>
+inline void LinkedList<T>::removeFront() noexcept
 {
-    head->next = nullptr;
-    tail = head;
-    tail->next = nullptr;
+
 }
-template <typename T> 
-linkedlist<T> :: linkedlist(const T& elem) : head(new listnode<T>), tail(new listnode<T>), count(0) 
+template <typename T>
+LinkedList<T> ::LinkedList() : head(std::make_shared<ListNode<T> >()), tail(std::make_shared<ListNode<T> >()), count(0)
 {
-    head->node = elem;
-    head->next = nullptr;
-    relocate();
+	head->next = nullptr;
+	tail = head;
+	tail->next = nullptr;
 }
-template <typename T> 
-void linkedlist<T> :: addFront(const T& elem) noexcept
+template <typename T>
+LinkedList<T> ::LinkedList(const T& elem) : head(std::make_shared<ListNode<T> >()), tail(std::make_shared<ListNode<T> >()), count(0)
 {
-    listnode<T>* front = new listnode<T>;
-    front->node = elem;
-    front->next = head;
-    head = front;
+	head->node = elem;
+	head->next = nullptr;
+	relocate();
 }
-template <typename T> 
-void linkedlist<T> :: addAt(const int& pos, const T& elem) noexcept
+template <typename T>
+void LinkedList<T> ::addFront(const T& elem) noexcept
 {
-    count = 1;
-    listnode<T>* temp = new listnode<T>;
-    listnode<T>* add = new listnode<T>;
-    add -> node = elem;
-    add -> next = nullptr;
-    temp = head;
-    while(count != pos - 1)
-    {
-        temp = temp -> next;
-        count++;
-    }
-    add -> next = temp -> next;
-    temp -> next = add;
+	std::shared_ptr<ListNode<T> > front = std::make_shared<ListNode<T> >();
+	front->node = elem;
+	front->next = head;
+	head = front;
 }
-template <typename T> 
-void linkedlist<T> :: removeNode(const int& pos) noexcept
+template <typename T>
+void LinkedList<T> ::addAt(const int& pos, const T& elem) noexcept
 {
-    count = 1;
-    listnode<T>* temp = new listnode<T>;
-    temp = head;
-    while(count != pos - 1)
-    {
-        temp = temp -> next;
-        count++;
-    }
-    temp -> next = temp -> next -> next;
+	count = 1;
+	std::shared_ptr<ListNode<T> > temp = std::make_shared<ListNode<T> >();
+	std::shared_ptr<ListNode<T> > add = std::make_shared<ListNode<T> >();
+	add->node = elem;
+	add->next = nullptr;
+	temp = head;
+	while (count != pos - 1)
+	{
+		temp = temp->next;
+		count++;
+	}
+	add->next = temp->next;
+	temp->next = add;
 }
-template <typename T> 
-void linkedlist<T> :: removeBack() noexcept
+template <typename T>
+void LinkedList<T> ::removeNode(const int& pos) noexcept
 {
-    count = 1;
-    listnode<T>* temp = new listnode<T>;
-    temp = head;
-    while(temp -> next -> next != nullptr)
-    {
-        temp = temp -> next;
-    }
-    temp -> next = nullptr;
+	count = 1;
+	std::shared_ptr<ListNode<T> > temp = std::make_shared<ListNode<T> >();
+	temp = head;
+	while (count != pos - 1)
+	{
+		temp = temp->next;
+		count++;
+	}
+	temp->next = temp->next->next;
 }
-template <typename T> 
-void linkedlist<T> :: relocate() noexcept
+template <typename T>
+void LinkedList<T> ::removeBack() noexcept
 {
-    listnode<T>* temp = new listnode<T>;
-    temp = head;
-    while(temp -> next != nullptr)
-    {
-        temp = temp -> next;
-    }
-    tail = temp;
-    tail -> next = nullptr;
+	count = 1;
+	std::shared_ptr<ListNode<T> > temp = std::make_shared<ListNode<T> >();
+	temp = head;
+	while (temp->next->next != nullptr)
+	{
+		temp = temp->next;
+	}
+	temp->next = nullptr;
 }
-template <typename T> 
-void linkedlist<T> :: printnodes() noexcept
+template <typename T>
+void LinkedList<T> ::relocate() noexcept
 {
-    listnode<T>* temp = new listnode<T>;
-    temp = head;
-    while(temp -> next != nullptr)
-    {
-        cout << temp -> node << "->" ;
-        temp = temp -> next;
-    }
-    cout << endl;
+	std::shared_ptr<ListNode<T> > temp = std::make_shared<ListNode<T> >();
+	temp = head;
+	while (temp->next != nullptr)
+	{
+		temp = temp->next;
+	}
+	tail = temp;
+	tail->next = nullptr;
 }
-template <typename T> 
-void linkedlist<T> :: addBack(const T& elem) noexcept
+template <typename T>
+void LinkedList<T> ::printnodes() noexcept
 {
-    relocate();
-    listnode<T>* back = new listnode<T>;
-    back->node = elem;
-    back->next = nullptr;
-    tail->next = back;
-    tail = back;
+	std::shared_ptr<ListNode<T> > temp = std::make_shared<ListNode<T> >();
+	temp = head;
+	while (temp->next != nullptr)
+	{
+		cout << temp->node << "->";
+		temp = temp->next;
+	}
+	cout << endl;
 }
-void linkedlist_func()
+template <typename T>
+void LinkedList<T> ::addBack(const T& elem) noexcept
 {
-    linkedlist<int> list;
-    for(auto i = 0; i < 30; i++)
-    {
-        list.addBack(i + 1);
-    }
-    list.addAt(10, 87);
-    list.removeNode(9);
-    list.removeNode(19);
-    list.removeBack();
-    list.removeBack();
-    list.printnodes();
+	relocate();
+	std::shared_ptr<ListNode<T> > back = std::make_shared<ListNode<T> >();
+	back->node = elem;
+	back->next = nullptr;
+	tail->next = back;
+	tail = back;
 }

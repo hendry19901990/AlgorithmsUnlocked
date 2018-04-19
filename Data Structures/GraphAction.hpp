@@ -1,3 +1,6 @@
+// Implemenating a graph data structure in C++
+// Copyright Sumit Lahiri
+
 #include <iostream>
 #include <algorithm>
 #include <array>
@@ -111,14 +114,10 @@ void addEdge(T& graph, vertex u, vertex v, int&& weight)
 	graph[u].insert(make_pair(v, weight));
 	graph[v].insert(make_pair(u, weight));
 }
-void BFS(AdjacencyList& graph)
-{
-	
 
-}
 std::deque<vertex> q;
 AdjacencyList graph;
-int main()
+int GraphAction()
 {
 	Vertex a{ "a", 1255, 1 };
 	Vertex z{ "z", 1262, 2 };

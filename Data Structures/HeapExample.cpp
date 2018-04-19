@@ -48,7 +48,6 @@ void process(T A, size_t size)
 		A[i] = size - i;
 	}
 }
-
 int main()
 {
   int* buff = new int[32];

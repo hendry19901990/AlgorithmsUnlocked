@@ -55,13 +55,14 @@ public:
     const T& top() const throw(StackEmpty);
     bool push(const T& elem);
     bool pop(const T& elem) throw(StackEmpty);
+	friend class DLinkedList;
 private:
-    linkedlist<T> stack;
+    LinkedList<T> stack;
     size_t num;
 };
 
 template <typename T>
-LinkedStack<T>::LinkedStack() : S(), num(0) 
+LinkedStack<T>::LinkedStack() : stack(), num(0) 
 {
 
 }
