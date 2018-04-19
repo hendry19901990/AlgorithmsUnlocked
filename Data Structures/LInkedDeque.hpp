@@ -6,12 +6,5 @@
 #include <math.h>
 #include <vector>
 #include <map>
+#include <stdexcept>
 using namespace std;
-
-
-
-
-int main()
-{
-
-}

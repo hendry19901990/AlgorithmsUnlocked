@@ -8,30 +8,17 @@
 #include <map>
 #include <stdexcept>
 using namespace std;
-class RuntimeException 
-{
-private:
-    string errorMsg;
-public:
-    RuntimeException(const string& err)
-    {
-        errorMsg = err;
-    }
-    string getMessage() const
-    {
-        return errorMsg;
-    }
-};
 template<typename T>
 class listnode
 {
-public : 
+public: 
     listnode(const T& elem) : node(elem), next(new listnode) {}
     ~listnode() {}
     listnode() {}
     void operator=(const listnode<T>&);
-    T node;
     listnode* next;
+private:
+    T node;
 };
 template<typename T>
 void listnode<T> :: operator=(const listnode<T>& temp)
@@ -40,11 +27,12 @@ void listnode<T> :: operator=(const listnode<T>& temp)
     this -> next = temp -> next;
 }
 template <typename T>
-class linkedlist : public listnode<T> 
+class linkedlist
 {
 public : 
     linkedlist();
     linkedlist(const T& elem);
+    void front() const;
     void addFront(const T& elem) noexcept;
     void relocate() noexcept;
     void addBack(const T& elem) noexcept;
@@ -59,6 +47,11 @@ private :
     listnode<T>* tail;
     int count;
 };
+template <typename T>
+void linkedlist<T>::front() const
+{
+    return head->next->node;
+}
 template<typename T>
 void linkedlist<T> :: operator=(const listnode<T>& temp) noexcept
 {

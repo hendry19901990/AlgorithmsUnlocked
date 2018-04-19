@@ -24,16 +24,20 @@ public:
 };
 class StackEmpty : public RuntimeException{
 public:
+    std::stringstream ss;
     StackEmpty(const string& err) : RuntimeException(err)
     {
-        printf("%s\n", err);
+        ss << err;
+        cout << ss.str();
     }
 };
 class StackFull : public RuntimeException{
 public:
+    std::stringstream ss;
     StackFull(const string& err) : RuntimeException(err)
     {
-        printf("%s\n", err);
+        ss << err;
+        cout << ss.str();
     }
 };
 template <typename T>
