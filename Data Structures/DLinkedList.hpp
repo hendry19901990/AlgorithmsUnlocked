@@ -1,3 +1,5 @@
+#ifndef _DOUBLE_LINKED_LIST
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -135,3 +137,6 @@ bool DLinkedList<T>::removeFront()
 {
 	remove(header->next);
 }
+
+#define _DOUBLE_LINKED_LIST 1
+#endif // !_DOUBLE_LINKED_LIST

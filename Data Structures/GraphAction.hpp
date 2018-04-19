@@ -1,50 +1,22 @@
-// Implemenating a graph data structure in C++
-// Copyright Sumit Lahiri
+#ifndef _GRAPH_NODE
 
 #include <iostream>
+#include <stdio.h>
 #include <algorithm>
 #include <array>
-#include <cassert>
-#include <cmath>
-#include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <exception>
-#include <initializer_list>
 #include <map>
-#include <mutex>
-#include <numeric>
 #include <queue>
 #include <set>
 #include <sstream>
-#include <stack>
 #include <string>
 #include <system_error>
 #include <unordered_map>
 #include <unordered_set>
-#include <utility>
 #include <vector>
 #include <iostream>
-#include <algorithm>
-#include <array>
-#include <cassert>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <exception>
-#include <initializer_list>
-#include <map>
-#include <mutex>
-#include <numeric>
-#include <queue>
-#include <set>
-#include <sstream>
-#include <stack>
-#include <string>
-#include <system_error>
-#include <unordered_map>
-#include <unordered_set>
 #include <utility>
 #include <vector>
 using namespace std;
@@ -64,7 +36,7 @@ public:
 	Vertex(std::string name, int weight = 1, int id = 1);
 	Vertex(Vertex&&) {}
 	Vertex& operator= (Vertex&&) { return *this; }
-	virtual ~Vertex(){}
+	virtual ~Vertex() {}
 	const std::string& name() const { return _name; }
 	int weight() const { return _weight; }
 	bool setlevel(int s) noexcept { _level = s; return true; }
@@ -149,7 +121,7 @@ int GraphAction()
 	s.setlevel(0);
 	q.push_back(&s);
 	while (!q.empty())
-	{ 
+	{
 		vertex u = q.front();
 		u->visited(true);
 		q.pop_front();
@@ -167,3 +139,6 @@ int GraphAction()
 	}
 	return 0;
 }
+
+#define _GRAPH_NODE 1
+#endif // !_GRAPH_NODE

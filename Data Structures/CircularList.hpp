@@ -1,3 +1,5 @@
+#ifndef _CIRCULAR_LIST
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -120,3 +122,5 @@ inline bool CircularList<T>::remove()
 
 
 
+#define _CIRCULAR_LIST 1
+#endif // !_CIRCULAR_LIST

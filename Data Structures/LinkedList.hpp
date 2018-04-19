@@ -1,3 +1,5 @@
+#ifndef _LINKED_LIST 
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -167,3 +169,6 @@ void LinkedList<T> ::addBack(const T& elem) noexcept
 	tail->next = back;
 	tail = back;
 }
+
+#define _LINKED_LIST 1
+#endif // !_LINKED_LIST 

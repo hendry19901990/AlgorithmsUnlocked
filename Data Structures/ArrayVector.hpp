@@ -1,13 +1,17 @@
+#ifndef _ARRAY_VECTOR
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits>
 #include <string.h>
+#include <memory>
+#include <cstring>
+#include <sstream>
 #include <math.h>
 #include <vector>
 #include <map>
 using namespace std;
-/*Work Pending*/
 template<typename T>
 class ArrayVector
 {
@@ -139,3 +143,5 @@ void ArrayVector<T>::operator*()
 }
 
 
+#define _ARRAY_VECTOR 1
+#endif // !_ARRAY_VECTOR

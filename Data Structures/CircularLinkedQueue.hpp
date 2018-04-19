@@ -1,3 +1,5 @@
+#ifndef _CIRCULAR_LINKED_QUEUE
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,7 +41,7 @@ template <typename T>
 class LinkedQueue
 {
 public:
-	LinkedQueue() {}
+	LinkedQueue() { sz = 0; capacity = 0; }
 	~LinkedQueue() {}
 	size_t size() const;
 	bool empty() const;
@@ -48,20 +50,20 @@ public:
 	bool dequeue() throw(QueueEmpty);
 private:
 	CircularList<T> Queue;
-	size_t size;
+	size_t sz;
 	size_t capacity;
 };
 
 template<typename T>
 inline size_t LinkedQueue<T>::size() const
 {
-	return size;
+	return sz;
 }
 
 template<typename T>
 inline bool LinkedQueue<T>::empty() const
 {
-	return (size == 0);
+	return (sz == 0);
 }
 
 template<typename T>
@@ -76,7 +78,7 @@ inline bool LinkedQueue<T>::enqueue(const T & elem)
 {
 	Queue.add(elem);
 	Queue.advance();
-	++size;
+	++sz;
 	return true
 }
 
@@ -85,6 +87,9 @@ inline bool LinkedQueue<T>::dequeue() throw(QueueEmpty)
 {
 	if (empty()) throw QueueEmpty("Deque of Empty Queue");
 	Queue.remove();
-	--size;
+	--sz;
 	return true;
 }
+
+#define _CIRCULAR_LINKED_QUEUE 1
+#endif // !_CIRCULAR_LINKED_QUEUE

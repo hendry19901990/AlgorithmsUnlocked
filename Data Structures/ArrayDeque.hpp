@@ -1,3 +1,5 @@
+#ifndef _ARRAY_DEQUEUE
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -224,3 +226,6 @@ inline bool ArrayDequeue<T>::allocator(size_t newcap) noexcept
 	capacity = newcap;
 	return true;
 }
+
+#define _ARRAY_DEQUEUE 1
+#endif // !_ARRAY_DEQUEUE

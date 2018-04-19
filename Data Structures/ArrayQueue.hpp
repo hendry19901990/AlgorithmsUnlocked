@@ -1,3 +1,5 @@
+#ifndef _ARRAY_QUEUE
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -157,7 +159,7 @@ inline bool ArrayQueue<T>::enqueue(const T & elem) throw(QueueFull)
 template<typename T>
 inline bool ArrayQueue<T>::dequeue(const T & elem) throw(QueueEmpty)
 {
-	if(sz == 0) throw QueueEmpty("Pop from empty Queue").
+	if (sz == 0) throw QueueEmpty("Pop from empty Queue");
 	front = (front + 1) % capacity;
 	Queue[front] = 0;
 	if (front == rear)
@@ -182,3 +184,5 @@ inline bool ArrayQueue<T>::allocator(size_t newcap) noexcept
 	return true;
 }
 
+#define _ARRAY_QUEUE 1
+#endif // !_ARRAY_QUEUE

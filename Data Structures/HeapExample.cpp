@@ -2,41 +2,14 @@
 #include <iostream>
 #include <algorithm>
 #include <array>
-#include <array>
-#include <bitset>
-#include <cassert>
-#include <chrono>
-#include <cmath>
-#include <cstdint>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include <ctime>
-#include <exception>
-#include <fstream>
-#include <future>
-#include <initializer_list>
-#include <list>
-#include <map>
-#include <mutex>
-#include <numeric>
-#include <queue>
-#include <ratio>
-#include <regex>
-#include <scoped_allocator>
-#include <set>
 #include <sstream>
-#include <stack>
 #include <string>
-#include <system_error>
-#include <thread>
-#include <tuple>
-#include <type_traits>
-#include <unordered_map>
-#include <unordered_set>
 #include <utility>
 #include <vector>
-#include <typeinfo>
+
 using namespace std;
 typedef std::vector<int> vector_int;
 
@@ -48,7 +21,7 @@ void process(T A, size_t size)
 		A[i] = size - i;
 	}
 }
-int main()
+int heap_code()
 {
   int* buff = new int[32];
 	process(buff, 32);
