@@ -11,4 +11,4 @@
 #include <stdexcept>
 #include "TreeNode.hpp"
 using namespace std;
-/* Binary Tree Interface */
+/* AVL Tree Interface */
