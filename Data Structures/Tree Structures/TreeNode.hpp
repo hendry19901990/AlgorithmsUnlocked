@@ -10,6 +10,7 @@
 #include <map>
 #include <stdexcept>
 #include "utilities.hpp"
+/* PLease include it int the tree files*/
 using namespace std;
 template <typename Key, typename Value> class BinaryTree;
 
