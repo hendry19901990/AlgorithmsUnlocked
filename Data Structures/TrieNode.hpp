@@ -4,11 +4,10 @@
 #include <stdio.h>
 #include <regex>
 #include <sstream>
+#include <ctype.h>
 using namespace std;
-
 class trienode;
 using char_ptr = std::shared_ptr<trienode>;
-
 class trienode
 {
 	bool isEnd;
@@ -42,10 +41,10 @@ bool trienode::addWord(const string &str, char_ptr &root)
 	for(auto j = 0; j < size; j++)
 	{
 		char ch = str[j];
-		if(temp->next_char_array[str[j] - 'a'] == nullptr)
-			temp->next_char_array[str[j] - 'a'] = std::make_shared<trienode>(ch);
+		if(temp->next_char_array[tolower(str[j]) - 'a'] == nullptr)
+			temp->next_char_array[tolower(str[j]) - 'a'] = std::make_shared<trienode>(ch);
 		++(temp->up_to_this);
-		temp = temp->next_char_array[str[j] - 'a'];
+		temp = temp->next_char_array[tolower(str[j]) - 'a'];
 		temp->isEnd = false;
 	}
 	temp->isEnd = true;
@@ -57,27 +56,29 @@ bool trienode::searchWord(const string &str, char_ptr &root)
 	char_ptr temp = root;
 	for(auto j = 0; j < size; j++)
 	{
-		if(temp->next_char_array[str[j] - 'a']->node_char == str[j])
+		if(temp->next_char_array[tolower(str[j]) - 'a']->node_char == str[j])
 		{
-			temp = temp->next_char_array[str[j] - 'a'];	
+			temp = temp->next_char_array[tolower(str[j]) - 'a'];	
 		}
 		else return false;
 	}
 	return true;
 }
+
 int main()
 {	
-	string str1 = "confundus_charm";
-	string str2 = "confusion";
-	string str3 = "engineering";
-	string str4 = "Google";
-	string str5 = "Microsoft";
+	stringstream ss;
+	string str, buff;
+	vector<string> buffvec;
 	auto wordtrie = std::make_shared<trienode>();
-	wordtrie->addWord(str1, wordtrie);
-	wordtrie->addWord(str2, wordtrie);
-	wordtrie->addWord(str3, wordtrie);
-	wordtrie->addWord(str4, wordtrie);
-	wordtrie->addWord(str5, wordtrie);
-	cout << wordtrie->searchWord(str3, wordtrie);
+	getline(cin, str); 
+	ss << str;
+	while(ss >> buff)
+	{
+		buffvec.emplace_back(buff);
+	}
+	for(string s : buffvec) wordtrie->addWord(s, wordtrie);
+	cout << wordtrie->searchWord(buffvec[4], wordtrie);
+	cout << wordtrie->searchWord("software", wordtrie);
 	return 0;
 }
