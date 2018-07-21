@@ -31,7 +31,6 @@ Makefile
 *.bin
 *.dat
 *.txt
-*.exe
 *.out
 *.OUT
 .vscode/c_cpp_properties.json
