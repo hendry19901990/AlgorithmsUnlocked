@@ -351,7 +351,7 @@ int main()
 ```
 ### 4.Find the minimum spanning tree of a graph G. 
 
-```C+
+```C++
 template<typename T>
 unordered_map<T, T> PerformPrim(Graph<T> graph)
 {
