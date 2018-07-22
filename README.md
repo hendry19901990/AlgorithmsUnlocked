@@ -16,8 +16,8 @@ Build files and code for ```Windows Application (Using C++)``` & ```Node.js``` W
 
 ### Sample Question :
 
-1. Consider the graph shown on the figure. The function ```random()``` generates a random interger between ```0``` and ```range```. 
-Write code in language of your choice to perform the following as shown below. 
+### 1. Consider the graph shown on the figure. The function ```random()``` generates a random interger between ```0``` and ```range```. 
+### Write code in language of your choice to perform the following as shown below. 
 
 #### Note : Please ask all necessary questions to the interviwer, incase it comes up in an interview.
 
@@ -349,6 +349,62 @@ int main()
 	}
 }
 ```
+### 4.Find the minimum spanning tree of a graph G. 
+
+```C+
+template<typename T>
+unordered_map<T, T> PerformPrim(Graph<T> graph)
+{
+	vector<T> Q;
+	/* Will Contain vertex,vertex pair, namely the edge of the min spanning tree. */
+	unordered_map<T, T> min_spanning_tree; 
+	unordered_map<T, T> parent;
+	unordered_map<T, int> key;
+	/* Initialized Parent and Key array. All keys are inf, since not visited/computed yet. */
+	for(const auto& vertex : graph.vertices) // O(V)
+	{
+		/* Put all the vertices in the queue */
+		Q.emplace_back(vertex);
+		key[vertex] = std::numeric_limits<int>::max();
+		parent[vertex] = '\0';
+	}
+	/* Choose a random vertex as the start */ 
+	auto start = graph.vertices[random()];
+	key[start] = 0;
+	while(!Q.empty())
+	{
+		/* Choose the vertex with the minimum Key amongst all available vertices */
+		auto u = *std::min_element(Q.begin(), Q.end(),[&](char x, char y){return key[x] < key[y];});
+		auto itr = remove(Q.begin(), Q.end(), u); // O(V)
+		/* Remove the vertex and add it to minimum spanning tree. */
+		Q.erase(itr, Q.end());
+		if(parent[u] != '\0'){
+			/* Since, we choose a vertex with the minimum key, the corresponding edge should be in the minimum spanning tree. */
+			min_spanning_tree[u] = parent[u];
+		}
+		/* Consider all the adjecent vertices of the graph. We update the key value as we check-out each edge. */
+		auto adjecent = graph.FindAdjecent(u); // O(E)
+		/* We update the key of each vertex, it is the minimum we have seen so far. */
+		for(auto &vertex : adjecent)
+		{
+			/* We do this check to see if vertex is in the queue or not. 
+			 * We dont want to update the key values of vertices not in consideration.
+			 * They are not a part of the minimum spanning tree.  	
+			 */
+			if(find(Q.begin(), Q.end(), vertex.first) != Q.end()) // O(V)
+			{
+				if(vertex.second.weight < key[vertex.first]){
+					parent[vertex.first] = u;
+					key[vertex.first] = vertex.second.weight;
+				}
+			}
+		}
+	}
+	/* We return the minimum spanning tree, O(V^2) */
+	return min_spanning_tree;
+}
+```
+
 ### Later Additions : 
 
 I will share the solutions and guides to help solve problems from, 
