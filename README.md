@@ -1,8 +1,8 @@
 # Algorithms Unlocked
 
-```Code because you like it not because you have to do it. ```
+### ```Code because you like to not because you have to. ```
 
-```Coding is an art. It is a passion of high order.```
+### ```Coding is an art. It is a passion of high order.```
 
 
 Library of algorithms written in pure ```C++ (14)``` & ```C```. Some are written in ```Node.js```
