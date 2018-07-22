@@ -158,7 +158,89 @@ struct Graph
 	}
 	cout << endl;
 ```
+#### Output : (See Repository for the last two functions).
 
+```C++
+Raw Graph is :  
+
+Vertex : a
+Adjecent vertices : b Edge weight : 18
+Adjecent vertices : g Edge weight : 103
+Adjecent vertices : c Edge weight : 53
+Vertex : b
+Adjecent vertices : a Edge weight : 18
+Adjecent vertices : g Edge weight : 54
+Adjecent vertices : d Edge weight : 77
+Adjecent vertices : f Edge weight : 46
+Adjecent vertices : e Edge weight : -51
+Vertex : c
+Adjecent vertices : e Edge weight : 97
+Adjecent vertices : a Edge weight : 53
+Adjecent vertices : d Edge weight : 32
+Vertex : d
+Adjecent vertices : f Edge weight : 15
+Adjecent vertices : b Edge weight : 77
+Adjecent vertices : i Edge weight : 48
+Adjecent vertices : h Edge weight : 3
+Adjecent vertices : e Edge weight : -2
+Adjecent vertices : c Edge weight : 32
+Vertex : e
+Adjecent vertices : d Edge weight : -2
+Adjecent vertices : c Edge weight : 97
+Adjecent vertices : b Edge weight : -51
+Vertex : f
+Adjecent vertices : g Edge weight : 72
+Adjecent vertices : d Edge weight : 15
+Adjecent vertices : i Edge weight : 6
+Adjecent vertices : b Edge weight : 46
+Vertex : g
+Adjecent vertices : b Edge weight : 54
+Adjecent vertices : a Edge weight : 103
+Adjecent vertices : f Edge weight : 72
+Vertex : h
+Adjecent vertices : d Edge weight : 3
+Adjecent vertices : i Edge weight : 71
+Vertex : i
+Adjecent vertices : f Edge weight : 6
+Adjecent vertices : d Edge weight : 48
+Adjecent vertices : h Edge weight : 71
+
+1. Breadth First Search : 
+
+Visited vertex : g  Pushed vertex : b  Pushed vertex : b  Pushed vertex : b
+Visited vertex : b  Pushed vertex : a  Pushed vertex : a
+Visited vertex : a  Pushed vertex : f
+Visited vertex : f  Pushed vertex : d
+Visited vertex : d  Pushed vertex : e
+Visited vertex : e
+Visited vertex : c
+Visited vertex : i
+Visited vertex : h
+
+2. Depth First Search : 
+
+Visited vertex : a  Pushed vertex : b  Pushed vertex : g  Pushed vertex : c
+Visited vertex : c  Pushed vertex : e  Pushed vertex : d
+Visited vertex : d  Pushed vertex : f  Pushed vertex : i  Pushed vertex : h
+Visited vertex : h
+Visited vertex : i
+Visited vertex : f
+Visited vertex : e
+Visited vertex : g
+Visited vertex : b
+
+Map is : 
+
+Adjecent vertices : a Edge weight : 53
+Adjecent vertices : b Edge weight : 18
+Adjecent vertices : c Edge weight : 53
+Adjecent vertices : d Edge weight : 32
+Adjecent vertices : e Edge weight : 97
+Adjecent vertices : f Edge weight : 15
+Adjecent vertices : g Edge weight : 103
+Adjecent vertices : h Edge weight : 3
+Adjecent vertices : i Edge weight : 48
+```
 ### Later Additions : 
 
 You share the solutions and guides to help solve problems from, 
