@@ -90,7 +90,7 @@ int main()
 	g.edges.emplace_back(Edge<char>('c','d', 32));
 	g.edges.emplace_back(Edge<char>('b','f', 46));
 	g.edges.emplace_back(Edge<char>('b','e', -random()));
-  
+
 	map<char, Edge<char> > VisitedMap;
 	set<char> VisitedSet;
 	stack<char> visit_in_prog_stack;
