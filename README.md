@@ -404,7 +404,115 @@ unordered_map<T, T> PerformPrim(Graph<T> graph)
 	return min_spanning_tree;
 }
 ```
+### Creating a Disjoint Set : 
 
+```C++
+template <typename T>
+class Disjoint_set
+{
+	/* Store the relation in a HashTable */
+	unordered_map<T, T> parent;
+	unordered_map<T, int> rank; /* How many elements in set. How deep the tree is after union */
+	std::vector<T> vset;
+public:
+	Disjoint_set() {}
+	Disjoint_set(std::vector<T> &universe)
+	{
+		vset = universe;
+		for(const auto& elem : vset)
+		{
+			/* A set of single-element sets */
+			parent[elem] = elem;
+			rank[elem] = 0;
+		}
+	}
+	~Disjoint_set() {}
+	void Insert_Set(std::vector<T> &universe)
+	{
+		vset = universe;
+		for(const auto& elem : vset)
+		{
+			/* A set of single-element sets */
+			parent[elem] = elem;
+		}
+	}
+	T Find_set(T& item)
+	{
+		if(parent[item] == item)
+		{
+			cout << "Disjoint Set : " << item << ", Parent : "<< parent[item] << endl;
+			return item;
+		}
+		else{
+			cout << "	Reference Set : " << parent[item] << endl;
+			Find_set(parent[item]);
+		} 
+	}
+	void Union_Set(T& set_a, T& set_b)
+	{
+		if(rank[set_a] > rank[set_b])
+			parent[set_b] = set_a;
+		else if(rank[set_a] < rank[set_b])
+			parent[set_a] = set_b;
+		else{
+			parent[set_a] = set_b;
+			++rank[set_b];
+		}	
+	}
+	void Print_set_map()
+	{
+		std::cout << "Set Contains :\n";
+  		for (auto i = 0; i < parent.bucket_count(); ++i)
+  		{
+    		std::cout << "bucket #" << i << " contains:";
+    		for (auto start = parent.begin(i); start != parent.end(i); ++start)
+    			std::cout << "{" << start->first << " : " << start->second << "}  ";
+    		std::cout << std::endl;
+  		}
+	}
+	void Print_set_strct()
+	{
+		for(const auto &item : vset)
+		{
+			Find_set((char&)item);
+		}
+	}
+};
+int main()
+{	
+	Disjoint_set<char> d_set;
+	std::vector<char> v;
+	v.emplace_back('a');
+	v.emplace_back('b');
+	v.emplace_back('c');
+	v.emplace_back('d');
+	v.emplace_back('e');
+	v.emplace_back('g');
+	v.emplace_back('k');
+	v.emplace_back('q');
+	v.emplace_back('o');
+	v.emplace_back('z');
+	v.emplace_back('m');
+	v.emplace_back('w');
+	v.emplace_back('s');
+	v.emplace_back('j');
+	v.emplace_back('i');
+	v.emplace_back('l');
+	v.emplace_back('n');
+	v.emplace_back(';');
+	v.emplace_back('y');
+	v.emplace_back('x');
+	d_set.Insert_Set(v);
+	d_set.Union_Set(v[2], v[7]);
+	d_set.Union_Set(v[7], v[10]);
+	d_set.Union_Set(v[3], v[8]);
+	d_set.Union_Set(v[1], v[9]);
+	d_set.Union_Set(v[12], v[9]);
+	d_set.Print_set_strct();
+	return 0;
+}
+```
+![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/sets.bmp)
 ### Later Additions : 
 
 I will share the solutions and guides to help solve problems from, 
