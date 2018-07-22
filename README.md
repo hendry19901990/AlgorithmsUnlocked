@@ -17,9 +17,9 @@ Build files and code for ```Windows Application (Using C++)``` & ```Node.js``` W
 ```Windows Application``` & ```Nodejs Website``` folder.
 ### Sample Question :
 Consider the graph shown on the figure. The function ```random()``` generates a random interger between ```0``` and ```range```. 
-Write code in language of your choice to perfoem the following as shown below. 
+Write code in language of your choice to perform the following as shown below. 
 
-#### Note : Please ask all necessary questions to the interviwer.
+#### Note : Please ask all necessary questions to the interviwer, incase it comes up in an interview.
 
 ![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/graph.jpg)
 
