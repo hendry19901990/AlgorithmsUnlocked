@@ -4,7 +4,6 @@
 
 ### ```Coding is an art. It is a passion of high order.```
 
-
 Library of algorithms written in pure ```C++ (14)``` & ```C```. Some are written in ```Node.js```
 Web Interface is written in pure javascript and runs behind a ```Node.js``` server. 
 Compile/Build the source code files using ```Cmake```, ```CLang/LLVM``` & ```Mingw64```.
@@ -13,10 +12,11 @@ First Basic C++  & Node.js Syntax & Coding Practices are discussed.
 The folder ```Source Files``` contains basic ```C++``` & ```Node.js``` tutorials for beginners.
 It will give someone a feel as to how coding in ```C++``` or ```Node.js``` is. 
 
-Build files and code for ```Windows Application (Using C++)``` & ```Node.js``` Website for problem solving and Competitive Programming will be put in soon under 
-```Windows Application``` & ```Nodejs Website``` folder.
+Build files and code for ```Windows Application (Using C++)``` & ```Node.js``` Website for problem solving and Competitive Programming will be put in soon under ```Windows Application``` & ```Nodejs Website``` folder.
+
 ### Sample Question :
-Consider the graph shown on the figure. The function ```random()``` generates a random interger between ```0``` and ```range```. 
+
+1. Consider the graph shown on the figure. The function ```random()``` generates a random interger between ```0``` and ```range```. 
 Write code in language of your choice to perform the following as shown below. 
 
 #### Note : Please ask all necessary questions to the interviwer, incase it comes up in an interview.
@@ -241,9 +241,117 @@ Adjecent vertices : g Edge weight : 103
 Adjecent vertices : h Edge weight : 3
 Adjecent vertices : i Edge weight : 48
 ```
+### 2. Code a Word Trie to support fast insert and retrieval. 
+
+```C++
+class trienode;
+using char_ptr = std::shared_ptr<trienode>;
+class trienode
+{
+	bool isEnd;
+	char node_char;
+	int up_to_this;
+	vector<char_ptr> next_char_array;
+public:
+	trienode() : isEnd(false), node_char('0'), up_to_this(0) 
+	{
+		for(auto i = 0; i < 27; i++)
+		{
+			next_char_array.emplace_back(nullptr);
+		}
+	}
+	trienode(char &ch): isEnd(false), node_char(ch), up_to_this(0) 
+	{
+		for(auto i = 0; i < 27; i++)
+		{
+			next_char_array.emplace_back(nullptr);
+		}
+	}
+	~trienode() {}
+	bool addWord(const string&, char_ptr&);
+	void deleteWord(const string&, char_ptr&);
+	bool searchWord(const string&, char_ptr&);
+};
+bool trienode::addWord(const string &str, char_ptr &root)
+{
+	auto size = str.size();
+	char_ptr temp = root;
+	for(auto j = 0; j < size; j++)
+	{
+		char ch = str[j];
+		if(temp->next_char_array[tolower(str[j]) - 'a'] == nullptr)
+			temp->next_char_array[tolower(str[j]) - 'a'] = std::make_shared<trienode>(ch);
+		++(temp->up_to_this);
+		temp = temp->next_char_array[tolower(str[j]) - 'a'];
+		temp->isEnd = false;
+	}
+	temp->isEnd = true;
+	return temp->isEnd;
+}
+bool trienode::searchWord(const string &str, char_ptr &root)
+{
+	auto size = str.size();
+	char_ptr temp = root;
+	for(auto j = 0; j < size; j++)
+	{
+		if(temp->next_char_array[tolower(str[j]) - 'a']->node_char == str[j])
+		{
+			temp = temp->next_char_array[tolower(str[j]) - 'a'];	
+		}
+		else return false;
+	}
+	return true;
+}
+```
+### 3. Random Sort funtion(). Take in an array and randomly shuffle it to get a sorted array. 
+
+```C++
+vector<int> vect;
+void process(vector<int> &A)
+{
+	for(auto i = 0; i < 60; i++)
+		A.emplace_back(i);
+}
+
+void RandomEngine(size_t index, vector<int> &A)
+{
+	std::random_device rd;
+	std::default_random_engine seed(rd());
+	// mutex_lock.lock();
+	for(auto i = 0; i < index; i++)
+	{
+		auto range = (static_cast<int>(A.size()) - 1) - i;
+		std::uniform_int_distribution<int> swap_rand(0, range);
+		swap(A[i], A[swap_rand(seed)]);
+	}
+	// mutex_lock.unlock();
+}
+int main()
+{
+	long long range = 9000;
+	std::random_device rd;
+	std::default_random_engine seed(rd());
+	std::uniform_int_distribution<int> rand(0, range);
+	auto random = std::bind(rand, seed);
+	std::thread th1 (RandomEngine, 50);
+  	std::thread th2 (RandomEngine, 30);
+  	std::thread th3 (RandomEngine, 35);
+  	th1.join();
+  	th2.join();
+  	th3.join();
+	process(vect);
+	/* Infinite Shuffling */
+	while(true)
+	{
+		cout << endl;
+		RandomEngine(35, vect);
+		for(const auto& i : vect) cout << i << " ";
+	}
+}
+```
 ### Later Additions : 
 
-You share the solutions and guides to help solve problems from, 
+I will share the solutions and guides to help solve problems from, 
 ```bash 
 HackerRank Problems
 Hackerearth Problems
