@@ -815,6 +815,9 @@ vector<string> v{"one","two","three","four","five","six"};
 std::queue<char, vector<char> > char_stack;
 
 std::deque<int> mydeque (2, 1500);
+
+std::priority_queue<int, vector<int>, greater<int> > min_heap;
+
 ```
 Use Macros & References wherever possible
 ```C++
@@ -836,9 +839,9 @@ Use Macros & References wherever possible
 
 ```
 When working with ```int``` or ```double``` data-types, check for overflow and byte allignment conditions. 
-There may be amny other data types also for which overflow condition checking is a must. 
+There may be many other data types also for which overflow condition checking is a must. 
 
-Use hashing to check for changes and tracking the same. 
+A SHA-256 hashing for building a bitcoin merkle-tree. 
 Below is a snippet to hash and print/store the hash, a SHA-256 of the input.
 
 ```C++
@@ -855,18 +858,19 @@ std::string once_sha256(const std::string &type_string) {
 }
 ```
 See ```Misc Codes``` folder for more uses.  
+
 ## More References :
 #### STLs  &  Data Structures
-https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/
+[https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/]
 
 
-https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-2/
+[https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-2/]
 
-http://codeforces.com/blog/entry/13529
+[http://codeforces.com/blog/entry/13529]
 
-http://codeforces.com/blog/entry/11080
+[http://codeforces.com/blog/entry/11080]
 
-https://opensource.apple.com/source/llvmgcc42/llvmgcc42-2336.9/libstdc++-v3/testsuite/ext/pb_ds/example/trie_prefix_search.cc
+[https://opensource.apple.com/source/llvmgcc42/llvmgcc42-2336.9/libstdc++-v3/testsuite/ext/pb_ds/example/trie_prefix_search.cc]
 
 
 
