@@ -739,6 +739,29 @@ int main()
 ``` 
 ![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/Capture.JPG)
 
+
+### Remove extra-white spaces without using stringstream or extra-space (no new string object/ array is allowed) in O(n) time where n is the number of characters. 
+
+```C++
+void TrimExtraWhiteSpace(string &str)
+{
+	int write_idx = 0;
+	bool isFirstSpace = false;
+	for (int i = 0; i < str.size(); ++i)
+	{
+		if(str[i] != ' ')
+		{
+			str[write_idx++] = str[i];
+		}
+		else 
+		{
+			if(str[i - 1] != ' ' && str[i] == ' ') str[write_idx++] = str[i];
+		}
+	}
+	cout << "Modified String : " << str.substr(0, write_idx);
+}
+```
+
 ### Later Additions : 
 
 I will share the solutions and guides to help solve problems from, 
