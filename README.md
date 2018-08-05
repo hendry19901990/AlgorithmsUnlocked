@@ -765,7 +765,7 @@ void TrimExtraWhiteSpace(string &str)
 
 ### Given two strings find the Longest common Subsequence and Longest common substring between the two strings (X, Y)
 
-```
+```C++
 pair<int, int> ComputeLongCommSubStr(const string& X, const string& Y)
 {
 	int result = 0, index_i = 0, index_j = 0;
@@ -806,8 +806,7 @@ int main(void)
 }
 ```
 
-```
-
+```C++
 void printLCSCommon(vector<vector<char> > &PosMatrix, const string& X, size_t i, size_t j)
 {
 	if(i == 0 || j == 0)
@@ -851,7 +850,7 @@ void ComputeLCSMatrix(const string& X, const string& Y)
 }
 ```
 ### 0/1 KnapSack problem : 
-```
+```C++
 vector<vector<int> > ProfitMatrix;
 
 void KnapsackMatrixInit(vector<vector<int> > &ProfitMatrix, const size_t items_nums, const size_t knapsack_weight)
