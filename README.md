@@ -14,7 +14,7 @@ It will give someone a feel as to how coding in ```C++``` or ```Node.js``` is.
 
 Build files and code for ```Windows Application (Using C++)``` & ```Node.js``` Website for problem solving and Competitive Programming will be put in soon under ```Windows Application``` & ```Nodejs Website``` folder.
 
-### Sample Question :
+### Sample Questions :
 
 ### 1. Consider the graph shown on the figure. The function ```random()``` generates a random interger between ```0``` and ```range```. 
 ### Write code in language of your choice to perform the following as shown below. 
@@ -24,6 +24,7 @@ Build files and code for ```Windows Application (Using C++)``` & ```Node.js``` W
 ![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/graph.jpg)
 
 C++ Code to perform the following tasks : 
+
 ```C++
 template<typename T>
 class Comp_fn
@@ -761,6 +762,145 @@ void TrimExtraWhiteSpace(string &str)
 	cout << "Modified String : " << str.substr(0, write_idx);
 }
 ```
+
+### Given two strings find the Longest common Subsequence and Longest common substring between the two strings (X, Y)
+
+```
+pair<int, int> ComputeLongCommSubStr(const string& X, const string& Y)
+{
+	int result = 0, index_i = 0, index_j = 0;
+	vector<vector<int> > LCSMatrix;
+	for(auto k = 0; k < X.size() + 1; k++){
+		LCSMatrix.emplace_back(vector<int>(Y.size() + 1, 0));
+	}
+	for(auto i = 1; i < X.size() + 1; i++){
+		for(auto j = 1; j < Y.size() + 1; j++){
+			if(X[i - 1] == Y[j - 1] && X[i - 1] != ' ' && Y[j - 1] != ' ' ){
+				LCSMatrix[i][j] = 1 + LCSMatrix[i - 1][j - 1];
+				if(LCSMatrix[i][j] > result){
+					index_i = i;
+					result = LCSMatrix[i][j];
+				}
+			}
+			else{
+				LCSMatrix[i][j] = 0;
+			}
+		}
+	}
+	pair<int, int> indices = std::make_pair(index_i - result, index_i - 1);
+	return indices;
+}
+
+int main(void)
+{
+	string X = "susdgu eeasd eawddu mttitll sgdftdg";
+	string Y = "12111 21 51 51 51 851 ";
+	auto g = ComputeLongCommSubStr(X, Y);
+	cout << endl << "Max Substring Match : " ;
+	for(auto i = g.first; i <= g.second; i++)
+	{
+		cout << X[i];
+	}
+	cout << endl << "Max length Match : " << g.second - g.first + 1;
+	return 0;
+}
+```
+
+```
+
+void printLCSCommon(vector<vector<char> > &PosMatrix, const string& X, size_t i, size_t j)
+{
+	if(i == 0 || j == 0)
+		return;
+	if(PosMatrix[i][j] == 'S'){
+		printLCSCommon(PosMatrix, X, i - 1, j - 1);
+		cout << X[i - 1]; 
+	} else if (PosMatrix[i][j] == 'X'){
+		printLCSCommon(PosMatrix, X, i, j - 1);
+	} else {
+		printLCSCommon(PosMatrix, X, i - 1, j);
+	}
+
+}
+
+void ComputeLCSMatrix(const string& X, const string& Y)
+{
+	vector<vector<int> > LCSMatrix;
+	vector<vector<char> > PosMatrix;
+	for(auto k = 0; k < X.size(); k++){
+		LCSMatrix.emplace_back(vector<int>(Y.size(), 0));
+		PosMatrix.emplace_back(vector<char>(Y.size(), '*') );
+	}
+	for(auto i = 1; i < X.size(); i++){
+		for(auto j = 1; j < Y.size(); j++){
+			if(X[i - 1] == Y[j - 1]){
+				LCSMatrix[i][j] = 1 + LCSMatrix[i - 1][j - 1];
+				PosMatrix[i][j] = 'S';
+			}
+			else{
+				LCSMatrix[i][j] = std::max( LCSMatrix[i][j - 1], LCSMatrix[i - 1][j] );
+				PosMatrix[i][j] = LCSMatrix[i][j - 1] > LCSMatrix[i - 1][j] ? 'X' : 'Y';
+			}
+		}
+	}
+	printMatrix(LCSMatrix);
+	printMatrix(PosMatrix);
+	cout << endl;
+	cout << "Commmon Subsequence is : "; 
+	printLCSCommon(PosMatrix, X, X.size() - 1, Y.size() - 1);
+}
+```
+### 0/1 KnapSack problem : 
+```
+vector<vector<int> > ProfitMatrix;
+
+void KnapsackMatrixInit(vector<vector<int> > &ProfitMatrix, const size_t items_nums, const size_t knapsack_weight)
+{
+	vector<int> temp;
+	for(auto i = 0; i < items_nums; i++){
+		for(auto j = 0; j < knapsack_weight + 2; j++){
+			temp.emplace_back(0);
+		}
+		ProfitMatrix.emplace_back(temp);
+		temp.erase(temp.begin(), temp.end());
+	}
+}
+
+void KnapsackMatrixSolver(vector<vector<int> > &ProfitMatrix, const vector<int> &weights, const vector<int> &profits, const size_t items_nums, const size_t knapsack_weight)
+{
+	for(auto i = 0; i < items_nums; i++){
+		for(auto j = 0; j < knapsack_weight + 2; j++){
+			if((weights[i] < j)){
+				ProfitMatrix[i + 1][j] = (profits[i] + ProfitMatrix[i][j - weights[i]] > ProfitMatrix[i][j]) ? profits[i] + ProfitMatrix[i][j - weights[i]] :  ProfitMatrix[i][j];
+			}
+		}	
+	}
+}
+
+void printMatrix(vector<vector<int> > &arrays)
+{
+	for(const auto& array : arrays){
+		for(const auto& item : array){
+			printf("%4d", item);
+		}
+		cout << "\n";
+	}
+}
+
+int main(void)
+{
+	vector<int> weights = {1, 3, 4, 8, 6, 9, 12, 14, 19, 7, 25, 36, 44, 31, 34, 39, 51, 45, 30, 41, 66, 95, 100};
+	vector<int> profits = {10, 22, 35, 4, 2, 7, 48, 115, 6, 58, 67, 92, 73, 45, 110, 154, 25, 32, 114, 41, 52, 120};
+	size_t items_nums = profits.size();
+	size_t knapsack_weight = 45;
+	KnapsackMatrixInit(ProfitMatrix, items_nums, knapsack_weight);
+	KnapsackMatrixSolver(ProfitMatrix, weights, profits, items_nums, knapsack_weight);
+	printMatrix(ProfitMatrix);
+	return 0;
+}
+```
+
+
 
 ### Later Additions : 
 
