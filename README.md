@@ -14,7 +14,7 @@ It will give someone a feel as to how coding in ```C++``` or ```Node.js``` is.
 
 Build files and code for ```Windows Application (Using C++)``` & ```Node.js``` Website for problem solving and Competitive Programming will be put in soon under ```Windows Application``` & ```Nodejs Website``` folder.
 
-### Sample Questions :
+### Sample Questions : (Dynamic Programming & Graph Algorithms Added!)
 
 ### 1. Consider the graph shown on the figure. The function ```random()``` generates a random interger between ```0``` and ```range```. 
 ### Write code in language of your choice to perform the following as shown below. 
