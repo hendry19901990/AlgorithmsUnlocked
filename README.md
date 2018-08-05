@@ -898,7 +898,7 @@ int main(void)
 	return 0;
 }
 ```
-### Given N matrices out of which a few will bw compatible for multiplication on after the other in a chain fom, find the least cost/least number of multiplications required to multiply sequentially compatible matrices together. 
+### Given N matrices out of which a few will be compatible for multiplication one after the other in a chain form, find the least cost/least number of multiplications required to multiply sequentially compatible matrices together. 
 
 ```C++
 #include <iostream>
