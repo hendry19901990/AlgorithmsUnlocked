@@ -1159,40 +1159,39 @@ See ```Misc Codes``` folder for more uses.
 ## More References :
 
 #### STLs  &  Data Structures
-[](https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/)
+[Topcoder Guides](https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/)
 
+[Topcoder Guides](https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-2/)
 
-[](https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-2/)
+[Codeforces Tag Tree](http://codeforces.com/blog/entry/13529)
 
-[](http://codeforces.com/blog/entry/13529)
+[Codeforces policy based Trees](http://codeforces.com/blog/entry/11080)
 
-[](http://codeforces.com/blog/entry/11080)
-
-[](https://opensource.apple.com/source/llvmgcc42/llvmgcc42-2336.9/libstdc++-v3/testsuite/ext/pb_ds/example/trie_prefix_search.cc)
+[Apple Developer Link](https://opensource.apple.com/source/llvmgcc42/llvmgcc42-2336.9/libstdc++-v3/testsuite/ext/pb_ds/example/trie_prefix_search.cc)
 
 #### General Refs : 
 
-[](https://www.topcoder.com/community/data-science/data-science-tutorials/)
+[Topcoder Tutorials](https://www.topcoder.com/community/data-science/data-science-tutorials/)
 
-[](https://google.github.io/styleguide/cppguide.html)
+[Google Style Guide](https://google.github.io/styleguide/cppguide.html)
 
-[](https://developers.google.com/edu/c++/cpp-in-depth)
+[Google C++ in Depth](https://developers.google.com/edu/c++/cpp-in-depth)
 
-[](https://developers.google.com/edu/c++/)
+[Google C++ Guide](https://developers.google.com/edu/c++/)
 
-[](https://timsong-cpp.github.io/cppwp/)
+[C++ Commitee](https://timsong-cpp.github.io/cppwp/)
 
-[](http://www.bogotobogo.com/cplusplus/multithreading_pthread.php)
+[C++ Concurrency](http://www.bogotobogo.com/cplusplus/multithreading_pthread.php)
 
-[](https://techdevguide.withgoogle.com/)
+[Google Tech Dev Guide](https://techdevguide.withgoogle.com/)
 
 ## Installations
 
 #### Node.js Install : 
-[](https://nodejs.org/en/download/)
+[Node.js](https://nodejs.org/en/download/)
 
 #### Cygwin Install : 
-[](https://cygwin.com/install.html)
+[Cygwing Install](https://cygwin.com/install.html)
 
 #### Atom Install : 
 [](https://atom.io/)
