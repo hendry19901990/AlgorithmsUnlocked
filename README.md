@@ -29,7 +29,7 @@ Build files and code for ```Windows Application (Using C++)``` & ```Node.js``` W
 
 C++ Code to perform the following tasks : 
 
-```C++
+{% highlight c++ %}
 template<typename T>
 class Comp_fn
 {
@@ -162,7 +162,8 @@ struct Graph
 			cout << "Adjecent vertices : " << y.first  << " Edge weight : " << y.second.weight << endl;
 	}
 	cout << endl;
-```
+{% endhighlight %}
+	
 #### Output : (See Repository for the last two functions).
 
 ```C++
