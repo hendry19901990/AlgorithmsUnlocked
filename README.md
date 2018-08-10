@@ -1159,64 +1159,64 @@ See ```Misc Codes``` folder for more uses.
 ## More References :
 
 #### STLs  &  Data Structures
-![LINK](https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/)
+[](https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/)
 
 
-![LINK](https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-2/)
+[](https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-2/)
 
-![LINK](http://codeforces.com/blog/entry/13529)
+[](http://codeforces.com/blog/entry/13529)
 
-![LINK](http://codeforces.com/blog/entry/11080)
+[](http://codeforces.com/blog/entry/11080)
 
-![LINK](https://opensource.apple.com/source/llvmgcc42/llvmgcc42-2336.9/libstdc++-v3/testsuite/ext/pb_ds/example/trie_prefix_search.cc)
+[](https://opensource.apple.com/source/llvmgcc42/llvmgcc42-2336.9/libstdc++-v3/testsuite/ext/pb_ds/example/trie_prefix_search.cc)
 
 #### General Refs : 
 
-![LINK](https://www.topcoder.com/community/data-science/data-science-tutorials/)
+[](https://www.topcoder.com/community/data-science/data-science-tutorials/)
 
-![LINK](https://google.github.io/styleguide/cppguide.html)
+[](https://google.github.io/styleguide/cppguide.html)
 
-![LINK](https://developers.google.com/edu/c++/cpp-in-depth)
+[](https://developers.google.com/edu/c++/cpp-in-depth)
 
-![LINK](https://developers.google.com/edu/c++/)
+[](https://developers.google.com/edu/c++/)
 
-![LINK](https://timsong-cpp.github.io/cppwp/)
+[](https://timsong-cpp.github.io/cppwp/)
 
-![LINK](http://www.bogotobogo.com/cplusplus/multithreading_pthread.php)
+[](http://www.bogotobogo.com/cplusplus/multithreading_pthread.php)
 
-![LINK](https://techdevguide.withgoogle.com/)
+[](https://techdevguide.withgoogle.com/)
 
 ## Installations
 
 #### Node.js Install : 
-![LINK](https://nodejs.org/en/download/)
+[](https://nodejs.org/en/download/)
 
 #### Cygwin Install : 
-![LINK](https://cygwin.com/install.html)
+[](https://cygwin.com/install.html)
 
 #### Atom Install : 
-![LINK](https://atom.io/)
+[](https://atom.io/)
 
 #### Visual Studio Code Install :
-![LINK](https://code.visualstudio.com/)
+[](https://code.visualstudio.com/)
 
 #### Visual Studio : 
-![LINK](https://www.visualstudio.com/vs/getting-started/)
+[](https://www.visualstudio.com/vs/getting-started/)
 
 #### Git on Windows : 
-![LINK](https://git-scm.com/)
+[](https://git-scm.com/)
 
 #### Far Manager : 
-![LINK](https://www.farmanager.com/)
+[](https://www.farmanager.com/)
 
 #### Follow this tutorial first : 
-![LINK](http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/)
+[](http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/)
 
 #### Learn & Read this : 
-![LINK](https://clang.llvm.org/get_started.html)
+[](https://clang.llvm.org/get_started.html)
 
 #### CMake : 
-![LINK](https://cmake.org/cmake-tutorial/)
+[](https://cmake.org/cmake-tutorial/)
 
 ## Setup 
 
