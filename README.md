@@ -1640,3 +1640,30 @@ $ sudo g++ -m32 compile.o -o execute
 $ sudo ./execute
 $ sudo echo $?
 ```
+### Assembly code 
+
+A sample assembly code may look like this. Samples of assembly code have been provided in ```Assembly Code``` folder.
+
+```asm
+global _start
+
+section .text
+
+_start :
+	push 21
+	call timesfunc
+	mov ebx, eax
+	mov eax, 1
+	int 0x80
+
+timesfunc :
+	push ebp
+	mov ebp, esp
+	mov eax, [ebp + 8]
+	add eax, eax
+	add eax, eax
+	xor eax, eax
+	mov esp, ebp
+	pop ebp
+	ret
+```	
