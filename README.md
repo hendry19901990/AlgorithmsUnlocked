@@ -166,7 +166,7 @@ struct Graph
 	
 #### Output : (See Repository for the last two functions).
 
-{% highlight c++ %}
+```cpp
 Raw Graph is :  
 
 Vertex : a
@@ -246,7 +246,7 @@ Adjecent vertices : f Edge weight : 15
 Adjecent vertices : g Edge weight : 103
 Adjecent vertices : h Edge weight : 3
 Adjecent vertices : i Edge weight : 48
-{% endhighlight %}
+```
 
 ### 2. Code a Word Trie to support fast insert and retrieval. 
 
