@@ -1,10 +1,10 @@
-# Algorithms Unlocked
+# Algorithms Unlocked (Code dive in Modern C++)
 
 ### ```Code because you like to not because you have to. ```
 
 ### ```Coding is an art. It is a passion of high order.```
 
-I made it to help others learn algorithms in a better way by actual practice. I was preparing for my ```Google``` & ```Amazon SDE interview``` when I made this repository. Proper documentation and regular coding really helped me a lot. I hope this repository will help a fellow engineer to learn someting new. Contact me [on mail](mailto:shekharhiran@gmail.com) for C++ Facebook developer conferences and CPP-CON passes. 
+I maintain this code repository to help others learn algorithms in a better way by actual practice in C++. I was preparing for my ```Google``` & ```Amazon SDE interview``` when I made this repository. Proper documentation and regular coding really helped me a lot. I hope this repository will help a fellow engineer to learn someting new. Contact me [on mail](mailto:shekharhiran@gmail.com) for C++ Facebook developer conferences and CPP-CON passes. ```C++17``` & ```C++14``` features have been used in the code repository, please update your [compiler](http://www.mingw.org/) accordingly.  
 
 ### What is fulfills? 
 
