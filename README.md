@@ -856,6 +856,7 @@ void ComputeLCSMatrix(const string& X, const string& Y)
 }
 ```
 ### 0/1 KnapSack problem : 
+
 ```C++
 vector<vector<int> > ProfitMatrix;
 
@@ -1156,53 +1157,66 @@ std::string once_sha256(const std::string &type_string) {
 See ```Misc Codes``` folder for more uses.  
 
 ## More References :
+
 #### STLs  &  Data Structures
-[https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/]
+![LINK](https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/)
 
 
-[https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-2/]
+![LINK](https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-2/)
 
-[http://codeforces.com/blog/entry/13529]
+![LINK](http://codeforces.com/blog/entry/13529)
 
-[http://codeforces.com/blog/entry/11080]
+![LINK](http://codeforces.com/blog/entry/11080)
 
-[https://opensource.apple.com/source/llvmgcc42/llvmgcc42-2336.9/libstdc++-v3/testsuite/ext/pb_ds/example/trie_prefix_search.cc]
-
-
+![LINK](https://opensource.apple.com/source/llvmgcc42/llvmgcc42-2336.9/libstdc++-v3/testsuite/ext/pb_ds/example/trie_prefix_search.cc)
 
 #### General Refs : 
-https://www.topcoder.com/community/data-science/data-science-tutorials/
 
-https://google.github.io/styleguide/cppguide.html
+![LINK](https://www.topcoder.com/community/data-science/data-science-tutorials/)
 
-https://developers.google.com/edu/c++/cpp-in-depth
+![LINK](https://google.github.io/styleguide/cppguide.html)
 
-https://developers.google.com/edu/c++/
+![LINK](https://developers.google.com/edu/c++/cpp-in-depth)
 
+![LINK](https://developers.google.com/edu/c++/)
 
+![LINK](https://timsong-cpp.github.io/cppwp/)
 
+![LINK](http://www.bogotobogo.com/cplusplus/multithreading_pthread.php)
+
+![LINK](https://techdevguide.withgoogle.com/)
 
 ## Installations
+
 #### Node.js Install : 
-https://nodejs.org/en/download/
+![LINK](https://nodejs.org/en/download/)
+
 #### Cygwin Install : 
-https://cygwin.com/install.html
-#### MinGW Install : 
-https://atom.io/
-#### Visual Studio Code Install : 
-https://code.visualstudio.com/
+![LINK](https://cygwin.com/install.html)
+
+#### Atom Install : 
+![LINK](https://atom.io/)
+
+#### Visual Studio Code Install :
+![LINK](https://code.visualstudio.com/)
+
 #### Visual Studio : 
-https://www.visualstudio.com/vs/getting-started/
+![LINK](https://www.visualstudio.com/vs/getting-started/)
+
 #### Git on Windows : 
-https://git-scm.com/
+![LINK](https://git-scm.com/)
+
 #### Far Manager : 
-https://www.farmanager.com/
+![LINK](https://www.farmanager.com/)
+
 #### Follow this tutorial first : 
-http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/
+![LINK](http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/)
+
 #### Learn & Read this : 
-https://clang.llvm.org/get_started.html 
+![LINK](https://clang.llvm.org/get_started.html)
+
 #### CMake : 
-https://cmake.org/cmake-tutorial/
+![LINK](https://cmake.org/cmake-tutorial/)
 
 ## Setup 
 
@@ -1211,7 +1225,6 @@ Use your favourite text editor ```sublime text``` or ```Atom``` and use with com
 ![alt-tag](https://user-images.githubusercontent.com/25129399/38405232-8868896c-398c-11e8-959d-de79a279eb25.png)
 
 Use ```Visual Studio``` for git commiting & ```git push```. The experience is great. 
-
 You may also use the command line for ```git```.
 
 ```bash
@@ -1228,6 +1241,7 @@ $ git push origin master
 ## Node.js
 
 #### Running & Compiling automtically. Using nodemon
+
 To compile and run automatically incase of changes made to ```*.cpp``` file, we may use nodemon. 
 Make sure  ``` Node.js``` is already installed. Nodemon watches for changes in ```*  /dir``` and executes 
 automatically in cases of changes. Nodemon can also be used to execute and monitor other programs.
@@ -1488,13 +1502,15 @@ Execution done. Exited with code 1
 
 ![alt-tag](https://user-images.githubusercontent.com/25129399/38563096-b55b9e26-3cf9-11e8-88a8-bd270d0478cc.PNG)
 
-
 ## Maintaining Byte Alignment in C++ code 
- ```C++
+
+```C++
  typedef double *__attribute__((aligned(64))) aligned_double;
  typedef int *__attribute__((aligned(32))) aligned_double;
  ```
+
 ## Using Builtin properly
+
 ```C++
 // Compile with -O3 -march=native to see autovectorization
 // assumes input is aligned on 32-byte boundary and that
