@@ -2,7 +2,11 @@
 
 ### ```Code because you like to not because you have to. It is an art. It is a passion of high order.```
 
-I maintain this code repository to help others learn algorithms in a better way by actual practice in C++. I was preparing for my ```Google``` & ```Amazon SDE interview``` when I made this repository a year back. Proper documentation and regular coding really helped me a lot. I hope this repository will help a fellow engineer to learn someting new. Contact me [on mail](mailto:shekharhiran@gmail.com) for C++ Facebook developer conferences and CPP-CON passes. ```C++17``` & ```C++14``` features have been used in the code repository, please update your [compiler](http://www.mingw.org/) accordingly.  
+I maintain this code repository to help others learn algorithms in a better way by actual practice in C++. I was preparing for my ```Google``` & ```Amazon SDE interview``` when I made this repository a year back. Proper documentation and regular coding really helped me a lot. I hope this repository will help a fellow engineer to learn someting new. Contact me [on mail](mailto:shekharhiran@gmail.com) for C++ Facebook developer conferences and CPP-CON passes. ```C++17``` & ```C++14``` features have been used in the code repository, please update your [compiler](http://www.mingw.org/) accordingly. 
+
+Below is a part of part of ```bitcoin-d``` C++ source code.  The core of bitcoin and all ```blockchain based cryptocurrencies``` in the world is ```C++``` and it's immense functionality. Learning a versatile ```OOPs based programming language``` is crucial for the core understanding of Computer Science & Engineering in general. With this in mind, I want to present this core repository of ```C++``` programs to everyone. 
+
+![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/Images/google-earth-view-1711.jpg)
 
 ### What to expect in this code repository? 
 
