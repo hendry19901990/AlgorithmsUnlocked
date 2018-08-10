@@ -4,7 +4,7 @@
 
 I maintain this code repository to help others learn algorithms in a better way by actual practice in C++. I was preparing for my ```Google``` & ```Amazon SDE interview``` when I made this repository a year back. Proper documentation and regular coding really helped me a lot. I hope this repository will help a fellow engineer to learn someting new. Contact me [on mail](mailto:shekharhiran@gmail.com) for C++ Facebook developer conferences and CPP-CON passes. ```C++17``` & ```C++14``` features have been used in the code repository, please update your [compiler](http://www.mingw.org/) accordingly.  
 
-### What is fulfills? 
+### What to expect in this code repository? 
 
 Library of algorithms written in pure ```C++ (11/14/17)``` & ```C```. Some are written in ```Node.js```
 Web Interface is written in pure javascript and runs behind a ```Node.js``` server. It is yet to fully added. 
