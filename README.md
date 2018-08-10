@@ -29,7 +29,7 @@ Build files and code for ```Windows Application (Using C++)``` & ```Node.js``` W
 
 C++ Code to perform the following tasks : 
 
-{% highlight c++ %}
+```cpp
 template<typename T>
 class Comp_fn
 {
@@ -162,7 +162,7 @@ struct Graph
 			cout << "Adjecent vertices : " << y.first  << " Edge weight : " << y.second.weight << endl;
 	}
 	cout << endl;
-{% endhighlight %}
+```
 	
 #### Output : (See Repository for the last two functions).
 
@@ -250,7 +250,7 @@ Adjecent vertices : i Edge weight : 48
 
 ### 2. Code a Word Trie to support fast insert and retrieval. 
 
-{% highlight c++ %}
+```cpp
 class trienode;
 using char_ptr = std::shared_ptr<trienode>;
 class trienode
@@ -309,11 +309,11 @@ bool trienode::searchWord(const string &str, char_ptr &root)
 	}
 	return true;
 }
-{% endhighlight %}
+```
 
 ### 3. Random Sort funtion(). Take in an array and randomly shuffle it to get a sorted array. 
 
-{% highlight c++ %}
+```cpp
 vector<int> vect;
 void process(vector<int> &A)
 {
@@ -356,11 +356,11 @@ int main()
 		for(const auto& i : vect) cout << i << " ";
 	}
 }
-{% endhighlight %}
+```
 
 ### 4. Find the minimum spanning tree of a graph G. 
 
-{% highlight c++ %}
+```cpp
 template<typename T>
 unordered_map<T, T> PerformPrim(Graph<T> graph)
 {
@@ -412,11 +412,11 @@ unordered_map<T, T> PerformPrim(Graph<T> graph)
 	/* We return the minimum spanning tree, O(V^2) */
 	return min_spanning_tree;
 }
-{% endhighlight %}
+```
 
 ### 5. Creating a Disjoint Set : 
 
-{% highlight c++ %}
+```cpp
 template <typename T>
 class Disjoint_set
 {
@@ -521,13 +521,13 @@ int main()
 	d_set.Print_set_strct();
 	return 0;
 }
-{% endhighlight %}
+```
 
 ![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/sets.bmp)
 
 ### 6. Compare Prim & Kruskal Algorithms.
 
-{% highlight c++ %}
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -747,13 +747,13 @@ int main()
 	PerformPrim<char>(g);
 	return 0;
 }
-{% endhighlight %}
+```
 
 ![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/Capture.JPG)
 
 ### Remove extra-white spaces without using stringstream or extra-space (no new string object/ array is allowed) in O(n) time where n is the number of characters. 
 
-{% highlight c++ %}
+```cpp
 void TrimExtraWhiteSpace(string &str)
 {
 	int write_idx = 0;
@@ -771,11 +771,11 @@ void TrimExtraWhiteSpace(string &str)
 	}
 	cout << "Modified String : " << str.substr(0, write_idx);
 }
-{% endhighlight %}
+```
 
 ### Given two strings find the Longest common Subsequence and Longest common substring between the two strings (X, Y)
 
-{% highlight c++ %}
+```cpp
 pair<int, int> ComputeLongCommSubStr(const string& X, const string& Y)
 {
 	int result = 0, index_i = 0, index_j = 0;
@@ -814,9 +814,9 @@ int main(void)
 	cout << endl << "Max length Match : " << g.second - g.first + 1;
 	return 0;
 }
-{% endhighlight %}
+```
 
-{% highlight c++ %}
+```cpp
 void printLCSCommon(vector<vector<char> > &PosMatrix, const string& X, size_t i, size_t j)
 {
 	if(i == 0 || j == 0)
@@ -858,11 +858,11 @@ void ComputeLCSMatrix(const string& X, const string& Y)
 	cout << "Commmon Subsequence is : "; 
 	printLCSCommon(PosMatrix, X, X.size() - 1, Y.size() - 1);
 }
-{% endhighlight %}
+```
 
 ### 0/1 KnapSack problem : 
 
-{% highlight c++ %}
+```cpp
 vector<vector<int> > ProfitMatrix;
 
 void KnapsackMatrixInit(vector<vector<int> > &ProfitMatrix, const size_t items_nums, const size_t knapsack_weight)
@@ -909,11 +909,11 @@ int main(void)
 	printMatrix(ProfitMatrix);
 	return 0;
 }
-{% endhighlight %}
+```
 
 ### Given N matrices out of which a few will be compatible for multiplication one after the other in a chain form, find the least cost/least number of multiplications required to multiply sequentially compatible matrices together. 
 
-{% highlight c++ %}
+```cpp
 #include <iostream>
 #include <vector>
 #include <stdio.h>
@@ -994,11 +994,11 @@ int main(void)
 	for(const auto& split : splits) cout << split << ", " << "\n";
 	return 0;
 }
-{% endhighlight %} 
+``` 
 
 ### Sleep/Wake & Mutex locking. Concurrency through C++. (Works on Linux/Unix Only, -pthread flag). 
 
-{% highlight c++ %}
+```cpp
 #include <iostream>
 #include <string>
 #include <queue>
@@ -1060,7 +1060,7 @@ int main()
 	cout << endl;
 	return 0
 }
-{% endhighlight %}
+```
 
 ![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/Images/Capture.JPG)
 
@@ -1078,7 +1078,7 @@ CodeChef Problems
 TopCoder Problems
 IOI Problems
 COCI Problems
-{% endhighlight %}
+```
 
 ### What I intend to cover : 
 
@@ -1105,7 +1105,7 @@ Add to PATH ```\bin``` directory of all of them.
 
 Use of vectors, maps, hash_maps, sets, pairs & other STL data types to reduce chances of errors and results in more efficient code. 
 
-{% highlight c++ %}
+```cpp
 std::vector<int> vec;
 
 std::vector<char> myvector;
@@ -1127,7 +1127,7 @@ std::priority_queue<int, vector<int>, greater<int> > min_heap;
 ```
 Use Macros & References wherever possible
 
-{% highlight c++ %}
+```cpp
 #define sz(a) int((a).size())
 
 #define pb push_back 
@@ -1144,7 +1144,7 @@ Use Macros & References wherever possible
 
 #define input(ss, inputbuffer) while(cin.good()) { getline(cin, inputbuffer); ss << inputbuffer << endl; }
 
-{% endhighlight %}
+```
 
 When working with ```int``` or ```double``` data-types, check for overflow and byte allignment conditions. 
 There may be many other data types also for which overflow condition checking is a must. 
@@ -1152,7 +1152,7 @@ There may be many other data types also for which overflow condition checking is
 A SHA-256 hashing for building a bitcoin merkle-tree. 
 Below is a snippet to hash and print/store the hash, a SHA-256 of the input.
 
-{% highlight c++ %}
+```cpp
 std::string once_sha256(const std::string &type_string) {
 	SHA256_CTX ptx;
 	sha256_init(&ptx);
@@ -1164,7 +1164,7 @@ std::string once_sha256(const std::string &type_string) {
 		stream << std::hex << std::setw(2) << std::setfill('0') << (unsigned)c;
 	return stream.str();
 }
-{% endhighlight %}
+```
 
 See ```Misc Codes``` folder for more uses.  
 
@@ -1323,13 +1323,13 @@ start.on('close', function(data){
     })
   }
 })
-{% endhighlight %}
+```
 
 To change the command line options, make changes in the line, under ```[" "]``` part
 
 {% highlight javascript %}
  var compile = spawn('g++',['run.cpp','-O3','-W','-pedantic','-march=native','-o','run.exe'])
-{% endhighlight %}
+```
 
 It takes ```run.cpp``` as the input C++ file. To change the file, type the name of the file to compile. ```{name-of-file-to-compile}.cpp```.
 
@@ -1337,7 +1337,7 @@ Eg. file.cpp > ```file.cpp``` in the code below.
  
 {% highlight javascript %}
  var compile = spawn('g++',['{name-of-file-to-compile}.cpp','-O3','-W','-pedantic','-march=native','-o','run.exe', '{other-cmdline-options}'])
-{% endhighlight %}
+```
 
 Type in ```terminal``` or ```cmd``` :
 
@@ -1402,7 +1402,7 @@ start.on('close', function(data){
     })
   }
 })
-{% endhighlight %}
+```
 
 #### Covers Node.js tutorials as well. Check ```libjscript``` folder in ```Nodejs``` folder.
 ```bash
@@ -1422,11 +1422,11 @@ Modify the ```run.js``` file to use clang :
 
 {% highlight javascript %}
 var compile = spawn('clang++',['run.cpp','-std=c++14','-O3','-Wall','-Wextra','-g','-fsanitize=address','-fno-omit-frame-pointer','-pedantic','-march=native','-v','-o','run.exe']);
-{% endhighlight %}
+```
 
 Usage With clang : 
 
-{% highlight c++ %}
+```cpp
 while(cin.good())
 {
 	getline(cin, word);
@@ -1443,7 +1443,7 @@ for (auto i : wordlist)
 	insert(root, i);
     // Heap Memory Overflow should occur & clang correctly detects in during runtime. No compile time errors are generated. 
 }
-{% endhighlight %}
+```
 
 No compile time errors are generated as ```Compilation done...```. Clang detects ```heap-buffer-overflow``` as expected. 
 This code has a bug that it tries a to insert and the heap oveflows because so much memory can't be allocated.
@@ -1519,14 +1519,14 @@ Execution done. Exited with code 1
 
 ## Maintaining Byte Alignment in C++ code 
 
-{% highlight c++ %}
+```cpp
  typedef double *__attribute__((aligned(64))) aligned_double;
  typedef int *__attribute__((aligned(32))) aligned_double;
  ```
 
 ## Using Builtin properly
 
-{% highlight c++ %}
+```cpp
 // Compile with -O3 -march=native to see autovectorization
 // assumes input is aligned on 32-byte boundary and that
 // length is a multiple of 32.
@@ -1552,16 +1552,16 @@ int Function(int* input, int length) {
 	}
 	return sum;
 }
-{% endhighlight %}
+```
 
 ## Use of ```C++ freopen() ```.
 
 For reading and writing into files without the filestream handlers and functions. 
 
-{% highlight c++ %}
+```cpp
 freopen("in.txt", "r", stdin);
 freopen("out.txt", "w", stdout);
-{% endhighlight %}
+```
 
 #### Again : Add to PATH ```\bin``` directory of all of them.
 
