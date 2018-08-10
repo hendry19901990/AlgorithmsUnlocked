@@ -8,7 +8,9 @@ I maintain this code repository to help others learn algorithms in a better way 
 
 Library of algorithms written in pure ```C++ (11/14/17)``` & ```C```. Some are written in ```Node.js```
 Web Interface is written in pure javascript and runs behind a ```Node.js``` server. It is yet to fully added. 
-Compile/Build the source code files using ```Cmake```, ```CLang/LLVM``` & ```Mingw64```.
+Compile/Build the source code files using ```Cmake```, ```CLang/LLVM``` & ```Mingw64```. 
+
+The repository also contains assembly programming code ```x86-64 (CISC) ``` in folder ```Assembly Code```, if you are interested to write functions in assembly langauge and use in C++ at link time. 
 
 First Basic C++  & Node.js Syntax & Coding Practices are discussed. 
 The folder ```Source Files``` contains basic ```C++``` & ```Node.js``` tutorials for beginners.
@@ -1565,19 +1567,20 @@ freopen("out.txt", "w", stdout);
 
 #### Again : Add to PATH ```\bin``` directory of all of them.
 
-## CMake Build
+### CMake Build
 
 ```bash
 $ cmake CMakeList.txt 
 ```
-## Using CMake
+
+### Using CMake
 
 ```bash
 $ cmake CMakeLists.txt
 $ make
 $ ./main 
 ```
-## Compliling *.cpp
+### Compliling *.cpp
 
 Assuming Clang & Mingw64 are already installed and working properly.
 
@@ -1592,7 +1595,7 @@ Linux
 $ clang++ -O2 main.cpp -o main.out
 $ time ./main.out
 ```
-## Generating Intermediate Represenation using LLVM Clang
+### Generating Intermediate Represenation using LLVM Clang
 
 Use the following commands.```-O3``` with level 3 optimization.
 
@@ -1600,7 +1603,7 @@ Use the following commands.```-O3``` with level 3 optimization.
 $ clang++ main.cpp -S -emit-llvm main.bc
 $ clang++ main.cpp -S -emit-llvm -O3 main.bc
 ```
-## Generating Assembly Language mnemonics
+### Generating Assembly Language mnemonics
 
 Use any the following commands.
 
@@ -1609,4 +1612,31 @@ $ clang++ main.cpp -S -O3 -o main.asm
 $ gcc -g -c main.cpp -o main.o
 $ objdump -d -M intel main.o
 $ objdump -D -mcpu=<cpu-name> main.o
+```
+
+### Assembling with NASM, ld, gcc & g++
+
+```bash
+$ sudo nasm -f elf32 compile.asm -o compile.o
+$ sudo ld -m elf_i386 compile.o -o execute
+$ sudo ./execute
+$ sudo echo $?
+```
+To use gcc/g++ instead of ld (in case of C++ function use)
+
+gcc
+
+```bash
+$ sudo nasm -f elf32 compile.asm -o compile.o
+$ sudo gcc -m32 compile.o -o execute 
+$ sudo ./execute
+$ sudo echo $?
+```
+g++
+
+```bash
+$ sudo nasm -f elf32 compile.asm -o compile.o
+$ sudo g++ -m32 compile.o -o execute 
+$ sudo ./execute
+$ sudo echo $?
 ```
