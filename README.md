@@ -4,7 +4,7 @@
 
 ### ```Coding is an art. It is a passion of high order.```
 
-I made it to help others learn algorithms in a better way by actual practice while I was preparing for my Google & Facebook SDE interview. Proper documentation and regular coding really helped me a lot. I hope this repository will help a fellow engineer to learn someting new.  
+I made it to help others learn algorithms in a better way by actual practice while I was preparing for my ```Google``` & ```Amazon SDE interview```. Proper documentation and regular coding really helped me a lot. I hope this repository will help a fellow engineer to learn someting new.  
 
 ### What is fulfills? 
 
