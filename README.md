@@ -1053,6 +1053,7 @@ int main()
 	return 0
 }
 ```
+![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/Images/Capture.JPG)
 
 ### Later Additions : 
 
