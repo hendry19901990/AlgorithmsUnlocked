@@ -4,7 +4,7 @@
 
 ### ```Coding is an art. It is a passion of high order.```
 
-I made it to help others learn algorithms in a better way by actual practice. I was preparing for my ```Google``` & ```Amazon SDE interview``` when I made this repository. Proper documentation and regular coding really helped me a lot. I hope this repository will help a fellow engineer to learn someting new.  
+I made it to help others learn algorithms in a better way by actual practice. I was preparing for my ```Google``` & ```Amazon SDE interview``` when I made this repository. Proper documentation and regular coding really helped me a lot. I hope this repository will help a fellow engineer to learn someting new. Contact me [on mail](mailto:shekharhiran@gmail.com) for C++ Facebook developer conferences and CPP-CON passes. 
 
 ### What is fulfills? 
 
@@ -1188,34 +1188,34 @@ See ```Misc Codes``` folder for more uses.
 ## Installations
 
 #### Node.js Install : 
-[Node.js](https://nodejs.org/en/download/)
+[Node.js Install](https://nodejs.org/en/download/)
 
 #### Cygwin Install : 
 [Cygwing Install](https://cygwin.com/install.html)
 
 #### Atom Install : 
-[](https://atom.io/)
+[Atom Text Editor Install](https://atom.io/)
 
 #### Visual Studio Code Install :
-[](https://code.visualstudio.com/)
+[Visual Studio Code Install](https://code.visualstudio.com/)
 
 #### Visual Studio : 
-[](https://www.visualstudio.com/vs/getting-started/)
+[Visual Studio Install](https://www.visualstudio.com/vs/getting-started/)
 
 #### Git on Windows : 
-[](https://git-scm.com/)
+[Git Install](https://git-scm.com/)
 
 #### Far Manager : 
-[](https://www.farmanager.com/)
+[Far Manager Install](https://www.farmanager.com/)
 
 #### Follow this tutorial first : 
-[](http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/)
+[Clang C++ Git Guide](http://blog.johannesmp.com/2015/09/01/installing-clang-on-windows-pt2/)
 
 #### Learn & Read this : 
-[](https://clang.llvm.org/get_started.html)
+[Clang Install Guide](https://clang.llvm.org/get_started.html)
 
 #### CMake : 
-[](https://cmake.org/cmake-tutorial/)
+[Cmake Install](https://cmake.org/cmake-tutorial/)
 
 ## Setup 
 
