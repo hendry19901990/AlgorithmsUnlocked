@@ -1068,7 +1068,7 @@ int main()
 
 I will share the solutions and guides to help solve problems from, 
 
-{% highlight bash %}
+```bash
 HackerRank Problems
 Hackerearth Problems
 Project Euler Problems
@@ -1296,7 +1296,7 @@ Place ```run.js``` file in the directory.
 The file contains this code. It starts a child process ```start``` which in-turn starts
 ```complie``` & ```run``` processes.
 
-{% highlight javascript %}
+```javascript
 var spawn = require('child_process').spawn;
 var start = spawn('ls');
 start.on('close', function(data){
@@ -1327,7 +1327,7 @@ start.on('close', function(data){
 
 To change the command line options, make changes in the line, under ```[" "]``` part
 
-{% highlight javascript %}
+```javascript
  var compile = spawn('g++',['run.cpp','-O3','-W','-pedantic','-march=native','-o','run.exe'])
 ```
 
@@ -1335,7 +1335,7 @@ It takes ```run.cpp``` as the input C++ file. To change the file, type the name 
 
 Eg. file.cpp > ```file.cpp``` in the code below.
  
-{% highlight javascript %}
+```javascript
  var compile = spawn('g++',['{name-of-file-to-compile}.cpp','-O3','-W','-pedantic','-march=native','-o','run.exe', '{other-cmdline-options}'])
 ```
 
@@ -1350,7 +1350,7 @@ $ node run.js
 If output is to be read to console as well after executing the .exe generated, use the below code. Addition to running, it will also open the output file generated and 
 write it out to console. 
 
-{% highlight javascript %}
+```javascript
 var fs = require("fs");
 var buf = new Buffer(1024);
 var spawn = require('child_process').spawn;
@@ -1420,7 +1420,7 @@ For using clang for santization just add the ```-fsanitize=address```,```-fno-om
 
 Modify the ```run.js``` file to use clang : 
 
-{% highlight javascript %}
+```javascript
 var compile = spawn('clang++',['run.cpp','-std=c++14','-O3','-Wall','-Wextra','-g','-fsanitize=address','-fno-omit-frame-pointer','-pedantic','-march=native','-v','-o','run.exe']);
 ```
 
@@ -1586,6 +1586,7 @@ Windows
 > clang++ main.cpp -o main.exe
 > main.exe
 ```
+
 ```bash 
 Linux
 $ clang++ -O2 main.cpp -o main.out
