@@ -4,6 +4,10 @@
 
 ### ```Coding is an art. It is a passion of high order.```
 
+I made it to help others learn algorithms in a better way by actual practice while I was preparing for my Google & Facebook SDE interview. Proper documentation and regular coding really helped me a lot. I hope this repository will help a fellow engineer to learn someting new.  
+
+### What is fulfills? 
+
 Library of algorithms written in pure ```C++ (14)``` & ```C```. Some are written in ```Node.js```
 Web Interface is written in pure javascript and runs behind a ```Node.js``` server. 
 Compile/Build the source code files using ```Cmake```, ```CLang/LLVM``` & ```Mingw64```.
@@ -14,7 +18,9 @@ It will give someone a feel as to how coding in ```C++``` or ```Node.js``` is.
 
 Build files and code for ```Windows Application (Using C++)``` & ```Node.js``` Website for problem solving and Competitive Programming will be put in soon under ```Windows Application``` & ```Nodejs Website``` folder.
 
-### Sample Questions : (Dynamic Programming & Graph Algorithms Added!)
+#### Basic Algorithms on seaching, sorting, merging, recursion, dynamic-programming, thread-concurrency and graph traversal algorithms have been updated. 
+
+### Sample Questions : 
 
 ### 1. Consider the graph shown on the figure. The function ```random()``` generates a random interger between ```0``` and ```range```. 
 ### Write code in language of your choice to perform the following as shown below. 
@@ -982,6 +988,71 @@ int main(void)
 	return 0;
 }
 ```
+### Sleep/Wake & Mutex locking. Concurrency through C++. (Works on Linux/Unix Only, -pthread flag). 
+
+```C++
+#include <iostream>
+#include <string>
+#include <queue>
+#include <deque>
+#include <chrono>
+#include <thread>
+#include <condition_variable>
+#include <future>
+using namespace std;
+std::mutex _mu;
+std::deque<int> processQueue;
+std::condition_variable sleeper;
+void ProcessCreator(int n, const char ch)
+{
+	while(n)
+	{
+		std::unique_lock<std::mutex> process_lock(_mu);
+		processQueue.push_front(n);
+		cout << endl << "Process Added by thread : " << ch << ", PID : " << n;
+		process_lock.unlock();
+		sleeper.notify_all();
+		std::this_thread::sleep_for(chrono::seconds(2));
+		n--;
+	}
+}
+void ExecuteHandler(const char ch)
+{
+	int data = 0;
+	while(data != 1)
+	{
+		std::unique_lock<std::mutex> process_queue_locker(_mu);
+		sleeper.wait(process_queue_locker, [](){ return !processQueue.empty(); });
+		data = processQueue.back();
+		std::this_thread::sleep_for(chrono::seconds(1));
+		processQueue.pop_back();
+		cout <<  endl << "Process Executed by thread : " << ch << ", PID : " << data;
+		process_queue_locker.unlock();
+	}
+}
+
+int main()
+{
+	std::thread t1(ProcessCreator, 5, 'a');
+	std::thread t2(ExecuteHandler, 'a');
+	std::thread t3(ProcessCreator, 4, 'b');
+	std::thread t4(ExecuteHandler, 'b');
+	std::thread t5(ProcessCreator, 3, 'c');
+	std::thread t6(ExecuteHandler, 'c');
+	std::thread t7(ProcessCreator, 2, 'd');
+	std::thread t8(ExecuteHandler, 'd');
+	t1.join();
+	t2.join();
+	t3.join();
+	t4.join();
+	t5.join();
+	t6.join();
+	t7.join();
+	t8.join();
+	cout << endl;
+	return 0
+}
+```
 
 ### Later Additions : 
 
@@ -999,16 +1070,19 @@ IOI Problems
 COCI Problems
 ```
 
-## What it will cover : 
+### What I intend to cover : 
 
 An algorithms repository. Basics of ```C++ for programming```. Stable Sorting Algorithms. Inversion Counting. AVL Trees, Red-Black Trees, 2-3-4 Trees, B-Trees, Path Commpression, 
 Huffman Encoding, Disjoint Sets, Greedy Knapsack & Job Sequencing Algorithms. Graph Traversal. Dynamic Programming. 0/1 Knapsack. Bellman-Ford Algorithm, Floyd-Warshall Algorithm.
 The algorithms will be added in ```Algorithms ``` folder.
-## From Command Line (Prerequisite)
+
+### From Command Line (Prerequisite)
+
 ```Add g++, gcc, clang & clang++ to path env variables. While installing MinGW or Cygwin on Windows as well as on Linux.```
 Add to PATH ```\bin``` directory of all of them.
 
 ### Options for ```g++```.
+
 ```-w/-W  : Compiler Warnings.```
 
 ```-O2/-O3  : Compiler Optimizations.```
