@@ -166,7 +166,7 @@ struct Graph
 	
 #### Output : (See Repository for the last two functions).
 
-```C++
+{% highlight c++ %}
 Raw Graph is :  
 
 Vertex : a
@@ -246,10 +246,11 @@ Adjecent vertices : f Edge weight : 15
 Adjecent vertices : g Edge weight : 103
 Adjecent vertices : h Edge weight : 3
 Adjecent vertices : i Edge weight : 48
-```
+{% endhighlight %}
+
 ### 2. Code a Word Trie to support fast insert and retrieval. 
 
-```C++
+{% highlight c++ %}
 class trienode;
 using char_ptr = std::shared_ptr<trienode>;
 class trienode
@@ -308,10 +309,11 @@ bool trienode::searchWord(const string &str, char_ptr &root)
 	}
 	return true;
 }
-```
+{% endhighlight %}
+
 ### 3. Random Sort funtion(). Take in an array and randomly shuffle it to get a sorted array. 
 
-```C++
+{% highlight c++ %}
 vector<int> vect;
 void process(vector<int> &A)
 {
@@ -354,10 +356,11 @@ int main()
 		for(const auto& i : vect) cout << i << " ";
 	}
 }
-```
+{% endhighlight %}
+
 ### 4. Find the minimum spanning tree of a graph G. 
 
-```C++
+{% highlight c++ %}
 template<typename T>
 unordered_map<T, T> PerformPrim(Graph<T> graph)
 {
@@ -409,10 +412,11 @@ unordered_map<T, T> PerformPrim(Graph<T> graph)
 	/* We return the minimum spanning tree, O(V^2) */
 	return min_spanning_tree;
 }
-```
+{% endhighlight %}
+
 ### 5. Creating a Disjoint Set : 
 
-```C++
+{% highlight c++ %}
 template <typename T>
 class Disjoint_set
 {
@@ -517,12 +521,13 @@ int main()
 	d_set.Print_set_strct();
 	return 0;
 }
-```
+{% endhighlight %}
+
 ![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/sets.bmp)
 
 ### 6. Compare Prim & Kruskal Algorithms.
 
-```C++
+{% highlight c++ %}
 #include <iostream>
 #include <string>
 #include <vector>
@@ -742,13 +747,13 @@ int main()
 	PerformPrim<char>(g);
 	return 0;
 }
-``` 
-![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/Capture.JPG)
+{% endhighlight %}
 
+![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/Capture.JPG)
 
 ### Remove extra-white spaces without using stringstream or extra-space (no new string object/ array is allowed) in O(n) time where n is the number of characters. 
 
-```C++
+{% highlight c++ %}
 void TrimExtraWhiteSpace(string &str)
 {
 	int write_idx = 0;
@@ -766,11 +771,11 @@ void TrimExtraWhiteSpace(string &str)
 	}
 	cout << "Modified String : " << str.substr(0, write_idx);
 }
-```
+{% endhighlight %}
 
 ### Given two strings find the Longest common Subsequence and Longest common substring between the two strings (X, Y)
 
-```C++
+{% highlight c++ %}
 pair<int, int> ComputeLongCommSubStr(const string& X, const string& Y)
 {
 	int result = 0, index_i = 0, index_j = 0;
@@ -809,9 +814,9 @@ int main(void)
 	cout << endl << "Max length Match : " << g.second - g.first + 1;
 	return 0;
 }
-```
+{% endhighlight %}
 
-```C++
+{% highlight c++ %}
 void printLCSCommon(vector<vector<char> > &PosMatrix, const string& X, size_t i, size_t j)
 {
 	if(i == 0 || j == 0)
@@ -853,10 +858,11 @@ void ComputeLCSMatrix(const string& X, const string& Y)
 	cout << "Commmon Subsequence is : "; 
 	printLCSCommon(PosMatrix, X, X.size() - 1, Y.size() - 1);
 }
-```
+{% endhighlight %}
+
 ### 0/1 KnapSack problem : 
 
-```C++
+{% highlight c++ %}
 vector<vector<int> > ProfitMatrix;
 
 void KnapsackMatrixInit(vector<vector<int> > &ProfitMatrix, const size_t items_nums, const size_t knapsack_weight)
@@ -903,10 +909,11 @@ int main(void)
 	printMatrix(ProfitMatrix);
 	return 0;
 }
-```
+{% endhighlight %}
+
 ### Given N matrices out of which a few will be compatible for multiplication one after the other in a chain form, find the least cost/least number of multiplications required to multiply sequentially compatible matrices together. 
 
-```C++
+{% highlight c++ %}
 #include <iostream>
 #include <vector>
 #include <stdio.h>
@@ -987,10 +994,11 @@ int main(void)
 	for(const auto& split : splits) cout << split << ", " << "\n";
 	return 0;
 }
-```
+{% endhighlight %} 
+
 ### Sleep/Wake & Mutex locking. Concurrency through C++. (Works on Linux/Unix Only, -pthread flag). 
 
-```C++
+{% highlight c++ %}
 #include <iostream>
 #include <string>
 #include <queue>
@@ -1052,14 +1060,15 @@ int main()
 	cout << endl;
 	return 0
 }
-```
+{% endhighlight %}
+
 ![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/Images/Capture.JPG)
 
 ### Later Additions : 
 
 I will share the solutions and guides to help solve problems from, 
 
-```bash 
+{% highlight bash %}
 HackerRank Problems
 Hackerearth Problems
 Project Euler Problems
@@ -1069,7 +1078,7 @@ CodeChef Problems
 TopCoder Problems
 IOI Problems
 COCI Problems
-```
+{% endhighlight %}
 
 ### What I intend to cover : 
 
@@ -1095,7 +1104,8 @@ Add to PATH ```\bin``` directory of all of them.
 ## C++ General Tips : 
 
 Use of vectors, maps, hash_maps, sets, pairs & other STL data types to reduce chances of errors and results in more efficient code. 
-```C++
+
+{% highlight c++ %}
 std::vector<int> vec;
 
 std::vector<char> myvector;
@@ -1116,7 +1126,8 @@ std::priority_queue<int, vector<int>, greater<int> > min_heap;
 
 ```
 Use Macros & References wherever possible
-```C++
+
+{% highlight c++ %}
 #define sz(a) int((a).size())
 
 #define pb push_back 
@@ -1133,14 +1144,15 @@ Use Macros & References wherever possible
 
 #define input(ss, inputbuffer) while(cin.good()) { getline(cin, inputbuffer); ss << inputbuffer << endl; }
 
-```
+{% endhighlight %}
+
 When working with ```int``` or ```double``` data-types, check for overflow and byte allignment conditions. 
 There may be many other data types also for which overflow condition checking is a must. 
 
 A SHA-256 hashing for building a bitcoin merkle-tree. 
 Below is a snippet to hash and print/store the hash, a SHA-256 of the input.
 
-```C++
+{% highlight c++ %}
 std::string once_sha256(const std::string &type_string) {
 	SHA256_CTX ptx;
 	sha256_init(&ptx);
@@ -1152,7 +1164,8 @@ std::string once_sha256(const std::string &type_string) {
 		stream << std::hex << std::setw(2) << std::setfill('0') << (unsigned)c;
 	return stream.str();
 }
-```
+{% endhighlight %}
+
 See ```Misc Codes``` folder for more uses.  
 
 ## More References :
@@ -1275,14 +1288,15 @@ is in use by the other nodemon process cause we are purposefully delaying it.
 See : 
 ![alt-tag](https://user-images.githubusercontent.com/25129399/38420190-96b42858-39c0-11e8-83f9-b43f487a331c.png)
 
-#### Running & Compiling using Node,js.
+#### Running & Compiling using Node.js .
+
 To compile & run using Node.js, the follwoing code will come handy. 
 Make sure ```Node.js``` is already installed. 
 Place ```run.js``` file in the directory.
 The file contains this code. It starts a child process ```start``` which in-turn starts
 ```complie``` & ```run``` processes.
 
-```javascript
+{% highlight javascript %}
 var spawn = require('child_process').spawn;
 var start = spawn('ls');
 start.on('close', function(data){
@@ -1309,22 +1323,24 @@ start.on('close', function(data){
     })
   }
 })
-```
+{% endhighlight %}
 
 To change the command line options, make changes in the line, under ```[" "]``` part
 
-```javascript
+{% highlight javascript %}
  var compile = spawn('g++',['run.cpp','-O3','-W','-pedantic','-march=native','-o','run.exe'])
- ```
+{% endhighlight %}
+
 It takes ```run.cpp``` as the input C++ file. To change the file, type the name of the file to compile. ```{name-of-file-to-compile}.cpp```.
 
 Eg. file.cpp > ```file.cpp``` in the code below.
  
-```javascript
+{% highlight javascript %}
  var compile = spawn('g++',['{name-of-file-to-compile}.cpp','-O3','-W','-pedantic','-march=native','-o','run.exe', '{other-cmdline-options}'])
- ```
+{% endhighlight %}
 
 Type in ```terminal``` or ```cmd``` :
+
 ```bash
 Check installation.
 $ node -v 
@@ -1334,7 +1350,7 @@ $ node run.js
 If output is to be read to console as well after executing the .exe generated, use the below code. Addition to running, it will also open the output file generated and 
 write it out to console. 
 
-```javascript
+{% highlight javascript %}
 var fs = require("fs");
 var buf = new Buffer(1024);
 var spawn = require('child_process').spawn;
@@ -1386,7 +1402,7 @@ start.on('close', function(data){
     })
   }
 })
-```
+{% endhighlight %}
 
 #### Covers Node.js tutorials as well. Check ```libjscript``` folder in ```Nodejs``` folder.
 ```bash
@@ -1404,12 +1420,13 @@ For using clang for santization just add the ```-fsanitize=address```,```-fno-om
 
 Modify the ```run.js``` file to use clang : 
 
-```javascript
+{% highlight javascript %}
 var compile = spawn('clang++',['run.cpp','-std=c++14','-O3','-Wall','-Wextra','-g','-fsanitize=address','-fno-omit-frame-pointer','-pedantic','-march=native','-v','-o','run.exe']);
-```
+{% endhighlight %}
+
 Usage With clang : 
 
-```C++
+{% highlight c++ %}
 while(cin.good())
 {
 	getline(cin, word);
@@ -1426,7 +1443,7 @@ for (auto i : wordlist)
 	insert(root, i);
     // Heap Memory Overflow should occur & clang correctly detects in during runtime. No compile time errors are generated. 
 }
-```    
+{% endhighlight %}
 
 No compile time errors are generated as ```Compilation done...```. Clang detects ```heap-buffer-overflow``` as expected. 
 This code has a bug that it tries a to insert and the heap oveflows because so much memory can't be allocated.
@@ -1502,14 +1519,14 @@ Execution done. Exited with code 1
 
 ## Maintaining Byte Alignment in C++ code 
 
-```C++
+{% highlight c++ %}
  typedef double *__attribute__((aligned(64))) aligned_double;
  typedef int *__attribute__((aligned(32))) aligned_double;
  ```
 
 ## Using Builtin properly
 
-```C++
+{% highlight c++ %}
 // Compile with -O3 -march=native to see autovectorization
 // assumes input is aligned on 32-byte boundary and that
 // length is a multiple of 32.
@@ -1535,14 +1552,16 @@ int Function(int* input, int length) {
 	}
 	return sum;
 }
-```
+{% endhighlight %}
+
 ## Use of ```C++ freopen() ```.
 
 For reading and writing into files without the filestream handlers and functions. 
-```C++
+
+{% highlight c++ %}
 freopen("in.txt", "r", stdin);
 freopen("out.txt", "w", stdout);
-```
+{% endhighlight %}
 
 #### Again : Add to PATH ```\bin``` directory of all of them.
 
