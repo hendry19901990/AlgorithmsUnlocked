@@ -916,6 +916,13 @@ int main(void)
 	return 0;
 }
 ```
+0/1 KnapSack Problem :
+![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/Images/KnapSackSmall.JPG)
+
+![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/Images/KnapSackSmall.JPG)
+
+Longest Increasing Subsequence : 
+![alt-tag](https://raw.githubusercontent.com/SpawnTree/AlgorithmsUnlocked/master/Images/LISeq.JPG)
 
 ### Given N matrices out of which a few will be compatible for multiplication one after the other in a chain form, find the least cost/least number of multiplications required to multiply sequentially compatible matrices together. 
 
